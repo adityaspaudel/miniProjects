@@ -103,7 +103,7 @@ const Calculator = () => {
 						onClick={() => hello(3)}>
 						3
 					</div>
-					{/* here-------------------------------------------- */}
+					{/* here-------------------------------------------------------------------- */}
 					<div
 						className="bg-blue-400 p-4 text-center w-[70px] h-[50px] 2xl:flex-auto hover:bg-green-400 rounded-md"
 						onClick={() => equalTo}>
