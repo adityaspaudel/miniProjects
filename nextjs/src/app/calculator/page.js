@@ -20,24 +20,24 @@ const Calculator = () => {
 		<div className="flex flex-col gap-4 w-[400px] m-auto bg-white-400 text-white rounded-2xl">
 			<h1>Simple Calculator</h1>
 
-			<div className="flex gap-4 w-full bg-red-400 flex-wrap text-bold p-8 rounded-2xl">
+			<div className="flex gap-4 w-full bg-gray-600 flex-wrap text-bold p-8 rounded-3xl">
 				<div className="w-full h-[60px] bg-gray-400 p-4 text-right rounded-md text-2xl c1">
 					{val}
 				</div>
 				<div
-					className="bg-blue-400 p-4 text-center hover:bg-green-400 w-[155px] rounded-md"
+					className="bg-red-400 p-4 text-center hover:bg-green-400 w-[155px] rounded-md"
 					onClick={() => reVal("0")}>
 					C
+				</div>
+				<div
+					className="bg-blue-400 p-4 text-center text-red-800 font-bold w-[70px] hover:bg-green-400 rounded-md"
+					onClick={() => hello("/")}>
+					off
 				</div>
 				<div
 					className="bg-blue-400 p-4 text-center w-[70px] hover:bg-green-400 rounded-md"
 					onClick={() => hello("/")}>
 					/
-				</div>
-				<div
-					className="bg-blue-400 p-4 text-center w-[70px] hover:bg-green-400 rounded-md"
-					onClick={() => hello("*")}>
-					*
 				</div>
 
 				<div
@@ -60,9 +60,9 @@ const Calculator = () => {
 				</div>
 				<div
 					className="bg-blue-400 p-4 text-center w-[70px] h-[50px] hover:bg-green-400 rounded-md"
-					onClick={() => hello("-")}>
+					onClick={() => hello("*")}>
 					{" "}
-					-
+					*
 				</div>
 				<div
 					className="bg-blue-400 p-4 text-center w-[70px] h-[50px] hover:bg-green-400 rounded-md"
@@ -84,10 +84,10 @@ const Calculator = () => {
 				</div>
 				<div
 					className="bg-blue-400 p-4 text-center w-[70px] h-[50px] hover:bg-green-400 rounded-md"
-					onClick={() => hello("+")}>
-					+
+					onClick={() => hello("-")}>
+					-
 				</div>
-				<div className="flex gap-4 w-full bg-red-400 flex-wrap text-bold rounded-2xl">
+				<div className="flex gap-4 w-full bg-gray-600 flex-wrap text-bold rounded-2xl">
 					<div
 						className="bg-blue-400 p-4 text-center w-[70px] h-[50px] hover:bg-green-400 rounded-md"
 						onClick={() => hello("1")}>
@@ -103,12 +103,13 @@ const Calculator = () => {
 						onClick={() => hello(3)}>
 						3
 					</div>
-					{/* here-------------------------------------------------------------------- */}
 					<div
-						className="bg-blue-400 p-4 text-center w-[70px] h-[50px] 2xl:flex-auto hover:bg-green-400 rounded-md"
-						onClick={() => equalTo}>
-						=
+						className="bg-blue-400 p-4 text-center w-[70px] h-[50px] hover:bg-green-400 rounded-md"
+						onClick={() => hello("+")}>
+						+
 					</div>
+					{/* here-------------------------------------------------------------------- */}
+
 					<div
 						className="bg-blue-400 p-4 text-center w-[155px] h-[50px]  hover:bg-green-400 rounded-md"
 						onClick={() => hello(0)}>
@@ -118,6 +119,11 @@ const Calculator = () => {
 						className="bg-blue-400 mt-0 p-4 text-center w-[70px] h-[50px]  hover:bg-green-400 rounded-md"
 						onClick={() => hello(".")}>
 						.
+					</div>
+					<div
+						className="bg-blue-600 p-4 text-center text-red-400 font-bold w-[70px] h-[50px] 2xl:flex-auto hover:bg-green-400 rounded-md"
+						onClick={() => equalTo}>
+						=
 					</div>
 				</div>
 			</div>

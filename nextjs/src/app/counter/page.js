@@ -17,7 +17,9 @@ const Counter = () => {
 	};
 	return (
 		<div className="flex flex-col w-[600px] h-[400px] content-center border-2 items-center m-auto bg-pink-400 p-2 text-white rounded-2xl">
-			<h1>Increament/Decrement Counter</h1>
+			<h2 className="text-blue-900 text-2xl font-bold underline">
+				Increment / Decrement Counter
+			</h2>
 			<br />
 			<br />
 			<br />
@@ -27,19 +29,21 @@ const Counter = () => {
 			<br />
 			<br />
 			<br />
-			<div className="flex gap-4">
+			<div className="flex gap-4 ">
 				<button
 					onClick={increment}
-					className="h-12 w-40 bg-green-400">
+					className="h-12 flex gap-4 justify-center items-center w-40 bg-green-400 rounded-lg">
 					Increment
 					<IoIosAddCircle />
 				</button>
-				<button onClick={() => setCount(0)} className="h-12 w-40 bg-gray-400">
+				<button
+					onClick={() => setCount(0)}
+					className="h-12 flex gap-4  justify-center items-center w-40 bg-gray-400 rounded-lg">
 					Reset <BiReset />
 				</button>
 				<button
 					onClick={decrement}
-					className="h-12 w-40 bg-red-400 text-center">
+					className="h-12 w-40 flex gap-4 justify-center items-center bg-red-400 text-center rounded-lg">
 					Decrement
 					<GrSubtractCircle className="text-center" />
 				</button>
