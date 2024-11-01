@@ -2,28 +2,76 @@
 
 import { Button } from "@material-ui/core";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import { hydrateRoot } from "react-dom/client";
 
 const HangmanGame = () => {
 	const [count, setCount] = useState(0);
-	// const [imageAttributes, setImageAttributes] = useState();
-	const [selection, setSelection] = [""];
 
-	const answer = ["C", "R", "I", "S", "T", "I", "A", "N"];
-	const question = ["C", "_", "I", "_", "T", "_", "_", "N"];
+	// const [imageAttributes, setImageAttributes] = useState();
+	const [question, setQuestion] = useState([
+		"C",
+		"H",
+		"_",
+		"I",
+		"S",
+		"_",
+		"I",
+		"A",
+		"_",
+	]);
+
+	const answer = ["C", "H", "R", "I", "S", "T", "I", "A", "N"];
+	// const question = ["C", "_", "I", "_", "T", "_", "_", "N"];
 	const keyboardKeys = [
 		["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
 		["A", "S", "D", "F", "G", "H", "J", "K", "L"],
 		["Z", "X", "C", "V", "B", "N", "M"],
 	];
 
-	const handleCount = () => {
-		setCount(count + 1);
-	};
+	// const handleCount = () => {
+	// 	setCount(count + 1);
+	// };
 	const handleClick = (props) => {
-		setSelection(props);
+		if (answer.includes(props)) {
+			const currentQuestion = [...question];
+
+			const id = answer.indexOf(props);
+			currentQuestion[id] = props;
+			//set the output as new question
+			setQuestion(currentQuestion);
+		} else {
+			setCount(count + 1);
+		}
 	};
+
+	useEffect(() => {
+		if (count >= 7) {
+			alert("Game Over");
+		}
+	}, [count]);
+
+	const imgLink = {
+		img1: "/hangman-images/hangman-1.svg",
+		img2: "/hangman-images/hangman-2.svg",
+		img3: "/hangman-images/hangman-3.svg",
+		img4: "/hangman-images/hangman-4.svg",
+		img5: "/hangman-images/hangman-5.svg",
+		img6: "/hangman-images/hangman-6.svg",
+		img7: "/hangman-images/lost.gif",
+		img8: "/hangman-images/victory.gif",
+	};
+
+	// Object.values(imgLink).map((item) => {
+	// 	document.getElementsByClassName("imageHangman")[0].src = item;
+	// });
+	if (question.toString() === answer.toString()) {
+		alert("you won");
+		document.getElementsByClassName("keyboard1")[0].style = "display:none";
+		document.getElementsByClassName("imageHangman")[0].src =
+			"/hangman-images/victory.gif";
+	}
 	if (count === 1) {
 		document.getElementsByClassName("imageHangman")[0].src =
 			"/hangman-images/hangman-1.svg";
@@ -48,15 +96,16 @@ const HangmanGame = () => {
 		document.getElementsByClassName("imageHangman")[0].src =
 			"/hangman-images/hangman-6.svg";
 	}
-	if (count === 7) {
+	if (count > 6) {
 		document.getElementsByClassName("imageHangman")[0].src =
 			"/hangman-images/lost.gif";
 
-		document.getElementsByClassName("btn1")[0].style = "visibility:hidden";
+		document.getElementsByClassName("btn1")[0].style = "display:none";
+		document.getElementsByClassName("keyboard1")[0].style = "display:none";
 	}
 
 	return (
-		<div className="flex gap-8">
+		<div className="flex justify-center items-center gap-8">
 			<div className="flex flex-col gap-4 content-center items-center">
 				<h1>HangmanGame</h1>
 				<div>
@@ -65,14 +114,16 @@ const HangmanGame = () => {
 						Hint: religion
 					</div>
 				</div>
-				<div className="flex flex-col gap-4">
+				<div className="flex flex-col gap-4 keyboard1">
 					{keyboardKeys.map((row) => {
 						// return <span>{row} </span>;
 						return (
 							<div className="flex gap-4">
 								{row.map((key) => {
 									return (
-										<span className="flex gap-4 h-10 w-10 bg-red-400 text-center p-8 hover:bg-green-400">
+										<span
+											onClick={() => handleClick(key)}
+											className="flex gap-4 h-10 w-10 bg-red-400 text-center p-8 hover:bg-green-400 ">
 											{key}
 										</span>
 
@@ -84,21 +135,22 @@ const HangmanGame = () => {
 					})}
 				</div>
 			</div>
-			<div className="bg-red-400">
+			<div className="bg-blue-100  justify-center items-center ">
 				<button
 					className="btn1"
-					onClick={handleCount}>
-					here, hangman is hanged
+					// onClick={handleClick}
+				>
+					Here, Hangman is hanged
 				</button>
 				<div>{count}</div>
 				<Image
 					className="imageHangman"
 					src="/hangman-images/hangman-0.svg"
-					height={100}
-					width={100}
+					height={400}
+					width={400}
 				/>
+				{question}
 			</div>
-			{selection}
 		</div>
 	);
 };

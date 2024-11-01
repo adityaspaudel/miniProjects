@@ -16,7 +16,7 @@ const Counter = () => {
 		setCount(count - 1);
 	};
 	return (
-		<div className="flex flex-col w-[600px] h-[400px] content-center border-2 items-center m-auto bg-pink-400 p-2 text-white rounded-2xl">
+		<div className="flex flex-col w-[600px] h-[400px] content-center border-2 border-red-800 items-center m-auto bg-pink-400 p-2 text-white rounded-2xl">
 			<h2 className="text-blue-900 text-2xl font-bold underline">
 				Increment / Decrement Counter
 			</h2>
