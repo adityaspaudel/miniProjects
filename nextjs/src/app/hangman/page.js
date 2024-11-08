@@ -11,7 +11,7 @@ const HangmanGame = () => {
 
 	// const [imageAttributes, setImageAttributes] = useState();
 	const [question, setQuestion] = useState([
-		"C",
+		"_",
 		"H",
 		"_",
 		"I",
@@ -67,7 +67,7 @@ const HangmanGame = () => {
 	// 	document.getElementsByClassName("imageHangman")[0].src = item;
 	// });
 	if (question.toString() === answer.toString()) {
-		alert("you won");
+		alert("Congratulations! you won!!");
 		document.getElementsByClassName("keyboard1")[0].style = "display:none";
 		document.getElementsByClassName("imageHangman")[0].src =
 			"/hangman-images/victory.gif";
@@ -135,7 +135,7 @@ const HangmanGame = () => {
 					})}
 				</div>
 			</div>
-			<div className="bg-blue-100  justify-center items-center ">
+			<div className="bg-blue-100  flex flex-col justify-center items-center ">
 				<button
 					className="btn1"
 					// onClick={handleClick}
@@ -144,7 +144,7 @@ const HangmanGame = () => {
 				</button>
 				<div>{count}</div>
 				<Image
-					className="imageHangman"
+					className=" flex imageHangman justify-center items-center"
 					src="/hangman-images/hangman-0.svg"
 					height={400}
 					width={400}
