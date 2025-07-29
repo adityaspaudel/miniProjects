@@ -1,77 +1,117 @@
-# miniProjects
+# 🧠 React Mini Projects Collection
 
-<!-- 🔰 Beginner Level Projects -->
+A collection of beginner to intermediate **Nextjs + JavaScript** mini projects built to practice modern frontend concepts such as `useState`, `useEffect`, routing, API fetching,, theming, and more.
 
-1. To-Do List App
-   Features: Add, delete, mark complete/incomplete
+---
 
-Concepts: useState, event handling, conditional rendering
+<!-- ## 🔰 Beginner Projects -->
 
-2. Counter App
-   Features: Increment, decrement, reset
+### 1. ✅ To-Do List App
 
-Concepts: Simple state handling with useState
+- **Features**: Add tasks, delete tasks, mark complete/incomplete
+- **Concepts Used**: `useState`, event handling, conditional rendering
 
-3. Weather App
-   Features: Fetch weather data using city name
+### 2. 🔢 Counter App
 
-API: OpenWeatherMap API
-Concepts: useEffect, fetch API, conditional rendering
+- **Features**: Increment, decrement, reset counter
+- **Concepts Used**: Simple state handling with `useState`
 
-4. Quote Generator
-   Features: Show random quotes; button to refresh
+### 3. ☀️ Weather App
 
-Concepts: State, side effects, working with arrays
+- **Features**: Search city to fetch live weather info
+- **API Used**: [OpenWeatherMap API](https://openweathermap.org/)
+- **Concepts Used**: `useEffect`, fetch API, conditional rendering
 
-5. Digital Clock
-   Features: Show real-time date and time
+### 4. ✨ Quote Generator
 
-Concepts: setInterval, useEffect, cleanup
+- **Features**: Show random quotes with a refresh button
+- **Concepts Used**: `useState`, side effects, working with arrays
 
-6. Form Validation App
-   Features: Signup form with error messages
+### 5. ⏰ Digital Clock
 
-Concepts: Controlled components, validation logic
+- **Features**: Real-time clock displaying current date and time
+- **Concepts Used**: `setInterval`, `useEffect`, cleanup function
 
-<!-- 🧩 Intermediate Level Projects  -->
+### 6. 📝 Form Validation App
 
-Concepts: API calls, search functionality, loading states
+- **Features**: Signup form with real-time validation and error handling
+- **Concepts Used**: Controlled components, form validation logic
 
-7. Quiz App
-   Features: MCQ questions, score tracker
+---
 
-Concepts: State logic, conditional rendering, dynamic UI
+<!-- ## 🧩 Intermediate Projects -->
 
-8. Notes App
-   Features: Add, delete, save notes
+### 7. 🎬 Movie Search App
 
-Concepts: CRUD logic, localStorage, component structure
+- **Features**: Search movies and display posters and details
+- **API Used**: [OMDB API](https://www.omdbapi.com/)
+- **Concepts Used**: API calls, search input, loading/error states
 
-9. Stopwatch / Timer App
-   Features: Start, stop, reset timer
+### 8. ❓ Quiz App
 
-Concepts: setInterval, useRef, useEffect
+- **Features**: Multiple choice questions, dynamic score tracking
+- **Concepts Used**: Complex state logic, conditional rendering, dynamic UI
 
-10. Light/Dark Mode Toggle
-    Features: Theme switcher using a toggle
+### 9. 💰 Expense Tracker
 
-Concepts: Conditional className/style, useContext (optional)
+- **Features**: Track income/expenses with running balance
+- **Concepts Used**: `useReducer`, localStorage, input handling
 
-11. Blog Post Viewer
-    Features: Fetch posts from JSONPlaceholder or your own mock API
+### 10. 🗒️ Notes App
 
-Concepts: React Router, useParams, useEffect, APIs
+- **Features**: Add, edit, delete, and save notes
+- **Concepts Used**: CRUD logic, `localStorage`, component structure
 
-12. Image Gallery
-    Features: Show images in grid, open fullscreen modal
+### 11. ⏱️ Stopwatch / Timer
 
-API: Unsplash API
+- **Features**: Start, stop, reset timer
+- **Concepts Used**: `setInterval`, `useRef`, `useEffect`
 
-Concepts: API fetch, modals, grid layout
+### 12. 🌙 Light/Dark Mode Toggle
 
-13. Currency Converter
-    Features: Convert currencies with live rates
+- **Features**: Switch between light and dark themes
+- **Concepts Used**: Conditional styling, optional `useContext`
 
-API: ExchangeRate API
+---
 
-Concepts: Dropdowns, input validation, API calls
+<!-- ## 🔗 Bonus Projects (API, Routing, UI) -->
+
+### 13. 📰 Blog Post Viewer
+
+- **Features**: Fetch and view blog posts
+- **API Used**: [JSONPlaceholder API](https://jsonplaceholder.typicode.com/)
+- **Concepts Used**: `React Router`, `useParams`, `useEffect`, API fetching
+
+### 14. 🖼️ Image Gallery
+
+- **Features**: View images in grid and fullscreen modal
+- **API Used**: [Unsplash API](https://unsplash.com/developers)
+- **Concepts Used**: API fetch, modals, responsive grid layout
+
+### 15. 💱 Currency Converter
+
+- **Features**: Convert between currencies with real-time exchange rates
+- **API Used**: [ExchangeRate API](https://www.exchangerate-api.com/)
+- **Concepts Used**: API fetch, dropdowns, input validation
+
+---
+
+## 🛠️ Tech Stack
+
+- React.js (with functional components & hooks)
+- JavaScript (ES6+)
+- HTML5 & CSS3 / Tailwind (optional)
+- Axios / fetch API
+- React Router (for routing-based projects)
+- LocalStorage (for persistence in applicable projects)
+
+---
+
+## 📦 Getting Started
+
+1. Clone the repo:
+
+```bash
+git clone https://github.com/adityaspaudel/miniProjects.git
+cd miniProjects
+```
