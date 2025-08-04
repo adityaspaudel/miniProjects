@@ -20,7 +20,7 @@ const ToDoListApp = () => {
       </div>
 
       {todos.map((val, key) => (
-        <div key={key}>{val}</div>
+        <div key={key}>{val} </div>
       ))}
     </div>
   );
