@@ -13,9 +13,11 @@ const DigitalWatch = () => {
   console.log(`${hours}:${minutes}:${seconds}`);
 
   return (
-    <div>
-      <div>DigitalWatch</div>
-      {hours}:{minutes}:{seconds}
+    <div className="flex flex-col gap-2 items-center justify-center ">
+      <div className="text-green-400">DigitalWatch</div>
+      <div className="text-5xl rounded-2xl text-green-400 bg-gray-800 font-bold border-2 p-6 w-64">
+        {hours}:{minutes}:{seconds}
+      </div>
     </div>
   );
 };
