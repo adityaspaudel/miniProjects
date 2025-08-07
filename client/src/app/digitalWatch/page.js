@@ -7,6 +7,7 @@ const DigitalWatch = () => {
   const hours = currentTime.getHours();
   const minutes = currentTime.getMinutes();
   const seconds = currentTime.getSeconds();
+  const milliseconds = currentTime.getMilliseconds();
   const [dayOfWeek, setDayOfWeek] = useState(currentTime.getDay());
   const dayOfMonth = currentTime.getDate();
   const [month, setMonth] = useState(currentTime.getMonth());
@@ -85,11 +86,17 @@ const DigitalWatch = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen gap-2 bg-black">
       <div className="font-sans text-green-400">Digital Watch</div>
-      <div className="w-64 p-6 text-5xl font-bold text-green-400 bg-gray-800 border-2 rounded-2xl">
-        {hours}:{minutes}:{seconds}
+      <div className="flex p-6 text-5xl font-bold text-green-400 bg-gray-800 border-2 gap-2w-64 rounded-2xl">
+        <div>
+          {hours}:{minutes}:{seconds}
+        </div>
+        <div className="text-sm text-gray-500 ">{milliseconds}</div>
       </div>
       <div className="font-mono text-amber-400">
-        {dayOfWeek}, <span className="text-lime-400">{dayOfMonth}/{month}/{year}</span>
+        {dayOfWeek},{" "}
+        <span className="text-lime-400">
+          {dayOfMonth}/{month}/{year}
+        </span>
       </div>
     </div>
   );
