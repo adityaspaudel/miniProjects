@@ -84,12 +84,12 @@ const DigitalWatch = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen gap-2 bg-black">
-      <div className="text-green-400">DigitalWatch</div>
+      <div className="font-sans text-green-400">Digital Watch</div>
       <div className="w-64 p-6 text-5xl font-bold text-green-400 bg-gray-800 border-2 rounded-2xl">
         {hours}:{minutes}:{seconds}
       </div>
-      <div className="text-red-400">
-        {dayOfWeek}, {dayOfMonth}/{month}/{year}
+      <div className="font-mono text-amber-400">
+        {dayOfWeek}, <span className="text-lime-400">{dayOfMonth}/{month}/{year}</span>
       </div>
     </div>
   );
