@@ -66,8 +66,8 @@ const BmiCalculator = () => {
           </button>
         </form>
         <div className="flex flex-col items-start justify-start gap-2 text-sm font-bold">
-          <div>BMI Value: {bmiValue}</div>
-          <div>BMI Result: {bmiResult}</div>
+          {bmiValue && <div>BMI Value: {bmiValue}</div>}
+          {bmiResult && <div>BMI Result: {bmiResult}</div>}
         </div>
       </div>
     </div>
