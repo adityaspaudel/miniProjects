@@ -27,7 +27,7 @@ const BmiCalculator = () => {
     console.log(bmi);
   };
   return (
-    <div className="flex flex-col items-center justify-center gap-2 border-2 bg-amber-100">
+    <div className="flex flex-col items-center justify-center gap-2 font-sans border-2 bg-amber-100">
       <div className="flex flex-col items-center justify-center gap-2 p-8 border-2 border-green-400 bg-amber-100 rounded-xl">
         <div className="text-4xl">BMI Calculator</div>
         <hr className="w-64 border-gray-800 border-1" />
@@ -39,28 +39,28 @@ const BmiCalculator = () => {
           }}
         >
           <div>
-            <label htmlFor="weight">weight in kg</label>
+            <label htmlFor="weight">Weight in kg: </label>
             <input
               ref={weightRef}
               type="number"
-              className="border-2 rounded-sm "
+              className="text-sm bg-white border-2 rounded-sm "
               min="10"
               max="200"
             />
           </div>
           <div>
-            <label htmlFor="height">Height in cm</label>
+            <label htmlFor="height">Height in cm: </label>
             <input
               ref={heightRef}
               type="number"
-              className="border-2 rounded-sm"
+              className="text-sm bg-white border-2 rounded-sm"
               min="20"
               max="250"
             />
           </div>
           <button
             type="submit "
-            className="w-16 p-2 text-sm bg-green-400 rounded-sm hover:bg-green-500"
+            className="w-16 p-1 text-sm text-white bg-green-400 rounded-sm hover:bg-green-500"
           >
             submit
           </button>
