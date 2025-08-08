@@ -27,7 +27,7 @@ const BmiCalculator = () => {
     console.log(bmi);
   };
   return (
-    <div className="flex flex-col items-center justify-center gap-2 font-sans border-2 bg-amber-100">
+    <div className="flex flex-col items-center justify-center h-screen gap-2 font-sans border-2 bg-amber-100">
       <div className="flex flex-col items-center justify-center gap-2 p-8 border-2 border-green-400 bg-amber-100 rounded-xl">
         <div className="text-4xl">BMI Calculator</div>
         <hr className="w-64 border-gray-800 border-1" />
@@ -66,8 +66,8 @@ const BmiCalculator = () => {
           </button>
         </form>
         <div className="flex flex-col items-start justify-start gap-2 text-sm font-bold">
-          <div>bmiValue: {bmiValue}</div>
-          <div>bmiResult: {bmiResult}</div>
+          <div>BMI Value: {bmiValue}</div>
+          <div>BMI Result: {bmiResult}</div>
         </div>
       </div>
     </div>
