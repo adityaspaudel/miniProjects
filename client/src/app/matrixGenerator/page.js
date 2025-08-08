@@ -18,7 +18,21 @@ const MatrixGenerator = () => {
     <div>
       <div>MatrixGenerator</div>
 
-      {JSON.stringify(matrix)}
+      {/* <div>Unformatted: {JSON.stringify(matrix)}</div> */}
+
+      <div>
+        {matrix.map((val, ind) => {
+          return (
+            <div key={val} className="flex ">
+              {val.map((v, i) => [
+                <div key={i} className="flex gap-2 p-2 border-2">
+                  {v + 1}
+                </div>,
+              ])}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
