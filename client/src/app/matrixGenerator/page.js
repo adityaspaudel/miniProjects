@@ -16,8 +16,8 @@ const MatrixGenerator = () => {
 
   return (
     <div className="flex flex-col items-center justify-center gap-2 text-4xl">
-      <div>MatrixGenerator</div>
-
+      <div>Matrix Generator</div>
+      <hr className="w-1/2 border-2 border-b-black" />
       {/* <div>Unformatted: {JSON.stringify(matrix)}</div> */}
 
       <div>
