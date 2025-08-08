@@ -15,7 +15,7 @@ const MatrixGenerator = () => {
   }
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center gap-2 text-4xl">
       <div>MatrixGenerator</div>
 
       {/* <div>Unformatted: {JSON.stringify(matrix)}</div> */}
@@ -23,9 +23,12 @@ const MatrixGenerator = () => {
       <div>
         {matrix.map((val, ind) => {
           return (
-            <div key={val} className="flex ">
+            <div key={val} className="flex items-center justify-center ">
               {val.map((v, i) => [
-                <div key={i} className="flex gap-2 p-2 border-2">
+                <div
+                  key={i}
+                  className="flex w-10 h-10 gap-2 p-2 text-lg text-white bg-green-400 border-2 border-green-500 hover:bg-green-500 "
+                >
                   {v + 1}
                 </div>,
               ])}
