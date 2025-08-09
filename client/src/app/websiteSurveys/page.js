@@ -89,6 +89,12 @@ const SurveyWebsite = () => {
 
   console.log(webDevSurvey);
 
+  const [selectedValue, setSelectedValue] = useState(""); // Initialize with an empty string or a default value
+
+  const handleChange = (event) => {
+    setSelectedValue(event.target.value); // Update the state with the new selected value
+  };
+
   return (
     <div className="flex flex-col justify-center items-center bg-sky-100 w-screen h-screen ">
       <div className="flex flex-col gap-2 justify-center items-center bg-yellow-600 border-green-400 w-96 border-2 rounded-xl p-4">
@@ -104,7 +110,11 @@ const SurveyWebsite = () => {
             .map((val, ind) => (
               <div key={ind}>
                 <div>{val.question}</div>
-                <select name="surveyQuestions">
+                <select
+                  name="surveyQuestions"
+                  value={selectedValue}
+                  onChange={handleChange}
+                >
                   <option value={`${val.choices[0]}`}>{val.choices[0]}</option>
                   <option value={`${val.choices[1]}`}>
                     {val.choices[1]}
@@ -122,12 +132,14 @@ const SurveyWebsite = () => {
               onClick={(e) => {
                 e.preventDefault();
                 setValue(value + 1);
+                setSelectedValue();
               }}
             >
               submit: {value}
             </button>
           )}
         </div>
+        {selectedValue && <p>You selected: {selectedValue}</p>}
       </div>
     </div>
   );
