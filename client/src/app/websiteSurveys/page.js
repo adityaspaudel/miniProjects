@@ -101,7 +101,7 @@ const SurveyWebsite = () => {
           }
         })
         .map((val, ind) => (
-          <div>
+          <div key={ind}>
             <div>{val.question}</div>
             <select name="surveyQuestions">
               <option value={`${val.choices[0]}`}>{val.choices[0]}</option>
@@ -109,17 +109,20 @@ const SurveyWebsite = () => {
               <option value={`${val.choices[2]}`}>{val.choices[2]}</option>{" "}
               <option value={`${val.choices[3]}`}>{val.choices[3]}</option>
             </select>
+            <button></button>
           </div>
         ))}
       <div>
         {value <= 11 && (
           <button
+            className="text-sm bg-green-400 rounded-lg p-1"
             onClick={(e) => {
               e.preventDefault();
+
               setValue(value + 1);
             }}
           >
-            next: {value}
+            submit: {value}
           </button>
         )}
       </div>
