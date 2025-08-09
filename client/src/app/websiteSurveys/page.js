@@ -90,41 +90,44 @@ const SurveyWebsite = () => {
   console.log(webDevSurvey);
 
   return (
-    <div>
-      <div className="text-4xl font-bold">Survey Website</div>
-      <div></div>
+    <div className="flex flex-col justify-center items-center bg-sky-100 w-screen h-screen ">
+      <div className="flex flex-col gap-2 justify-center items-center bg-yellow-600 border-green-400 w-96 border-2 rounded-xl p-4">
+        <div className="text-4xl font-bold">Survey Website</div>
 
-      {webDevSurvey
-        .filter((val, ind) => {
-          if (val.id === value) {
-            return <div>{val.question}</div>;
-          }
-        })
-        .map((val, ind) => (
-          <div key={ind}>
-            <div>{val.question}</div>
-            <select name="surveyQuestions">
-              <option value={`${val.choices[0]}`}>{val.choices[0]}</option>
-              <option value={`${val.choices[1]}`}>{val.choices[1]}</option>{" "}
-              <option value={`${val.choices[2]}`}>{val.choices[2]}</option>{" "}
-              <option value={`${val.choices[3]}`}>{val.choices[3]}</option>
-            </select>
-            <button></button>
-          </div>
-        ))}
-      <div>
-        {value <= 11 && (
-          <button
-            className="text-sm bg-green-400 rounded-lg p-1"
-            onClick={(e) => {
-              e.preventDefault();
-
-              setValue(value + 1);
-            }}
-          >
-            submit: {value}
-          </button>
-        )}
+        <div>
+          {webDevSurvey
+            .filter((val, ind) => {
+              if (val.id === value) {
+                return <div>{val.question}</div>;
+              }
+            })
+            .map((val, ind) => (
+              <div key={ind}>
+                <div>{val.question}</div>
+                <select name="surveyQuestions">
+                  <option value={`${val.choices[0]}`}>{val.choices[0]}</option>
+                  <option value={`${val.choices[1]}`}>
+                    {val.choices[1]}
+                  </option>{" "}
+                  <option value={`${val.choices[2]}`}>{val.choices[2]}</option>{" "}
+                  <option value={`${val.choices[3]}`}>{val.choices[3]}</option>
+                </select>
+              </div>
+            ))}
+        </div>
+        <div className="flex flex-col justify-start content-start items-start  align-start">
+          {value <= 11 && (
+            <button
+              className="text-sm bg-green-300 hover:bg-green-500 rounded-lg p-2"
+              onClick={(e) => {
+                e.preventDefault();
+                setValue(value + 1);
+              }}
+            >
+              submit: {value}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
