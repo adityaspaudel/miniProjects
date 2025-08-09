@@ -113,7 +113,7 @@ const SurveyWebsite = () => {
                 <div>{val.question}</div>
                 {val && (
                   <select
-                    className="bg-black"
+                    className="text-black"
                     name="surveyQuestions"
                     value={selectedValue}
                     onChange={handleChange}
