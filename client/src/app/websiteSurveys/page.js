@@ -84,7 +84,7 @@ const SurveyWebsite = () => {
       question: `Which hosting/deployment service do you use most?`,
       choices: [`Vercel`, `Netlify`, `GitHub Pages`, `AWS`, `Other`],
     },
-    { id: 11, question: `thank you` },
+    { id: 11, question: `thank you`, choices: [null] },
   ];
 
   console.log(webDevSurvey);
@@ -97,8 +97,9 @@ const SurveyWebsite = () => {
 
   return (
     <div className="flex flex-col justify-center items-center bg-sky-100 w-screen h-screen ">
-      <div className="flex flex-col gap-2 justify-center items-center bg-yellow-600 border-green-400 w-96 border-2 rounded-xl p-4">
+      <div className="flex flex-col gap-2 justify-center items-center bg-yellow-600 border-green-400 w-1/2 h-1/2 border-2 rounded-xl p-4">
         <div className="text-4xl font-bold">Survey Website</div>
+        <br />
 
         <div>
           {webDevSurvey
@@ -110,18 +111,35 @@ const SurveyWebsite = () => {
             .map((val, ind) => (
               <div key={ind}>
                 <div>{val.question}</div>
-                <select
-                  name="surveyQuestions"
-                  value={selectedValue}
-                  onChange={handleChange}
-                >
-                  <option value={`${val.choices[0]}`}>{val.choices[0]}</option>
-                  <option value={`${val.choices[1]}`}>
-                    {val.choices[1]}
-                  </option>{" "}
-                  <option value={`${val.choices[2]}`}>{val.choices[2]}</option>{" "}
-                  <option value={`${val.choices[3]}`}>{val.choices[3]}</option>
-                </select>
+                {val && (
+                  <select
+                    className="bg-black"
+                    name="surveyQuestions"
+                    value={selectedValue}
+                    onChange={handleChange}
+                  >
+                    {val.choices[0] && (
+                      <option value={`${val.choices[0]}`}>
+                        {val.choices[0]}
+                      </option>
+                    )}
+                    {val.choices[1] && (
+                      <option value={`${val.choices[1]}`}>
+                        {val.choices[1]}
+                      </option>
+                    )}
+                    {val.choices[2] && (
+                      <option value={`${val.choices[2]}`}>
+                        {val.choices[2]}
+                      </option>
+                    )}
+                    {val.choices[3] && (
+                      <option value={`${val.choices[3]}`}>
+                        {val.choices[3]}
+                      </option>
+                    )}
+                  </select>
+                )}
               </div>
             ))}
         </div>
@@ -139,6 +157,7 @@ const SurveyWebsite = () => {
             </button>
           )}
         </div>
+        <br />
         {selectedValue && <p>You selected: {selectedValue}</p>}
       </div>
     </div>
