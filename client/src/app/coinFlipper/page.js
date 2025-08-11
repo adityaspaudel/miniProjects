@@ -5,13 +5,24 @@ import React, { useState } from "react";
 const CoinFlipperGame = () => {
   const [side, setSide] = useState(null);
   const [choice, setChoice] = useState(null);
+  const [result, setResult] = useState(null);
 
   const handleClick = () => {
     const randomNum = Math.random();
     if (randomNum < 0.5) {
       setSide("tail");
+      if (side == choice) {
+        setResult("you won");
+      } else {
+        setResult("you lose");
+      }
     } else {
       setSide("head");
+      if (side == choice) {
+        setResult("you won");
+      } else {
+        setResult("you lose");
+      }
     }
   };
 
@@ -65,6 +76,8 @@ const CoinFlipperGame = () => {
         flip
       </button>
       <div>{side && <div>its: {side}</div>}</div>
+
+      <duv>result: {result}</duv>
     </div>
   );
 };
