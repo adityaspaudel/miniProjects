@@ -4,7 +4,9 @@ import React, { useState } from "react";
 
 const CoinFlipperGame = () => {
   const [side, setSide] = useState(null);
-  const handleChange = () => {
+  const [choice, setChoice] = useState(null);
+
+  const handleClick = () => {
     const randomNum = Math.random();
     if (randomNum < 0.5) {
       setSide("tail");
@@ -12,15 +14,52 @@ const CoinFlipperGame = () => {
       setSide("head");
     }
   };
+
+  // const handleChange = (e) => {
+  //   setChoice(e.target.value);
+  //   console.log(choice);
+  // };
   return (
     <div>
       <div>CoinFlipperGame</div>
+      <label htmlFor="headTail">
+        <input
+          type="radio"
+          name="headTail"
+          value="head"
+          checked={choice === "head"}
+          onChange={(e) => {
+            // e.preventDefault();
+            setChoice(e.target.value);
+            console.log(e.target.value);
+          }}
+        />
+        Head
+      </label>
 
+      <label>
+        <input
+          name="headTail"
+          type="radio"
+          value="tail"
+          checked={choice === "tail"}
+          onChange={(e) => {
+            // e.preventDefault();
+            setChoice(e.target.value);
+            console.log(e.target.value);
+          }}
+        />
+        Tail
+      </label>
+
+      <div>
+        {choice ? <p>You chose: {choice}</p> : <p>No choice selected yet</p>}
+      </div>
       <button
-        className="rounder-lg bg-amber-200 hover:bg-amber-400"
+        className="inline-block p-2 rounded-lg bg-amber-200 hover:bg-amber-400"
         onClick={(e) => {
-          e.preventDefault;
-          handleChange();
+          e.preventDefault();
+          handleClick();
         }}
       >
         flip
