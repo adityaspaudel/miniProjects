@@ -9,8 +9,12 @@ export default function Counter() {
   const dispatch = useDispatch();
 
   return (
-    <div className="flex flex-col items-center justify-center text-black bg-amber-100">
-      <div className="flex flex-col items-center justify-center bg-red-400 border-2 p-4  border-blue-500 rounded-lg w-96">
+    <div className="flex flex-col items-center justify-center text-black bg-amber-100 w-screen h-screen">
+      <div className="flex flex-col items-center justify-center bg-red-400 border-2 p-4  border-black rounded-lg w-1/2 h-1/2">
+        <div className="text-4xl">React-Redux Counter</div>
+        <hr className="border-1 border-black w-full" />
+        <br />
+        <br />
         <button
           className="border-2 border-black rounded-md px-2"
           aria-label="Increment value"
@@ -18,7 +22,9 @@ export default function Counter() {
         >
           Increment
         </button>
-        <span className="text-4xl">{count}</span>
+        <br />
+        <span className="text-6xl text-black">{count}</span>
+        <br />
         <button
           className="border-2 border-black rounded-md px-2"
           aria-label="Decrement value"
