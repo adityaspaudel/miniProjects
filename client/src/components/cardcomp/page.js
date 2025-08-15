@@ -19,10 +19,10 @@ const CardComponent = () => {
             dolor sit amet consectetur adipisicing elit.
           </p>
           <div className="flex gap-2 justify-between  text-[12px]">
-            <span className="rounded-xl border-2 border-pink-400 px-2 bg-green-400 hover:border-green-400">
+            <span className="rounded-xl border-2 border-pink-400 px-2 bg-green-400 hover:bg-green-500 hover:border-green-500">
               Furniture
             </span>
-            <span className="rounded-xl border-2 border-pink-400 px-2 bg-green-400 hover:border-green-400">
+            <span className="rounded-xl border-2 border-pink-400 px-2 bg-green-400 hover:bg-green-500 hover:border-green-500">
               Price
             </span>
           </div>
