@@ -15,26 +15,27 @@ const MatrixGenerator = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center gap-2 text-4xl">
-      <div>Matrix Generator</div>
-      <hr className="w-1/2 border-2 border-b-black" />
-      {/* <div>Unformatted: {JSON.stringify(matrix)}</div> */}
-
-      <div>
-        {matrix.map((val, ind) => {
-          return (
-            <div key={val} className="flex items-center justify-center ">
-              {val.map((v, i) => [
-                <div
-                  key={i}
-                  className="flex w-10 h-10 gap-2 p-2 text-lg text-white bg-green-400 border-2 border-green-500 hover:bg-green-500 "
-                >
-                  {v + 1}
-                </div>,
-              ])}
-            </div>
-          );
-        })}
+    <div className="flex flex-col items-center justify-center gap-2 h-screen w-screen bg-stone-400">
+      <div className="flex flex-col items-center justify-center gap-2 text-4xl h-1/2 w-1/2 border-2 border-green-400 rounded-xl">
+        <div className="text-black">Matrix Generator</div>
+        <hr className="w-1/2 border-1 border-black" />
+        {/* <div>Unformatted: {JSON.stringify(matrix)}</div> */}
+        <div>
+          {matrix.map((val, ind) => {
+            return (
+              <div key={val} className="flex items-center justify-center ">
+                {val.map((v, i) => [
+                  <div
+                    key={i}
+                    className="flex w-10 h-10 gap-2 p-2 text-lg text-white bg-green-400 border-2 border-green-500 hover:bg-green-500 "
+                  >
+                    {v + 1}
+                  </div>,
+                ])}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
