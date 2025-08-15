@@ -1,16 +1,18 @@
-'use client'
+"use client";
 
-import CardComponent from '@/components/cardcomp/page'
-import React from 'react'
+import CardComponent from "@/components/cardcomp/page";
+import React from "react";
 
-const Cards
- = () => {
+const Cards = () => {
   return (
-    <div>
-      <CardComponent/>
-
+    <div className="flex  ">
+      <CardComponent />
+      <CardComponent />
+      <CardComponent />
+      <CardComponent />
+      <CardComponent />
     </div>
-  )
-}
+  );
+};
 
-export default Cards
+export default Cards;
