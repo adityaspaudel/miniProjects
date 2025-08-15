@@ -9,7 +9,7 @@ const MatrixGenerator = () => {
   for (let i = 0; i < colsCount; i++) {
     const row = [];
     for (let j = 0; j < rowsCount; j++) {
-      row.push(j);
+      row.push(j + 3 * i);
     }
     matrix.push(row);
   }
