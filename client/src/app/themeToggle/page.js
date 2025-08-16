@@ -16,7 +16,7 @@ export default function ThemeToggle() {
     >
       <button
         onClick={() => dispatch(toggleTheme())}
-        className={`px-4 py-2 rounded text-black dark:text-white `}
+        className={`px-4 py-2 rounded text-black dark:text-white border-2 bg-green-200 border-black hover:border-2 hover:border-green-400 hover:bg-green-400`}
       >
         Switch to {theme === "light" ? "Dark" : "Light"} Mode
       </button>
