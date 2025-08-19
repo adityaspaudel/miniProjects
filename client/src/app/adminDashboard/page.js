@@ -1,4 +1,5 @@
 "use client";
+import PieChartComponent from "@/components/pieChart/page";
 import React from "react";
 
 const AdminDashboard = () => {
@@ -65,7 +66,13 @@ const AdminDashboard = () => {
             <span>1</span>
           </div>
         </div>
-        <div className="bg-slate-600">hi</div>
+        <div className=" flex gap-2 items-center justify-between content-center">
+          <div className="bg-slate-600 flex content-start items-start justify-start ">
+            <PieChartComponent />
+          </div>
+          <div className="bg-slate-600">woof!</div>
+          <div className="bg-slate-600">meow!</div>
+        </div>
       </div>
     </div>
   );
