@@ -13,7 +13,7 @@ const data = [
 
 const sizing = {
   margin: {},
-  width: 300,
+  width: 200,
   height: 200,
   hideLegend: false,
 };
