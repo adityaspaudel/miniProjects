@@ -72,21 +72,24 @@ const AdminDashboard = () => {
           </div>
           <div className="flex gap-2 items-center content-center">
             <div className="bg-slate-600 flex flex-col gap-0 content-center items-center ">
-              <div className="h-28 w-28 border-[12px] rounded-xl border-purple-500">
-                ccs
+              <div className="h-28 w-28 border-[12px] rounded-xl border-purple-500 p-2">
+                <div>Lorem ipsum</div>
+                <div>1678</div>
               </div>
               <div className="h-8 w-0 border-[6px] border-purple-500"></div>
-              <div className="h-24 w-24 border-[12px] -mt-2 rounded-full border-purple-500">
-                ccsss
+              <div className="h-24 w-24 border-[12px] -mt-2 rounded-full border-purple-500 text-4xl p-2">
+                🛒
               </div>
             </div>
             <div className="bg-slate-600 flex flex-col gap-0 content-center items-center ">
-              <div className="h-28 w-28 border-[12px] rounded-xl border-sky-500">
-                ccs
+              <div className="h-28 w-28 border-[12px] rounded-xl border-sky-500 p-2">
+                <div>Lorem ipsum</div>
+                <div>1890</div>
               </div>
               <div className="h-8 w-0 border-[6px] border-sky-500"></div>
-              <div className="h-24 w-24 border-[12px] -mt-2 rounded-full border-sky-500 ">
-                ccsss
+
+              <div className="h-24 w-24 border-[12px] -mt-2 rounded-full border-sky-500 text-4xl p-2">
+                💸
               </div>
             </div>
           </div>
