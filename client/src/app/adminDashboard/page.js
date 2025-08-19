@@ -3,39 +3,47 @@ import React from "react";
 
 const AdminDashboard = () => {
   return (
-    <div className=" text-green-600 flex gap-2">
-      <div className="bg-blue-100 w-64 font-sans px-2">
+    <div className=" text-white flex gap-2 bg-gray-800">
+      <div className="bg-gray-600 w-64 font-sans ">
         <div>
-          <div className="flex flex-col">
-            <span>logo</span>
-            <span>Admin Dashboard</span>
+          <div className="flex  hover:bg-slate-800 px-2 gap-4 h-12">
+            <img
+              src="/calculator.jpg"
+              height={48}
+              width={48}
+              alt="logo"
+              className="rounded-3xl"
+            />
+            <span className="flex content-center items-center">
+              Admin Dashboard
+            </span>
           </div>
           <ul>
-            <li className="flex gap-4">
-              <span>💌</span>
+            <li className="flex gap-4 px-2 hover:bg-slate-500">
+              <span>🏠</span>
               <span>Home</span>
             </li>
-            <li className="flex gap-4">
+            <li className="flex gap-4 px-2 hover:bg-slate-500">
               <span>✉️</span>
               <span>Message</span>
             </li>
-            <li className="flex gap-4">
+            <li className="flex gap-4 px-2 hover:bg-slate-500">
               <span>🔔</span>
               <span>Notification</span>
             </li>
-            <li className="flex gap-4">
+            <li className="flex gap-4 px-2 hover:bg-slate-500">
               <span>💵</span>
               <span>Money</span>
             </li>
-            <li className="flex gap-4">
+            <li className="flex gap-4 px-2 hover:bg-slate-500">
               <span>💹</span>
-              <span>Inflation</span>
+              <span>Chart</span>
             </li>
-            <li className="flex gap-4">
+            <li className="flex gap-4 px-2 hover:bg-slate-500">
               <span>🔎</span>
               <span>Search</span>
             </li>
-            <li className="flex gap-4">
+            <li className="flex gap-4 px-2 hover:bg-slate-500">
               <span>🛞</span>
               <span>Setting</span>
             </li>
@@ -43,21 +51,21 @@ const AdminDashboard = () => {
         </div>
       </div>
       <div className=" w-full flex flex-col gap-2">
-        <div className="bg-blue-100 flex content-between justify-between items-center gap-4">
+        <div className="bg-slate-600 flex content-between justify-between items-center gap-4">
           <div className="flex gap-4">
             <span className="w-4 px-2">#</span>
             <span>1sdcdslkcmsd</span>
             <span>1sdamcakck</span>
             <span>dcascakkads1</span>
           </div>
-          <div>
-            <span>1</span>
+          <div className="flex gap-2">
+            <span>🛎️</span>
 
             <span>1</span>
             <span>1</span>
           </div>
         </div>
-        <div className="bg-blue-100">hi</div>
+        <div className="bg-slate-600">hi</div>
       </div>
     </div>
   );
