@@ -1,4 +1,5 @@
 "use client";
+import QuadrantInfographic from "@/components/infoChart/page";
 import PieChartComponent from "@/components/pieChart/page";
 import React from "react";
 
@@ -93,7 +94,9 @@ const AdminDashboard = () => {
               </div>
             </div>
           </div>
-          <div className="bg-slate-600">meow!</div>
+          <div className="bg-slate-600">
+            <QuadrantInfographic />
+          </div>
         </div>
       </div>
     </div>
