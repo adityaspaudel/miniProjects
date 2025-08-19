@@ -70,7 +70,26 @@ const AdminDashboard = () => {
           <div className="bg-slate-600 flex content-start items-start justify-start ">
             <PieChartComponent />
           </div>
-          <div className="bg-slate-600">woof!</div>
+          <div className="flex gap-2 items-center content-center">
+            <div className="bg-slate-600 flex flex-col gap-0 content-center items-center ">
+              <div className="h-28 w-28 border-[12px] rounded-xl border-purple-500">
+                ccs
+              </div>
+              <div className="h-8 w-0 border-[6px] border-purple-500"></div>
+              <div className="h-24 w-24 border-[12px] -mt-2 rounded-full border-purple-500">
+                ccsss
+              </div>
+            </div>
+            <div className="bg-slate-600 flex flex-col gap-0 content-center items-center ">
+              <div className="h-28 w-28 border-[12px] rounded-xl border-sky-500">
+                ccs
+              </div>
+              <div className="h-8 w-0 border-[6px] border-sky-500"></div>
+              <div className="h-24 w-24 border-[12px] -mt-2 rounded-full border-sky-500 ">
+                ccsss
+              </div>
+            </div>
+          </div>
           <div className="bg-slate-600">meow!</div>
         </div>
       </div>
