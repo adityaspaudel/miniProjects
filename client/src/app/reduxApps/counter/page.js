@@ -1,6 +1,11 @@
 "use client";
 
-import { decrement, increment } from "@/lib/redux/slices/counterSlice";
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+  reset,
+} from "@/lib/redux/slices/counterSlice";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -32,6 +37,11 @@ export default function Counter() {
         >
           Decrement
         </button>
+
+        <button onClick={() => dispatch(incrementByAmount(5))}>
+          Increment By 5
+        </button>
+        <button onClick={() => dispatch(reset())}>reset</button>
       </div>
     </div>
   );
