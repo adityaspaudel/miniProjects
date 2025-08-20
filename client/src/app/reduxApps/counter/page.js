@@ -21,7 +21,7 @@ export default function Counter() {
           <hr className="border-1 border-black w-full" />
         </div>
         <button
-          className="border-2 border-black rounded-md px-2"
+          className="border-2 border-black rounded-md px-2 hover:bg-green-600 hover:border-gray-500 hover:text-white"
           aria-label="Increment value"
           onClick={() => dispatch(increment())}
         >
@@ -31,7 +31,7 @@ export default function Counter() {
         <span className="text-6xl text-black">{count}</span>
 
         <button
-          className="border-2 border-black rounded-md px-2"
+          className="border-2 border-black rounded-md px-2 hover:bg-red-600 hover:border-gray-500 hover:text-white"
           aria-label="Decrement value"
           onClick={() => dispatch(decrement())}
         >
@@ -40,13 +40,13 @@ export default function Counter() {
 
         <button
           onClick={() => dispatch(incrementByAmount(5))}
-          className="border-2 border-black rounded-md px-2"
+          className="border-2 border-black rounded-md px-2 hover:bg-green-600 hover:border-gray-500 hover:text-white"
         >
           Increment By 5
         </button>
         <button
           onClick={() => dispatch(reset())}
-          className="bg-gray-400 px-2 rounded-md border-2 border-red-300"
+          className="bg-gray-400 px-2 rounded-md border-2 border-red-300 hover:bg-gray-600 hover:text-white hover:border-gray-600" 
         >
           reset
         </button>
