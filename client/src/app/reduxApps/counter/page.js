@@ -15,7 +15,7 @@ export default function Counter() {
 
   return (
     <div className="flex flex-col items-center justify-center text-black bg-amber-100 w-screen h-screen">
-      <div className="flex flex-col items-center gap-2 justify-center bg-red-400 border-2 p-4  border-black rounded-lg w-1/2 h-1/2">
+      <div className="flex flex-col items-center gap-2 justify-center bg-sky-400 border-2 p-4  border-black rounded-lg w-1/2 min-h-1/2">
         <div>
           <div className="text-4xl">React-Redux Counter</div>
           <hr className="border-1 border-black w-full" />
@@ -28,7 +28,7 @@ export default function Counter() {
           Increment
         </button>
 
-        <span className="text-6xl text-black">{count}</span>
+        <span className="text-8xl text-black">{count}</span>
 
         <button
           className="border-2 border-black rounded-md px-2 hover:bg-red-600 hover:border-gray-500 hover:text-white"
