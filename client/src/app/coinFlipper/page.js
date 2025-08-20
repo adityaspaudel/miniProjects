@@ -11,18 +11,18 @@ const CoinFlipperGame = () => {
     const randomNum = Math.random();
     if (randomNum < 0.5) {
       setSide("tail");
-      if (side == choice) {
-        setResult("you won");
-      } else {
-        setResult("you lose");
-      }
+      // if (side == choice) {
+      //   setResult("you won");
+      // } else {
+      //   setResult("you lose");
+      // }
     } else {
       setSide("head");
-      if (side == choice) {
-        setResult("you won");
-      } else {
-        setResult("you lose");
-      }
+      // if (side == choice) {
+      //   setResult("you won");
+      // } else {
+      //   setResult("you lose");
+      // }
     }
   };
 
@@ -64,7 +64,7 @@ const CoinFlipperGame = () => {
       </label>
 
       <div>
-        {choice ? <p>You chose: {choice}</p> : <p>No choice selected yet</p>}
+        {choice ? <p>your choice: {choice}</p> : <p>No choice selected yet</p>}
       </div>
       <button
         className="inline-block p-2 rounded-lg bg-amber-200 hover:bg-amber-400"
@@ -75,9 +75,21 @@ const CoinFlipperGame = () => {
       >
         flip
       </button>
-      <div>{side && <div>its: {side}</div>}</div>
+      {/* <div>{side && <div>computer's choice: {side}</div>}</div>
 
-      <duv>result: {result}</duv>
+      <duv>result: {result}</duv> */}
+
+      <div>computer's choice: {side}</div>
+
+      {side !== null && choice !== null ? (
+        side === choice ? (
+          <span>you won</span>
+        ) : (
+          <span>you lose</span>
+        )
+      ) : (
+        ""
+      )}
     </div>
   );
 };
