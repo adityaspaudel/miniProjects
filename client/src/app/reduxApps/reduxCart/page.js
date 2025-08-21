@@ -30,7 +30,7 @@ export default function CartPage() {
           }
           className="bg-blue-500 text-white px-4 py-2 rounded"
         >
-          Add Laptop
+          Add Laptop 💻
         </button>
         <button
           onClick={() =>
@@ -38,7 +38,7 @@ export default function CartPage() {
           }
           className="bg-green-500 text-white px-4 py-2 rounded ml-2"
         >
-          Add Phone
+          Add Phone 📱
         </button>
         <div className="mt-6">
           {items.length === 0 ? (
