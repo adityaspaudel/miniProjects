@@ -104,9 +104,13 @@ const HangmanGame = () => {
   }
 
   return (
-    <div className="flex justify-center items-center gap-8 bg-slate-500 h-screen w-screen">
-      <div className="flex flex-col gap-4 content-center items-center">
-        <h1>HangmanGame</h1>
+    <div className="flex content-center items-center gap-32 bg-sky-100 h-screen w-screen p-16 text-black">
+      <div className="flex flex-col  content-center items-center gap-10">
+        <div>
+          <h1 className="text-5xl font-bold">Hangman Game</h1>
+          <hr className="border-black" />
+        </div>
+
         <div>
           <div className="text-[50px]">{question}</div>
           <div className="text-[14px] text-green-200 italic">
@@ -145,12 +149,13 @@ const HangmanGame = () => {
         </button>
         <div>{count}</div>
         <Image
-          className=" flex imageHangman justify-center items-center"
+          className=" flex imageHangman justify-between content-between items-center "
           src="/hangman-images/hangman-0.svg"
           alt=""
-          height={400}
-          width={400}
+          height={300}
+          width={300}
         />
+
         {question}
       </div>
     </div>
