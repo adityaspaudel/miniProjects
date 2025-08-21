@@ -3,9 +3,9 @@
 import React, { useState } from "react";
 
 const Love = () => {
-  const [lovePercentage, setLovePercentage] = useState([]);
   const [formData, setFormData] = useState({ yourName: "", partnerName: "" });
-  const [val, setVal] = useState("");
+  const [lovePercentage, setLovePercentage] = useState(null);
+
   const obj = {
     A: 1,
     B: 2,
@@ -36,41 +36,61 @@ const Love = () => {
   };
 
   const handleChange = (e) => {
-    e.preventDefault();
-
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setVal(formData.yourName.concat(formData.partnerName));
   };
+
+  const getNameValue = (name) =>
+    name
+      .toUpperCase()
+      .split("")
+      .reduce((acc, char) => acc + (obj[char] || 0), 0);
+
   const loveCalculate = () => {
-    console.log("formData", formData);
+    if (!formData.yourName || !formData.partnerName) {
+      setLovePercentage("Please enter both names!");
+      return;
+    }
+
+    const totalValue =
+      getNameValue(formData.yourName) + getNameValue(formData.partnerName);
+
+    const love = (totalValue * 7) % 101; // keep between 0–100
+    setLovePercentage(`${love}% ❤️`);
   };
+
   return (
-    <div className="flex flex-col gap-10 justify-center items-center m-auto w-[600px]">
-      <h1>Love Calculator</h1>
-      <div className="flex gap-4 m-auto w-[400px]">
+    <div className="flex flex-col gap-8 justify-center items-center m-auto w-[600px]">
+      <h1 className="text-2xl font-bold">Love Calculator</h1>
+      <div className="flex gap-4 w-[400px]">
         <input
-          className="love-percentage p-2 text-black rounded-md"
+          className="p-2 text-black rounded-md"
           name="yourName"
           type="text"
           value={formData.yourName}
           placeholder="Your Name"
           onChange={handleChange}
-          required
         />
         <span className="text-3xl">❤️</span>
         <input
-          className="love-percentage p-2 text-black rounded-md"
-          type="text"
+          className="p-2 text-black rounded-md"
           name="partnerName"
+          type="text"
           value={formData.partnerName}
-          placeholder="Your partner Name"
+          placeholder="Partner's Name"
           onChange={handleChange}
-          required
         />
       </div>
-      combined value:{val}
-      <button onClick={() => loveCalculate()}>Calculate love</button>
-      <div className="text-4xl text-red-600">{lovePercentage}</div>
+
+      <button
+        onClick={loveCalculate}
+        className="px-4 py-2 bg-pink-600 text-white rounded-lg shadow-md hover:bg-pink-700 transition"
+      >
+        Calculate Love
+      </button>
+
+      {lovePercentage && (
+        <div className="text-4xl text-red-600 font-bold">{lovePercentage}</div>
+      )}
     </div>
   );
 };
