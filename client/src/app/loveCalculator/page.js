@@ -55,7 +55,7 @@ const Love = () => {
       getNameValue(formData.yourName) + getNameValue(formData.partnerName);
 
     const love = (totalValue * 7) % 101; // keep between 0–100
-    setLovePercentage(`${love}% ❤️`);
+    setLovePercentage(`${love}`);
   };
 
   return (
@@ -87,9 +87,20 @@ const Love = () => {
       >
         Calculate Love
       </button>
-
-      {lovePercentage && (
-        <div className="text-4xl text-red-600 font-bold">{lovePercentage}</div>
+      {lovePercentage !== null && (
+        <div
+          className={`text-4xl font-bold ${
+            lovePercentage >= 90
+              ? "text-green-600"
+              : lovePercentage >= 60
+              ? "text-green-400"
+              : lovePercentage >= 40
+              ? "text-orange-600"
+              : "text-red-400"
+          }`}
+        >
+          {lovePercentage}% ❤️
+        </div>
       )}
     </div>
   );
