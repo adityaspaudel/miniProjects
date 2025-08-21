@@ -7,7 +7,7 @@ import {
   increaseQuantity,
   decreaseQuantity,
   clearCart,
-} from "../../lib/redux/slices/cartSlice";
+} from "../../../lib/redux/slices/cartSlice";
 
 export default function CartPage() {
   const dispatch = useDispatch();
