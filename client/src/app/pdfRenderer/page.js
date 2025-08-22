@@ -65,7 +65,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-4 content-center items-center">
+    <div className="flex flex-col gap-4 content-center items-center bg-amber-600 min-h-screen w-screen">
       <h1>PDF Generator App</h1>
       <p>Click the button below to generate and download the PDF.</p>
 
