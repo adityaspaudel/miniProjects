@@ -13,7 +13,26 @@ import {
 
 // Create styles for the PDF document
 const styles = StyleSheet.create({
-  page: { margin: 10, padding: 10 },
+  page: {
+    flexDirection: "column",
+    backgroundColor: "#E4E4E4",
+    padding: 30,
+    fontFamily: "Helvetica",
+  },
+  section: {
+    margin: 10,
+    padding: 10,
+    flexGrow: 1,
+  },
+  title: {
+    fontSize: 24,
+    textAlign: "center",
+    marginBottom: 20,
+  },
+  text: {
+    fontSize: 12,
+    textAlign: "justify",
+  },
 });
 
 // Create the PDF document component
@@ -52,7 +71,7 @@ const App = () => {
 
       {/* Conditionally render the PDFViewer and PDFDownloadLink only when on the client-side */}
       {isClient ? (
-        <>
+        <div className="h-1/2 w-1/2">
           <div>
             <PDFDownloadLink
               document={<MyDocument />}
@@ -63,12 +82,12 @@ const App = () => {
               </button>
             </PDFDownloadLink>
           </div>
-          <div>
-            <PDFViewer>
+          <div className="border-2 border-amber-200 h-96 w-full">
+            <PDFViewer width="100%" height="100%">
               <MyDocument />
             </PDFViewer>
           </div>
-        </>
+        </div>
       ) : (
         ""
       )}
