@@ -16,28 +16,32 @@ export default function NotesPage() {
   };
 
   return (
-    <div>
-      <h1> Notes App</h1>
-
-      <div>
-        <input
-          type="text"
-          value={noteText}
-          onChange={(e) => setNoteText(e.target.value)}
-        />
-        <button onClick={handleAdd}>Add</button>
+    <div className="bg-gray-200 h-screen w-screen flex flex-col gap-2 justify-center items-center text-black">
+      <div className="min-h-1/2 w-1/2 bg-red-200 flex flex-col gap-2 content-center items-center p-4 rounded-md">
+        <div>
+          <h1 className="text-4xl font-bold "> Notes App</h1>
+          <hr className="border-1 border-black" />
+        </div>
+        <div>
+          <input
+            type="text"
+            value={noteText}
+            onChange={(e) => setNoteText(e.target.value)}
+          />
+          <button onClick={handleAdd}>Add</button>
+        </div>
+        <ul>
+          {notes.length === 0 && <p>No notes yet.</p>}
+          {notes.map((note) => (
+            <li key={note.id}>
+              <span>{note.text}</span>
+              <button onClick={() => dispatch(deleteNote(note.id))}>
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
-      <ul>
-        {notes.length === 0 && <p>No notes yet.</p>}
-        {notes.map((note) => (
-          <li key={note.id}>
-            <span>{note.text}</span>
-            <button onClick={() => dispatch(deleteNote(note.id))}>
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }
