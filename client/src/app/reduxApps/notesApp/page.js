@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addNote } from "@/lib/redux/slices/notesSlice";
+import { addNote, deleteNote } from "@/lib/redux/slices/notesSlice";
 
 export default function NotesPage() {
   const [noteText, setNoteText] = useState("");
@@ -32,6 +32,9 @@ export default function NotesPage() {
         {notes.map((note) => (
           <li key={note.id}>
             <span>{note.text}</span>
+            <button onClick={() => dispatch(deleteNote(note.id))}>
+              Delete
+            </button>
           </li>
         ))}
       </ul>
