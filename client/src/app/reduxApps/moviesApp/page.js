@@ -21,46 +21,45 @@ export default function MoviesPage() {
   ];
 
   return (
-    <div>
-      <h1> Favorite Movies App</h1>
-
-      {/* Movies List */}
-      <h2>Movies</h2>
-      <div className="flex gap-2">
-        {movies.map((movie) => (
-          <button key={movie.id} onClick={() => dispatch(addFavorite(movie))}>
-            Add {movie.title}
-          </button>
-        ))}
-      </div>
-
-      {/* Favorites List */}
-      <h2>Favorites</h2>
-      {favorites.length === 0 ? (
-        <p>No favorite movies yet.</p>
-      ) : (
-        <ul>
-          {favorites.map((movie) => (
-            <li key={movie.id}>
-              <span>
-                {movie.title} :({movie.year})
-              </span>
-              <button onClick={() => dispatch(removeFavorite(movie.id))}>
-                Remove
-              </button>
-            </li>
+    <div className="flex flex-col gap-2 justify-center items-center bg-slate-600 h-screen w-screen text-black">
+      <div className="flex flex-col gap-2 justify-center items-center bg-yellow-300 p-4 min-h-1/2 w-1/2 rounded-lg">
+        <h1> Favorite Movies App</h1>
+        {/* Movies List */}
+        <h2>Movies</h2>
+        <div className="flex gap-2">
+          {movies.map((movie) => (
+            <button key={movie.id} onClick={() => dispatch(addFavorite(movie))}>
+              Add {movie.title}
+            </button>
           ))}
-        </ul>
-      )}
-
-      {favorites.length > 0 && (
-        <button
-          onClick={() => dispatch(clearFavorites())}
-          className="mt-4 px-4 py-2 bg-gray-800 text-white rounded"
-        >
-          Clear All
-        </button>
-      )}
+        </div>
+        {/* Favorites List */}
+        <h2>Favorites</h2>
+        {favorites.length === 0 ? (
+          <p>No favorite movies yet.</p>
+        ) : (
+          <ul>
+            {favorites.map((movie) => (
+              <li key={movie.id}>
+                <span>
+                  {movie.title} :({movie.year})
+                </span>
+                <button onClick={() => dispatch(removeFavorite(movie.id))}>
+                  Remove
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+        {favorites.length > 0 && (
+          <button
+            onClick={() => dispatch(clearFavorites())}
+            className="mt-4 px-4 py-2 bg-gray-800 text-white rounded"
+          >
+            Clear All
+          </button>
+        )}
+      </div>
     </div>
   );
 }
