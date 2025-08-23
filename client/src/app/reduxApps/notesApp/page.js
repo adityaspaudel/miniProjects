@@ -17,25 +17,33 @@ export default function NotesPage() {
 
   return (
     <div className="bg-gray-200 h-screen w-screen flex flex-col gap-2 justify-center items-center text-black">
-      <div className="min-h-1/2 w-1/2 bg-red-200 flex flex-col gap-2 content-center items-center p-4 rounded-md">
+      <div className="min-h-1/2 w-1/2 bg-orange-200 flex flex-col gap-2 content-center items-center p-4 rounded-xl">
         <div>
           <h1 className="text-4xl font-bold "> Notes App</h1>
           <hr className="border-1 border-black" />
         </div>
-        <div>
+        <div className="flex gap-4">
           <input
             type="text"
             value={noteText}
             onChange={(e) => setNoteText(e.target.value)}
           />
-          <button onClick={handleAdd}>Add</button>
+          <button
+            onClick={handleAdd}
+            className="bg-green-400 hover:bg-green-500 text-sm px-2"
+          >
+            Add
+          </button>
         </div>
-        <ul>
+        <ul className="flex flex-col gap-4">
           {notes.length === 0 && <p>No notes yet.</p>}
           {notes.map((note) => (
-            <li key={note.id}>
+            <li key={note.id} className="flex gap-4">
               <span>{note.text}</span>
-              <button onClick={() => dispatch(deleteNote(note.id))}>
+              <button
+                onClick={() => dispatch(deleteNote(note.id))}
+                className="px-2 text-sm bg-red-400 hover:bg-red-500"
+              >
                 Delete
               </button>
             </li>
