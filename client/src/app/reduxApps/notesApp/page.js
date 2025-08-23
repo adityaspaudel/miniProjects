@@ -18,7 +18,7 @@ export default function NotesPage() {
   return (
     <div className="bg-gray-200 h-screen w-screen flex flex-col gap-2 justify-center items-center text-black">
       <div className="min-h-1/2 w-1/2 bg-orange-200 flex flex-col gap-2 content-center items-center p-4 rounded-xl">
-        <div>
+        <div className="">
           <h1 className="text-4xl font-bold "> Notes App</h1>
           <hr className="border-1 border-black" />
         </div>
