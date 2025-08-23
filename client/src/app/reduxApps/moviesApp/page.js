@@ -23,12 +23,19 @@ export default function MoviesPage() {
   return (
     <div className="flex flex-col gap-2 justify-center items-center bg-slate-600 h-screen w-screen text-black">
       <div className="flex flex-col gap-2 justify-center items-center bg-yellow-300 p-4 min-h-1/2 w-1/2 rounded-lg">
-        <h1> Favorite Movies App</h1>
+        <div>
+          <h1 className="text-4xl"> Favorite Movies App</h1>
+          <hr className="border-1 border-black" />
+        </div>
         {/* Movies List */}
         <h2>Movies</h2>
-        <div className="flex gap-2">
+        <div className="flex  gap-2">
           {movies.map((movie) => (
-            <button key={movie.id} onClick={() => dispatch(addFavorite(movie))}>
+            <button
+              key={movie.id}
+              onClick={() => dispatch(addFavorite(movie))}
+              className="bg-green-400 hover:bg-green-500 text-sm px-4 rounded-sm"
+            >
               Add {movie.title}
             </button>
           ))}
@@ -38,13 +45,16 @@ export default function MoviesPage() {
         {favorites.length === 0 ? (
           <p>No favorite movies yet.</p>
         ) : (
-          <ul>
+          <ul className="flex gap-2">
             {favorites.map((movie) => (
-              <li key={movie.id}>
-                <span>
+              <li key={movie.id} className=" flex flex-col gap-2">
+                <span className="inline-block">
                   {movie.title} :({movie.year})
                 </span>
-                <button onClick={() => dispatch(removeFavorite(movie.id))}>
+                <button
+                  onClick={() => dispatch(removeFavorite(movie.id))}
+                  className="text-sm bg-red-400 hover:bg-red-500 px-4 rounded-sm"
+                >
                   Remove
                 </button>
               </li>
