@@ -6,9 +6,7 @@ import themeReducer from "./slices/themeSlice";
 import todosReducer from "./slices/todosSlice";
 import notesReducer from "./slices/notesSlice";
 
-
-
-
+import moviesReducer from "./slices/moviesSlice";
 
 const rootReducer = combineReducers({
   counter: counterReducer,
@@ -16,9 +14,8 @@ const rootReducer = combineReducers({
   theme: themeReducer,
   todos: todosReducer,
   notes: notesReducer,
+  movies: moviesReducer,
 });
-
-
 
 export const store = configureStore({
   reducer: rootReducer,
