@@ -19,17 +19,33 @@ export default function UserLoginPage() {
 
   return (
     <div className="flex flex-col gap-2 justify-center items-center bg-gray-500 h-screen w-screen">
-      <div className="flex flex-col gap-2 justify-center items-center bg-neutral-600 min-h-1/2 w-1/2 rounded-md p-4">
+      <div className="flex flex-col gap-2 justify-center items-center bg-yellow-300 min-h-1/2 w-1/2 rounded-md p-4 text-black">
         {isLoggedIn ? (
           <div>
             <h2>Welcome, {user.name}!</h2>
-            <button onClick={handleLogout}>Logout</button>
+            <button
+              onClick={handleLogout}
+              className="bg-red-400 hover:bg-red-500"
+            >
+              Logout
+            </button>
           </div>
         ) : (
-          <div>
+          <form className="flex flex-col gap-2 ">
+            <h1  className="font-bold text-3xl">login form</h1>
             <h2>Please log in</h2>
-            <button onClick={handleLogin}>Login</button>
-          </div>
+            <label htmlFor="email">email</label>
+            <input name="email" type="email" />
+            <label htmlFor="password">password</label>
+            <input name="password" />
+
+            <button
+              onClick={handleLogin}
+              className="bg-green-400 hover:bg-green-500 px-2"
+            >
+              Login
+            </button>
+          </form>
         )}
       </div>
     </div>
