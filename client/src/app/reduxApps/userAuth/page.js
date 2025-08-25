@@ -49,11 +49,17 @@ export default function UserLoginPage() {
           </div>
         ) : (
           <form onSubmit={handleLogin} className="flex flex-col gap-2 ">
-            <h1 className="font-bold text-3xl ">Login Form</h1>
-            <h2 className="text-sm text-red-500 italic">Please log in</h2>
+            <div>
+              <h1 className="font-bold text-3xl ">Login Form</h1>
+              <hr className="border-1 border-black"/>
+            </div>
+            <h2 className="text-sm text-red-500 italic underline">
+              Please log in
+            </h2>
 
             <label htmlFor="email">Enter your email:</label>
             <input
+              className="px-2 border-2 border-black rounded-sm font-mono"
               name="email"
               type="email"
               required
@@ -63,6 +69,7 @@ export default function UserLoginPage() {
 
             <label htmlFor="password">Enter your password:</label>
             <input
+              className="px-2 border-2 border-black rounded-sm font-mono"
               name="password"
               type="password"
               required
