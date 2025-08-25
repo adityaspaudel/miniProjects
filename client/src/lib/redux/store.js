@@ -7,7 +7,8 @@ import todosReducer from "./slices/todosSlice";
 import notesReducer from "./slices/notesSlice";
 
 import moviesReducer from "./slices/moviesSlice";
-import authReducer from "./slices/authSlice"
+import authReducer from "./slices/authSlice";
+import langReducer from "./slices/languageSlice";
 const rootReducer = combineReducers({
   counter: counterReducer,
   cart: cartReducer,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   todos: todosReducer,
   notes: notesReducer,
   movies: moviesReducer,
-  auth:authReducer
+  auth: authReducer,
+  lang: langReducer,
 });
 
 export const store = configureStore({
