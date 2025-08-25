@@ -38,8 +38,8 @@ export default function UserLoginPage() {
     <div className="flex flex-col gap-2 justify-center items-center bg-gray-500 h-screen w-screen">
       <div className="flex flex-col gap-2 justify-center items-center bg-yellow-300 min-h-1/2 w-1/2 rounded-md p-4 text-black">
         {isLoggedIn ? (
-          <div className="flex flex-col gap-2">
-            <h2>Welcome, {user.email}!</h2>
+          <div className="flex flex-col gap-2 justify-center items-center p-4 ">
+            <h2 className="font-bold text-5xl">Welcome, {user.email}!</h2>
             <button
               onClick={handleLogout}
               className="bg-red-400 hover:bg-red-500 px-2 rounded-sm"
