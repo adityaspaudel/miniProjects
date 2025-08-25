@@ -28,15 +28,24 @@ export default function LanguageSwitcher() {
           <option value="np">Nepali</option>
           <option value="hi">Hindi</option>
         </select>
-        <div className="mt-4 text-lg font-semibold">
+        <div className="mt-4 text-lg ">
           {language === "en" && (
-            <div>Hello, World! Welcome you to our language switcher app.</div>
+            <div className="flex flex-col gap-2 items-center content-center">
+              <div>Hello, World! 👋</div>
+              <div>Welcome you to our language switcher app.</div>{" "}
+            </div>
           )}
           {language === "np" && (
-            <div>नमस्ते, संसार! हमारे भाषा स्विचर ऐप में आपका स्वागत है।</div>
+            <div className="flex flex-col  gap-2 content-center items-center">
+              <div>नमस्ते, दुनिया! 🙏</div>
+              <div>हाम्रो भाषा स्विचर एपमा स्वागत छ।</div>
+            </div>
           )}
           {language === "hi" && (
-            <div>नमस्ते, दुनिया! हाम्रो भाषा स्विचर एपमा स्वागत छ।</div>
+            <div className="flex flex-col gap-2 content-center items-center">
+              <div>नमस्ते, संसार! 🙏</div>{" "}
+              <div>हमारे भाषा स्विचर ऐप में आपका स्वागत है।</div>
+            </div>
           )}
         </div>
       </div>
