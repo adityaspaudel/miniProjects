@@ -9,6 +9,9 @@ import notesReducer from "./slices/notesSlice";
 import moviesReducer from "./slices/moviesSlice";
 import authReducer from "./slices/authSlice";
 import languageReducer from "./slices/languageSlice";
+
+import wishlistReducer from "./slices/wishlistSlice";
+
 const rootReducer = combineReducers({
   counter: counterReducer,
   cart: cartReducer,
@@ -18,6 +21,7 @@ const rootReducer = combineReducers({
   movies: moviesReducer,
   auth: authReducer,
   language: languageReducer,
+  wishlist: wishlistReducer,
 });
 
 export const store = configureStore({
