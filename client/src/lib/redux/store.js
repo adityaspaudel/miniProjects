@@ -11,7 +11,7 @@ import authReducer from "./slices/authSlice";
 import languageReducer from "./slices/languageSlice";
 
 import wishlistReducer from "./slices/wishlistSlice";
-
+import expenseReducer from "./slices/expenseSlice";
 const rootReducer = combineReducers({
   counter: counterReducer,
   cart: cartReducer,
@@ -22,6 +22,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   language: languageReducer,
   wishlist: wishlistReducer,
+  expense: expenseReducer,
 });
 
 export const store = configureStore({
