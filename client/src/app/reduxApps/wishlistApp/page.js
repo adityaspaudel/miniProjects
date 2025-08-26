@@ -49,14 +49,14 @@ export default function WishlistTest() {
         </button>
 
         {/* Wishlist Items */}
-        <ul className="mt-4 flex flex-col gap-2 items-center">
+        <ul className="mt-4 flex flex-col gap-2 items-center content-between">
           {wishlist.length === 0 ? (
             <p>No items in wishlist</p>
           ) : (
             wishlist.map((item) => (
               <li
                 key={item.id}
-                className="flex gap-3 items-center font-mono border-b pb-1"
+                className="flex gap-3 items-center justify-between w-full font-mono border-b pb-1"
               >
                 <span className="font-semibold">{item.name}</span>
                 <button
