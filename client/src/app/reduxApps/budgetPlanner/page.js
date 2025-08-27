@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setBudget, addExpense } from "@/lib/redux/slices/budgetSlice";
-import { clearExpenses, removeExpense } from "@/lib/redux/slices/expenseSlice";
+import { setBudget, addExpense, removeExpense, clearExpenses } from "@/lib/redux/slices/budgetSlice";
+
 
 export default function BudgetPlanner() {
   const dispatch = useDispatch();
@@ -94,10 +94,14 @@ export default function BudgetPlanner() {
         {/* Expense List */}
         <ul className="mb-4 p-4 flex flex-col gap-2 bg-orange-300">
           {expenses.map((exp) => (
-            <li key={exp.id} className="flex gap-2 justify-between">
-              <span>
-                {exp.name} - ₹{exp.amount}
-              </span>
+            <li
+              key={exp.id}
+              className="flex gap-2 justify-between items-center w-full"
+            >
+              <div className="flex gap-2 ">
+                <div>{exp.name}</div>
+                <div className="flex font-bold font-mono">Rs. {exp.amount}</div>
+              </div>
               <button
                 onClick={() => dispatch(removeExpense(exp.id))}
                 className="bg-red-400 hover:bg-red-400 text-sm rounded-sm font-mono px-2"
@@ -108,7 +112,12 @@ export default function BudgetPlanner() {
           ))}
         </ul>
         {expenses.length > 0 && (
-          <button onClick={() => dispatch(clearExpenses())} className="bg-gray-200 hover:bg-gray-400 font-mono rounded-sm px-2">Clear All</button>
+          <button
+            onClick={() => dispatch(clearExpenses())}
+            className="bg-gray-200 hover:bg-gray-400 font-mono rounded-sm px-2"
+          >
+            Clear All
+          </button>
         )}
       </div>
     </div>
