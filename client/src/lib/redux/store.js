@@ -12,6 +12,8 @@ import languageReducer from "./slices/languageSlice";
 
 import wishlistReducer from "./slices/wishlistSlice";
 import expenseReducer from "./slices/expenseSlice";
+import budgetReducer from "./slices/budgetSlice";
+
 const rootReducer = combineReducers({
   counter: counterReducer,
   cart: cartReducer,
@@ -23,6 +25,7 @@ const rootReducer = combineReducers({
   language: languageReducer,
   wishlist: wishlistReducer,
   expense: expenseReducer,
+  budget: budgetReducer,
 });
 
 export const store = configureStore({
