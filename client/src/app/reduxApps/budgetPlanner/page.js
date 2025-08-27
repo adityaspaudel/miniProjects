@@ -2,11 +2,8 @@
 
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setBudget,
-  addExpense,
-  
-} from "@/lib/redux/slices/budgetSlice";
+import { setBudget, addExpense } from "@/lib/redux/slices/budgetSlice";
+import { clearExpenses, removeExpense } from "@/lib/redux/slices/expenseSlice";
 
 export default function BudgetPlanner() {
   const dispatch = useDispatch();
@@ -41,7 +38,7 @@ export default function BudgetPlanner() {
   };
 
   return (
-    <div >
+    <div>
       <h1 className="text-2xl font-bold mb-4">💰 Budget Planner</h1>
 
       {/* Budget Setter */}
@@ -52,15 +49,10 @@ export default function BudgetPlanner() {
           value={budgetInput}
           onChange={(e) => setBudgetInput(e.target.value)}
         />
-        <button
-          onClick={handleSetBudget}
-      
-        >
-          Set Budget
-        </button>
+        <button onClick={handleSetBudget}>Set Budget</button>
       </div>
 
-      <div >
+      <div>
         <p>
           Total Budget: <b>₹{budget}</b>
         </p>
@@ -73,7 +65,7 @@ export default function BudgetPlanner() {
       </div>
 
       {/* Add Expense */}
-      <div >
+      <div>
         <input
           type="text"
           placeholder="Expense Name"
@@ -86,15 +78,25 @@ export default function BudgetPlanner() {
           value={expenseAmount}
           onChange={(e) => setExpenseAmount(e.target.value)}
         />
-        <button
-          onClick={handleAddExpense}
-          
-        >
-          Add
-        </button>
+        <button onClick={handleAddExpense}>Add</button>
       </div>
+      {/* Expense List */}
+      <ul className="mb-4">
+        {expenses.map((exp) => (
+          <li key={exp.id}>
+            <span>
+              {exp.name} - ₹{exp.amount}
+            </span>
+            <button onClick={() => dispatch(removeExpense(exp.id))}>
+              remove
+            </button>
+          </li>
+        ))}
+      </ul>
 
-     
+      {expenses.length > 0 && (
+        <button onClick={() => dispatch(clearExpenses())}>Clear All</button>
+      )}
     </div>
   );
 }
