@@ -39,7 +39,7 @@ export default function BudgetPlanner() {
 
   return (
     <div className="flex flex-col justify-center items-center h-screen w-screen bg-zinc-400 text-black">
-      <div className="flex flex-col justify-center items-center min-h-1/2 w-1/2 bg-red-300 rounded-lg p-4">
+      <div className="flex flex-col gap-4 justify-center items-center min-h-1/2 w-1/2 bg-red-300 rounded-lg p-4">
         <h1 className="text-2xl font-bold mb-4">💰 Budget Planner</h1>
         {/* Budget Setter */}
         <div className="mb-4 flex gap-2">
@@ -92,7 +92,7 @@ export default function BudgetPlanner() {
           </button>
         </div>
         {/* Expense List */}
-        <ul className="mb-4 p-4 flex flex-col gap-2">
+        <ul className="mb-4 p-4 flex flex-col gap-2 bg-orange-300">
           {expenses.map((exp) => (
             <li key={exp.id} className="flex gap-2 justify-between">
               <span>
