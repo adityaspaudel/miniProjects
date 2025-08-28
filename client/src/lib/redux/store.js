@@ -16,7 +16,20 @@ import budgetReducer from "./slices/budgetSlice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import readingListReducer from "./slices/readingListSlice";
-const persistConfig = { key: "root", storage, whitelist: ["readingList"] };
+
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: [
+    "cart",
+    "wishlist",
+    "todos",
+    "notes",
+    "expense",
+    "budget",
+    "readingList",
+  ],
+};
 const rootReducer = combineReducers({
   counter: counterReducer,
   cart: cartReducer,
