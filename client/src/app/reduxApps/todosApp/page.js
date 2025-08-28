@@ -18,7 +18,7 @@ export default function TodoApp() {
 
   return (
     <div className="p-4 flex flex-col gap-2 justify-center items-center bg-slate-400 h-screen w-screen text-black">
-      <div className="flex flex-col gap-2 content-center items-center bg-lime-600 p-4 h-1/2 w-1/2 rounded-xl">
+      <div className="flex flex-col gap-2 content-center items-center bg-lime-200 p-4 h-1/2 w-1/2 rounded-xl">
         <div className="flex flex-col ">
           <h1 className="text-4xl font-bold">Todo List</h1>
           <hr className="w-full border-black" />
@@ -37,11 +37,11 @@ export default function TodoApp() {
             Add
           </button>
         </div>
-        <ul className="mt-4">
+        <ul className="mt-4 flex flex-col gap-2">
           {todos.map((todo) => (
             <li
               key={todo.id}
-              className="flex  justify-between content-between gap-10 items-center w-full"
+              className="flex  justify-between content-between gap-2 items-center w-full"
             >
               <div
                 onClick={() => dispatch(toggleTodo(todo.id))}
@@ -49,7 +49,12 @@ export default function TodoApp() {
               >
                 {todo.text}
               </div>
-              <button onClick={() => dispatch(removeTodo(todo.id))}>❌</button>
+              <button
+                onClick={() => dispatch(removeTodo(todo.id))}
+                className="bg-red-400 hover:bg-red-500 rounded-sm  text-sm px-2"
+              >
+                remove
+              </button>
             </li>
           ))}
         </ul>
