@@ -21,40 +21,52 @@ export default function ReadingList() {
   };
 
   return (
-    <div className="bg-slate-400 text-black ">
-      <h1>📚 Reading List</h1>
-
-      <div>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Enter book title"
-        />
-        <button onClick={handleAdd}>Add</button>
-      </div>
-
-      <ul>
-        {books.map((b) => (
-          <li key={b.id}>
-            <span
-              style={{ textDecoration: b.completed ? "line-through" : "none" }}
+    <div className="flex h-screen w-screen gap-2 justify-center items-center">
+      <div className="bg-slate-400 text-black flex flex-col content-center items-center gap-2 min-h-1/2 w-1/2 p-4">
+        <div>
+          <h1 className="text-4xl font-bold">📚 Reading List</h1>
+          <hr className="border-black" />
+        </div>
+        <div className="flex gap-2">
+          <input
+            className="px-2"
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Enter book title"
+          />
+          <button
+            onClick={handleAdd}
+            className="text-sm  rounded-sm bg-green-400 hover:bg-green-500 px-2"
+          >
+            Add
+          </button>
+        </div>
+        <ul className="flex flex-col gap-2 px-2 ">
+          {books.map((b) => (
+            <li
+              key={b.id}
+              className=" flex gap-2 text-sm font-mono border border-black px-2 justify-between"
             >
-              {b.title}
-            </span>
-            <button onClick={() => dispatch(toggleBook(b.id))}>
-              {b.completed ? "Undo" : "Done"}
-            </button>
-            <button onClick={() => dispatch(removeBook(b.id))}>Delete</button>
-          </li>
-        ))}
-
-        {!books.length && <div>No books yet. Add one above ✨</div>}
-      </ul>
-
-      {books.length > 0 && (
-        <button onClick={() => dispatch(clearList())}>Clear List</button>
-      )}
+              <span
+                style={{
+                  textDecoration: b.completed ? "line-through" : "none",
+                }}
+              >
+                {b.title}
+              </span>
+              <button onClick={() => dispatch(toggleBook(b.id))}>
+                {b.completed ? "Undo" : "Done"}
+              </button>
+              <button className="bg-red-400 hover:bg-red-500 text-sm rounded-sm px-2" onClick={() => dispatch(removeBook(b.id))}>Delete</button>
+            </li>
+          ))}
+          {!books.length && <div>No books yet. Add one above ✨</div>}
+        </ul>
+        {books.length > 0 && (
+          <button onClick={() => dispatch(clearList())}>Clear List</button>
+        )}
+      </div>
     </div>
   );
 }
