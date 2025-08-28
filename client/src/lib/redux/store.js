@@ -13,7 +13,10 @@ import languageReducer from "./slices/languageSlice";
 import wishlistReducer from "./slices/wishlistSlice";
 import expenseReducer from "./slices/expenseSlice";
 import budgetReducer from "./slices/budgetSlice";
+import storage from "redux-persist/lib/storage";
+import { persistReducer, persistStore } from "redux-persist";
 
+const persistConfig = { key: "root", storage };
 const rootReducer = combineReducers({
   counter: counterReducer,
   cart: cartReducer,
@@ -28,6 +31,10 @@ const rootReducer = combineReducers({
   budget: budgetReducer,
 });
 
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: persistedReducer,
 });
+
+export const persistor = persistStore(store);

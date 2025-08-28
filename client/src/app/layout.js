@@ -20,14 +20,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ReduxProvider>
+    
       <html lang="en">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          {children}
+          <ReduxProvider>{children}</ReduxProvider>
         </body>
       </html>
-    </ReduxProvider>
+   
   );
 }
