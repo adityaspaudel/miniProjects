@@ -16,6 +16,7 @@ import budgetReducer from "./slices/budgetSlice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import readingListReducer from "./slices/readingListSlice";
+import habitsReducer from "./slices/habitsSlice";
 
 const persistConfig = {
   key: "root",
@@ -28,6 +29,7 @@ const persistConfig = {
     "expense",
     "budget",
     "readingList",
+    "habits",
   ],
 };
 const rootReducer = combineReducers({
@@ -43,6 +45,7 @@ const rootReducer = combineReducers({
   expense: expenseReducer,
   budget: budgetReducer,
   readingList: readingListReducer,
+  habits: habitsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
