@@ -25,23 +25,38 @@ export default function HabitTracker() {
   return (
     <div className="text-black bg-slate-300 flex justify-center items-center h-screen w-screen">
       <div className="text-black bg-orange-300 flex flex-col gap-2 min-h-1/2 w-1/2 content-center items-center ">
-        <h2>Habit Tracker</h2>
         <div>
-          <input
-            type="text"
-            value={habit}
-            placeholder="Enter a habit"
-            onChange={(e) => {
-              e.preventDefault();
-              setHabit(e.target.value);
-            }}
-          />
-          <button onClick={() => handleAdd()}>Add</button>
-          <button onClick={() => dispatch(clearHabits())}>Clear All</button>
+          <h2 className="text-4xl font-bold">Habit Tracker</h2>
+          <hr className="border-black border-1" />
+        </div>
+        <div className="flex flex-col gap-2 ">
+          <div className="flex gap-2">
+            <input
+              type="text"
+              value={habit}
+              placeholder="Enter a habit"
+              onChange={(e) => {
+                e.preventDefault();
+                setHabit(e.target.value);
+              }}
+            />
+            <button
+              onClick={() => handleAdd()}
+              className="bg-green-400 hove:bg-green-500 text-sm px-2 rounded-sm"
+            >
+              Add
+            </button>
+          </div>
+          <button
+            onClick={() => dispatch(clearHabits())}
+            className="bg-gray-400 hover:bg-gray-500"
+          >
+            Clear All
+          </button>
         </div>
         <ul>
           {habits.map((h) => (
-            <li key={h.id}>
+            <li key={h.id} className="">
               <span
                 onClick={() => dispatch(toggleHabit(h.id))}
                 className={` ${
