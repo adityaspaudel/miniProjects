@@ -56,12 +56,16 @@ export default function HabitTracker() {
         </div>
         <ul className="flex flex-col gap-2">
           {habits.map((h) => (
-            <li key={h.id} className="flex gap-2">
+            <li
+              key={h.id}
+              className="flex gap-2 justify-between items-center w-full"
+            >
               <span
                 onClick={() => dispatch(toggleHabit(h.id))}
                 className={` ${
                   h.completed ? "line-through text-gray-500" : "no-underline"
                 }`}
+                title={`${h.completed ? "completed" : "pending"}`}
               >
                 {h.title}
               </span>
