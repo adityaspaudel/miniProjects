@@ -24,14 +24,14 @@ export default function HabitTracker() {
 
   return (
     <div className="text-black bg-slate-300 flex justify-center items-center h-screen w-screen">
-      <div className="text-black bg-orange-300 flex flex-col gap-2 min-h-1/2 w-1/2 content-center items-center rounded-lg">
+      <div className="text-black bg-orange-300 flex flex-col p-4 gap-2 min-h-1/2 w-1/2 content-center items-center rounded-lg">
         <div>
           <h2 className="text-4xl font-bold">Habit Tracker</h2>
           <hr className="border-black border-1" />
         </div>
         <div className="flex flex-col gap-2 ">
           <div className="flex gap-2">
-            <input
+            <input className="px-2 border-black rounded-sm"
               type="text"
               value={habit}
               placeholder="Enter a habit"
@@ -49,7 +49,7 @@ export default function HabitTracker() {
             {habits.length !== 0 ? (
               <button
                 onClick={() => dispatch(clearHabits())}
-                className="bg-gray-400 hover:bg-gray-500 rounded-sm px-2"
+                className="bg-gray-400 hover:bg-gray-500 rounded-sm px-2 text-sm"
               >
                 Clear All
               </button>
@@ -58,11 +58,11 @@ export default function HabitTracker() {
             )}
           </div>
         </div>
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col gap-2 ">
           {habits.map((h) => (
             <li
               key={h.id}
-              className="flex gap-2 justify-between items-center w-full"
+              className="flex gap-12 justify-between items-center w-full"
             >
               <span
                 onClick={() => dispatch(toggleHabit(h.id))}
@@ -75,7 +75,7 @@ export default function HabitTracker() {
               </span>
               <button
                 onClick={() => dispatch(removeHabit(h.id))}
-                className="bg-red-400 hover:bg-red-500 px-2 rounden-sm"
+                className="bg-red-400 hover:bg-red-500 px-2 rounded-sm text-sm"
               >
                 remove
               </button>
