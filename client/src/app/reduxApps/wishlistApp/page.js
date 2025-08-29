@@ -22,7 +22,7 @@ export default function WishlistTest() {
 
   return (
     <div className="bg-slate-400 text-black flex flex-col gap-2 justify-center items-center h-screen w-screen">
-      <div className="bg-yellow-200 flex flex-col gap-4 min-h-1/2 w-1/2 content-center items-center rounded-xl p-4">
+      <div className="bg-yellow-200 flex flex-col  gap-4 min-h-1/2 w-1/2 content-center items-center rounded-xl p-4">
         <div>
           <h2 className="text-4xl font-bold">My Wishlist</h2>
           <hr className="border-black border-1" />
