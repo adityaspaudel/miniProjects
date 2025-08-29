@@ -24,7 +24,7 @@ export default function HabitTracker() {
 
   return (
     <div className="text-black bg-slate-300 flex justify-center items-center h-screen w-screen">
-      <div className="text-black bg-orange-300 flex flex-col gap-2 min-h-1/2 w-1/2 content-center items-center ">
+      <div className="text-black bg-orange-300 flex flex-col gap-2 min-h-1/2 w-1/2 content-center items-center rounded-lg">
         <div>
           <h2 className="text-4xl font-bold">Habit Tracker</h2>
           <hr className="border-black border-1" />
@@ -46,13 +46,17 @@ export default function HabitTracker() {
             >
               Add
             </button>
+            {habits.length !== 0 ? (
+              <button
+                onClick={() => dispatch(clearHabits())}
+                className="bg-gray-400 hover:bg-gray-500 rounded-sm px-2"
+              >
+                Clear All
+              </button>
+            ) : (
+              ""
+            )}
           </div>
-          <button
-            onClick={() => dispatch(clearHabits())}
-            className="bg-gray-400 hover:bg-gray-500"
-          >
-            Clear All
-          </button>
         </div>
         <ul className="flex flex-col gap-2">
           {habits.map((h) => (
@@ -71,7 +75,7 @@ export default function HabitTracker() {
               </span>
               <button
                 onClick={() => dispatch(removeHabit(h.id))}
-                className="bg-red-400 hover:bg-red-500 px-2"
+                className="bg-red-400 hover:bg-red-500 px-2 rounden-sm"
               >
                 remove
               </button>
