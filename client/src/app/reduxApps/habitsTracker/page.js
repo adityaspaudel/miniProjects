@@ -54,9 +54,9 @@ export default function HabitTracker() {
             Clear All
           </button>
         </div>
-        <ul>
+        <ul className="flex flex-col gap-2">
           {habits.map((h) => (
-            <li key={h.id} className="">
+            <li key={h.id} className="flex gap-2">
               <span
                 onClick={() => dispatch(toggleHabit(h.id))}
                 className={` ${
@@ -65,7 +65,10 @@ export default function HabitTracker() {
               >
                 {h.title}
               </span>
-              <button onClick={() => dispatch(removeHabit(h.id))}>
+              <button
+                onClick={() => dispatch(removeHabit(h.id))}
+                className="bg-red-400 hover:bg-red-500 px-2"
+              >
                 remove
               </button>
             </li>
