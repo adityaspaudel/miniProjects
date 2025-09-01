@@ -46,6 +46,9 @@ export default function Counter() {
         >
           Increment By 5
         </button>
+        <button onClick={() => dispatch(incrementByAmount(10))}>
+          Increment By Amount
+        </button>
         <button
           onClick={() => dispatch(reset())}
           className="bg-gray-400 px-2 rounded-md border-2 border-gray-400 hover:bg-gray-600 hover:text-white hover:border-gray-600"
