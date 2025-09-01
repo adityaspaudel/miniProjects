@@ -90,19 +90,19 @@ export default function BudgetPlanner() {
           />
           <button
             onClick={handleAddExpense}
-            className="bg-green-400 hover:bg-green-500 px-2 roudned-sm text-sm"
+            className="bg-green-400 hover:bg-green-500 px-2 rounded-sm text-sm"
           >
             Add
           </button>
         </div>
         {/* Expense List */}
-        <ul className="mb-4  flex flex-col gap-2 bg-orange-300">
+        <ul className="mb-4  flex flex-col gap-2 bg-orange-300 p-4">
           {expenses.map((exp) => (
             <li
               key={exp.id}
               className="flex gap-2 justify-between items-center w-full "
             >
-              <div className="flex gap-2 p-2 ">
+              <div className="flex gap-2">
                 <div>{exp.name}</div>
                 <div className="flex font-bold font-mono">Rs. {exp.amount}</div>
               </div>
