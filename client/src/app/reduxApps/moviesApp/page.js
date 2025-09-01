@@ -34,15 +34,16 @@ export default function MoviesPage() {
             <button
               key={movie.id}
               onClick={() => dispatch(addFavorite(movie))}
-              className="bg-green-400 hover:bg-green-500 text-sm px-4 rounded-sm"
+              className="bg-green-400 hover:bg-green-500  flex gap-2 text-sm px-4 rounded-sm" title={`add ${movie.title}`}
             >
-              Add {movie.title}
+              
+              {movie.title}
             </button>
           ))}
         </div>
         {/* Favorites List */}
         <h2 className="text-2x font-bold">
-          Favorite Movies <hr className="border-black"/>
+          Favorite Movies <hr className="border-black" />
         </h2>
         {favorites.length === 0 ? (
           <p>No favorite movies yet.</p>
