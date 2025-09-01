@@ -22,7 +22,7 @@ export default function ReadingList() {
 
   return (
     <div className="flex h-screen w-screen gap-2 justify-center items-center">
-      <div className="bg-slate-400 text-black flex flex-col  content-center items-center gap-2 min-h-1/2 w-1/2 p-4">
+      <div className="bg-slate-400 text-black flex flex-col  content-center items-center gap-2 min-h-1/2 w-1/2 p-4 rounded-xl">
         <div>
           <h1 className="text-4xl font-bold">📚 Reading List</h1>
           <hr className="border-black" />
