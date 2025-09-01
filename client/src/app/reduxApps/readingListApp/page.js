@@ -46,17 +46,15 @@ export default function ReadingList() {
           {books.map((b) => (
             <li
               key={b.id}
-              className=" flex gap-2 text-sm font-mono border border-black px-2 justify-between"
+              className=" flex gap-2 text-sm font-mono border border-black p-2 justify-between rounded-xl"
             >
               <span
-                style={{
-                  textDecoration: b.completed ? "line-through" : "none",
-                }}
+                className={b.completed ? "line-through text-red-600" : "no-underline"}
               >
                 {b.title}
               </span>
               <button onClick={() => dispatch(toggleBook(b.id))}>
-                {b.completed ? "Undo" : "Done"}
+                {b.completed ? <span className="text-sky-600 hover:text-sky-800">Undo</span> : <span className="text-green-600 hover:text-green-800"> Done</span>}
               </button>
               <button
                 className="bg-red-400 hover:bg-red-500 text-sm rounded-sm px-2"
@@ -69,7 +67,7 @@ export default function ReadingList() {
           {!books.length && <div>No books yet. Add one above ✨</div>}
         </ul>
         {books.length > 0 && (
-          <button onClick={() => dispatch(clearList())}>Clear List</button>
+          <button onClick={() => dispatch(clearList())} className="bg-gray-600 text-white p-2 hover:bg-gray-800 hover rounded-sm">Clear List</button>
         )}
       </div>
     </div>
