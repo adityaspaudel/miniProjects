@@ -34,9 +34,9 @@ export default function MoviesPage() {
             <button
               key={movie.id}
               onClick={() => dispatch(addFavorite(movie))}
-              className="bg-green-400 hover:bg-green-500  flex gap-2 text-sm px-4 rounded-sm" title={`add ${movie.title}`}
+              className="bg-green-400 hover:bg-green-500  flex gap-2 text-sm px-4 rounded-sm"
+              title={`add ${movie.title}`}
             >
-              
               {movie.title}
             </button>
           ))}
@@ -70,7 +70,7 @@ export default function MoviesPage() {
         {favorites.length > 0 && (
           <button
             onClick={() => dispatch(clearFavorites())}
-            className="mt-4 px-4 py-2 bg-gray-800 text-white rounded"
+            className="mt-4 px-4 py-2 bg-gray-600 hover:bg-gray-800 text-white rounded"
           >
             Clear All
           </button>
