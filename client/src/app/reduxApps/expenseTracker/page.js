@@ -37,7 +37,7 @@ export default function ExpenseTracker() {
           className="flex gap-4 justify-between items-center"
         >
           <input
-            className="text-black px-2"
+            className="text-black px-2 rounded-sm"
             type="text"
             placeholder="Expense Title"
             value={title}
@@ -45,7 +45,7 @@ export default function ExpenseTracker() {
           />
 
           <input
-            className="text-black px-2"
+            className="text-black px-2 rounded-sm"
             type="number"
             placeholder="Amount"
             value={amount}
@@ -53,7 +53,7 @@ export default function ExpenseTracker() {
           />
           <button
             type="submit"
-            className="text-sm bg-green-400 hover:text-green-500 px-2 "
+            className="text-sm bg-green-400 hover:bg-green-500 px-2 rounded-sm"
           >
             Add Expense
           </button>
@@ -69,7 +69,7 @@ export default function ExpenseTracker() {
               </div>
               <button
                 onClick={() => dispatch(removeExpense(exp.id))}
-                className="text-sm bg-red-400 hover:bg-red-500 px-2"
+                className="text-sm bg-red-400 hover:bg-red-500 px-2 rounded-sm"
               >
                 {" "}
                 Remove
@@ -78,11 +78,13 @@ export default function ExpenseTracker() {
           ))}
         </ul>
         {/* Total */}
-        <h3 className="font-bold">Total: Rs. {total}</h3>
+        <h3 className="font-bold">
+          Total: Rs. {total} <hr className="w-full border-black" />
+        </h3>
         {expenses.length > 0 && (
           <button
             onClick={() => dispatch(clearExpenses())}
-            className="bg-gray-300 hover:bg-gray-400 text-red-500  font-bold px-4"
+            className="bg-gray-300 hover:bg-gray-400 text-red-500  font-bold px-4 rounded-sm"
           >
             Clear All
           </button>
