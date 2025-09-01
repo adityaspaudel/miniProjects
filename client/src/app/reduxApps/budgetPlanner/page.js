@@ -2,8 +2,12 @@
 
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setBudget, addExpense, removeExpense, clearExpenses } from "@/lib/redux/slices/budgetSlice";
-
+import {
+  setBudget,
+  addExpense,
+  removeExpense,
+  clearExpenses,
+} from "@/lib/redux/slices/budgetSlice";
 
 export default function BudgetPlanner() {
   const dispatch = useDispatch();
@@ -92,13 +96,13 @@ export default function BudgetPlanner() {
           </button>
         </div>
         {/* Expense List */}
-        <ul className="mb-4 p-4 flex flex-col gap-2 bg-orange-300">
+        <ul className="mb-4  flex flex-col gap-2 bg-orange-300">
           {expenses.map((exp) => (
             <li
               key={exp.id}
-              className="flex gap-2 justify-between items-center w-full"
+              className="flex gap-2 justify-between items-center w-full "
             >
-              <div className="flex gap-2 ">
+              <div className="flex gap-2 p-2 ">
                 <div>{exp.name}</div>
                 <div className="flex font-bold font-mono">Rs. {exp.amount}</div>
               </div>

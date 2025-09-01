@@ -8,7 +8,7 @@ const Home = () => {
       emoji: "✅",
       features: ["Add tasks", "Delete tasks", "Mark complete/incomplete"],
       conceptsUsed: ["useState", "Event handling", "Conditional rendering"],
-    },
+    },     
     {
       id: 2,
       title: "Counter App",
