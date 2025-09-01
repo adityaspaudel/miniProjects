@@ -41,13 +41,18 @@ export default function MoviesPage() {
           ))}
         </div>
         {/* Favorites List */}
-        <h2>Favorites</h2>
+        <h2 className="text-2x font-bold">
+          Favorite Movies <hr className="border-black"/>
+        </h2>
         {favorites.length === 0 ? (
           <p>No favorite movies yet.</p>
         ) : (
-          <ul className="flex gap-2">
+          <ul className="flex gap-2 flex-col font-mono">
             {favorites.map((movie) => (
-              <li key={movie.id} className=" flex flex-col gap-2">
+              <li
+                key={movie.id}
+                className=" flex  justify-between items-center gap-12"
+              >
                 <span className="inline-block">
                   {movie.title} :({movie.year})
                 </span>
