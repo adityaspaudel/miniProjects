@@ -30,10 +30,12 @@ export default function WeatherApp() {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Enter city"
             className="text-black px-4 py-2 border rounded-lg"
+            title="City Name"
           />
           <button
             onClick={handleSearch}
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+            className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg"
+            title="Click to Search City"
           >
             Search
           </button>
@@ -41,8 +43,11 @@ export default function WeatherApp() {
         {loading && <p>Loading...</p>}
         {error && <p className="text-red-500">{error}</p>}
         {data && (
-          <div className="text-center mt-4">
-            <h2 className="text-2xl font-semibold">{data.name}</h2>
+          <div className="text-center mt-4 font-mono">
+            <h2 className="text-2xl font-semibold" title="Searched City ">
+              {data.name}
+
+            </h2>
             <p>Temperature: {data.main.temp}°C</p>
             <p>Weather: {data.weather[0].description}</p>
             <p>Humidity: {data.main.humidity}%</p>
