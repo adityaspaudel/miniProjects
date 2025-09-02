@@ -1,6 +1,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import storage from "redux-persist/lib/storage";
+import { persistReducer, persistStore } from "redux-persist";
 
-import counterReducer from "./slices/counterSlice"; // Example
+import counterReducer from "./slices/counterSlice"; 
 import cartReducer from "./slices/cartSlice";
 import themeReducer from "./slices/themeSlice";
 import todosReducer from "./slices/todosSlice";
@@ -13,10 +15,12 @@ import languageReducer from "./slices/languageSlice";
 import wishlistReducer from "./slices/wishlistSlice";
 import expenseReducer from "./slices/expenseSlice";
 import budgetReducer from "./slices/budgetSlice";
-import storage from "redux-persist/lib/storage";
-import { persistReducer, persistStore } from "redux-persist";
+
 import readingListReducer from "./slices/readingListSlice";
 import habitsReducer from "./slices/habitsSlice";
+import weatherReducer from "./slices/weatherSlice";
+
+
 
 const persistConfig = {
   key: "root",
@@ -30,6 +34,7 @@ const persistConfig = {
     "budget",
     "readingList",
     "habits",
+    "weather",
   ],
 };
 const rootReducer = combineReducers({
@@ -46,6 +51,7 @@ const rootReducer = combineReducers({
   budget: budgetReducer,
   readingList: readingListReducer,
   habits: habitsReducer,
+  weather: weatherReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
