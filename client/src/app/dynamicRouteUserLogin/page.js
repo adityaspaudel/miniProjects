@@ -79,9 +79,15 @@ const UserLogin = () => {
   console.log(userList);
 
   return (
-    <div>
-      <h1>UserLogin</h1>
-      <form><input/></form>
+    <div className="flex flex-col gap-2 justify-center items-center bg-yellow-200 h-screen w-screen text-black">
+      <h1 className="text-4xl font-bold">
+        UserLogin
+        <hr className="border-black" />
+      </h1>
+      <form className="bg-red-300 flex flex-col gap-2 p-4">
+        <input />
+        <input />
+      </form>
     </div>
   );
 };
