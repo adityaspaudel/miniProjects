@@ -46,7 +46,6 @@ export default function WeatherApp() {
           <div className="text-center mt-4 font-mono">
             <h2 className="text-2xl font-semibold" title="Searched City ">
               {data.name}
-
             </h2>
             <p>Temperature: {data.main.temp}°C</p>
             <p>Weather: {data.weather[0].description}</p>
