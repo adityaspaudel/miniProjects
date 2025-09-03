@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 const UserLogin = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-
+  const [newUser, setNewUser] = useState("");
   const userList = [
     {
       id: 1,
@@ -77,7 +77,7 @@ const UserLogin = () => {
       password: "olivia7077",
     },
   ];
-  console.log(userList);
+  // console.log(userList);
   const handleChange = (e) => {
     e.preventDefault();
 
@@ -86,7 +86,13 @@ const UserLogin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("form submitted successfully", JSON.stringify(formData));
+    alert("form submitted successfully " + JSON.stringify(formData));
+
+    const x = userList.filter(
+      (v, k) => v.email === formData.email && v.password === formData.password
+    );
+    setNewUser(x);
+    console.log("new User: ", x);
   };
 
   return (
@@ -115,6 +121,8 @@ const UserLogin = () => {
           login
         </button>
       </form>
+
+      {JSON.stringify(newUser)}
     </div>
   );
 };
