@@ -78,10 +78,15 @@ const UserProfile = () => {
       password: "olivia7077",
     },
   ];
+
+  const user = userList.find((u) => u.id == params.id);
+
   return (
     <div>
       <div>UserProfile</div>
       {params.id}
+
+      <div>{JSON.stringify(user)}</div>
     </div>
   );
 };
