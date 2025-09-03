@@ -87,6 +87,13 @@ const UserProfile = () => {
       {params.id}
 
       <div>{JSON.stringify(user)}</div>
+
+      <div>
+        <h1>welcome {user.username}</h1>
+        <div>
+          your email is {user.email}, your id is {user.id}
+        </div>
+      </div>
     </div>
   );
 };
