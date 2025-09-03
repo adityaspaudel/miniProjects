@@ -109,24 +109,32 @@ const UserLogin = () => {
         <hr className="border-black" />
       </h1>
       <form
-        className="bg-red-300 flex flex-col gap-2 p-4"
+        className="bg-red-300 flex flex-col justify-center items-center gap-4 p-8 w-96 rounded-xl"
         onSubmit={handleSubmit}
       >
-        <input
-          name="email"
-          type="email"
-          placeholder="Enter email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Enter password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-        <button type="submit" className="bg-green-400 hover:bg-green-500">
+        <div className="flex flex-col w-full">
+          <label htmlFor="email">Enter email</label>
+          <input
+            name="email"
+            type="email"
+          
+            value={formData.email}
+            onChange={handleChange}
+            className="px-2 rounded-sm w-full"
+          />
+        </div>
+        <div className="flex flex-col w-full">
+          <label htmlFor="password"> Enter password</label>
+          <input
+            name="password"
+            type="password"
+          
+            value={formData.password}
+            onChange={handleChange}
+            className="px-2 rounded-sm w-full"
+          />
+        </div>
+        <button type="submit" className="bg-green-400 hover:bg-green-500 w-20">
           Login
         </button>
       </form>

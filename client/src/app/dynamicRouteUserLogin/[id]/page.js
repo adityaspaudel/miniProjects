@@ -82,16 +82,20 @@ const UserProfile = () => {
   const user = userList.find((u) => u.id == params.id);
 
   return (
-    <div>
-      <div>UserProfile</div>
-      {params.id}
+    <div className="flex flex-col gap-4 justify-center items-center h-screen w-screen bg-slate-500 text-black">
+      <div className="text-4xl font-bold">
+        Dynamic User Profile
+        <hr className="border-black" />
+      </div>
+      {/* {params.id}
 
-      <div>{JSON.stringify(user)}</div>
+      <div>{JSON.stringify(user)}</div> */}
 
-      <div>
-        <h1>welcome {user.username}</h1>
-        <div>
-          your email is {user.email}, your id is {user.id}
+      <div className=" bg-yellow-200 p-8 rounded-xl w-1/2 h-1/2 flex flex-col gap-2 justify-center items-center">
+        <h1 className="font-semibold text-red-500 text-2xl">Welcome, {user.username}!</h1>
+        <div className="flex flex-col justify-center items-center">
+          <div>your email is {user.email}</div>
+          <div>your id is {user.id}</div>
         </div>
       </div>
     </div>
