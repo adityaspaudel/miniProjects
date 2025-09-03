@@ -1,8 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 const UserLogin = () => {
+  const [formData, setFormData] = useState({ email: "", password: "" });
+
   const userList = [
     {
       id: 1,
@@ -75,18 +77,43 @@ const UserLogin = () => {
       password: "olivia7077",
     },
   ];
-
   console.log(userList);
+  const handleChange = (e) => {
+    e.preventDefault();
+
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("form submitted successfully", JSON.stringify(formData));
+  };
 
   return (
     <div className="flex flex-col gap-2 justify-center items-center bg-yellow-200 h-screen w-screen text-black">
       <h1 className="text-4xl font-bold">
-        UserLogin
+        Login
         <hr className="border-black" />
       </h1>
-      <form className="bg-red-300 flex flex-col gap-2 p-4">
-        <input />
-        <input />
+      <form
+        className="bg-red-300 flex flex-col gap-2 p-4"
+        onSubmit={handleSubmit}
+      >
+        <input
+          name="email"
+          type="email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+        <input
+          name="password"
+          type="password"
+          value={formData.password}
+          onChange={handleChange}
+        />
+        <button type="submit" className="bg-green-400 hover:bg-green-500">
+          login
+        </button>
       </form>
     </div>
   );
