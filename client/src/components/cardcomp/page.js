@@ -12,17 +12,20 @@ const CardComponent = () => {
           height={200}
         />
         <div className="flex flex-col gap-2">
-          <h2 className="text-black">Card Title</h2>
-          <hr className="border-1 border-black" />
+          <h2 className="text-black font-bold">
+            Card Title
+            <hr className="border-1 border-black" />
+          </h2>
+
           <p className="text-sm text-black font-sans">
             lorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum
             dolor sit amet consectetur adipisicing elit.
           </p>
           <div className="flex gap-2 justify-between  text-[12px]">
-            <span className="rounded-xl border-2 border-pink-400 px-2 bg-green-400 hover:bg-green-500 hover:border-green-500">
+            <span className="rounded-xl border-2 border-yellow-200 px-2 bg-green-400 hover:bg-green-500 hover:border-green-500 hover:cursor-pointer">
               Furniture
             </span>
-            <span className="rounded-xl border-2 border-pink-400 px-2 bg-green-400 hover:bg-green-500 hover:border-green-500">
+            <span className="rounded-xl border-2 border-yellow-200 px-2 bg-green-400 hover:bg-green-500 hover:border-green-500 hover:cursor-pointer">
               Price
             </span>
           </div>
