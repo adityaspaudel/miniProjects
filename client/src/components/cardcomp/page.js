@@ -3,8 +3,8 @@ import React from "react";
 
 const CardComponent = () => {
   return (
-    <div className="bg-pink-400 h-screen w-screen">
-      <div className="flex flex-col justify-center items-center m-auto w-[200px] border-2 border-green-400 rounded-3xl p-2 ">
+    <div className="bg-pink-200 h-screen w-screen">
+      <div className="flex flex-col justify-center items-center m-auto w-[200px] border-2 border-green-400 rounded-3xl p-2 bg-yellow-200">
         <img
           className="border-0 rounded-3xl "
           src="https://fastly.picsum.photos/id/4/5000/3333.jpg?hmac=ghf06FdmgiD0-G4c9DdNM8RnBIN7BO0-ZGEw47khHP4"
