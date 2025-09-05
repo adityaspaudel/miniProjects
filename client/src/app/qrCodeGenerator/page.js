@@ -5,8 +5,17 @@ import { QRCodeCanvas } from "qrcode.react";
 
 export default function UserDetailsQRCodeGenerator() {
   const [user, setUser] = useState({ name: "", email: "", phone: "" });
+  const [qrValue, setQrValue] = useState("");
 
-  const qrValue = `Name: ${user.name}\nEmail: ${user.email}\nPhone: ${user.phone}`;
+  const handleGenerate = () => {
+    if (!user.name && !user.email && !user.phone) {
+      alert("Please enter at least one detail.");
+      return;
+    }
+    setQrValue(
+      `Name: ${user.name}\nEmail: ${user.email}\nPhone: ${user.phone}`
+    );
+  };
 
   return (
     <div className="flex flex-col justify-center items-center h-screen w-screen bg-slate-400 text-black">
@@ -16,37 +25,43 @@ export default function UserDetailsQRCodeGenerator() {
         </h2>
 
         <input
-          className="p-2 text-xl rounded-lg w-full"
+          className="px-2 text-xl rounded-lg w-1/2"
           type="text"
           placeholder="Enter Name"
           value={user.name}
           onChange={(e) => setUser({ ...user, name: e.target.value })}
         />
         <input
-          className="p-2 text-xl rounded-lg w-full"
+          className="px-2 text-xl rounded-lg w-1/2"
           type="email"
           placeholder="Enter Email"
           value={user.email}
           onChange={(e) => setUser({ ...user, email: e.target.value })}
         />
         <input
-          className="p-2 text-xl rounded-lg w-full"
+          className="px-2 text-xl rounded-lg  w-1/2"
           type="number"
           placeholder="Enter Phone"
           value={user.phone}
           onChange={(e) => setUser({ ...user, phone: e.target.value })}
         />
 
-        {user.name || user.email || user.phone ? (
-          <div className="flex flex-col gap-4 content-center items-center">
-            <div className="font-bold">Your QR Code is here: </div>
-            <QRCodeCanvas value={qrValue} size={300} />
+        <button
+          onClick={handleGenerate}
+          className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+        >
+          Generate QR Code
+        </button>
 
+        {qrValue && (
+          <div className="flex flex-col gap-4 content-center items-center mt-4">
+            <div className="font-bold">Your QR Code is here: </div>
+            <QRCodeCanvas value={qrValue} size={200} />
             <div className="underline font-mono text-center">
               Scan to see user details
             </div>
           </div>
-        ) : null}
+        )}
       </div>
     </div>
   );
