@@ -1,6 +1,6 @@
 "use client";
 
-import CardComponent from "@/components/cardcomp/page";
+import CardComponent from "@/components/cardComp/page";
 import React from "react";
 
 const Cards = () => {
