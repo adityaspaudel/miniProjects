@@ -8,10 +8,10 @@ export default function QRCodeGenerator() {
   return (
     <div className="flex flex-col justify-center items-center h-screen w-screen bg-slate-400 text-black">
       <div className="flex flex-col gap-4 justify-center items-center min-h-1/2 w-1/2 bg-orange-300 p-4  rounded-xl">
-        {" "}
         <h2 className="text-4xl font-bold text-black">
           QR Code Generator <hr className="border-black" />
         </h2>
+
         <input
           className="p-2 text-2xl rounded-lg"
           type="text"
@@ -19,7 +19,16 @@ export default function QRCodeGenerator() {
           onChange={(e) => setText(e.target.value)}
           placeholder="Enter text or URL"
         />
-        {text && <QRCodeCanvas value={text} size={200} />}
+        {text && (
+          <div className="flex flex-col gap-4 content-center items-center">
+            <div className="font-bold">Your QR Code is here: </div>
+            <QRCodeCanvas value={text} size={300} />
+
+            <div className="underline font-mono">
+              Scan to know the QRcode value
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
