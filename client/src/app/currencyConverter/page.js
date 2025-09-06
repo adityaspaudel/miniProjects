@@ -39,34 +39,36 @@ export default function CurrencyConverter() {
   };
 
   return (
-    <div>
-      <h2>Currency Converter</h2>
-      <input
-        type="number"
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-      />
-      <select value={from} onChange={(e) => setFrom(e.target.value)}>
-        {supported.map((code) => (
-          <option key={code} value={code}>
-            {code}
-          </option>
-        ))}
-      </select>
-      <span> to </span>
-      <select value={to} onChange={(e) => setTo(e.target.value)}>
-        {supported.map((code) => (
-          <option key={code} value={code}>
-            {code}
-          </option>
-        ))}
-      </select>
-      <button onClick={convert}>Convert</button>
-      {result && (
-        <p>
-          {amount} {from} = {result} {to}
-        </p>
-      )}
+    <div className="bg-slate-300 flex flex-col gap-2 justify-center items-center text-black h-screen w-screen">
+      <div className="flex flex-col content-center items-center gap-2 bg-yellow-200 min-h-1/2 w-1/2 p-4">
+        <h2>Currency Converter</h2>
+        <input
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+        />
+        <select value={from} onChange={(e) => setFrom(e.target.value)}>
+          {supported.map((code) => (
+            <option key={code} value={code}>
+              {code}
+            </option>
+          ))}
+        </select>
+        <span> to </span>
+        <select value={to} onChange={(e) => setTo(e.target.value)}>
+          {supported.map((code) => (
+            <option key={code} value={code}>
+              {code}
+            </option>
+          ))}
+        </select>
+        <button onClick={convert}>Convert</button>
+        {result && (
+          <p>
+            {amount} {from} = {result} {to}
+          </p>
+        )}
+      </div>
     </div>
   );
 }
