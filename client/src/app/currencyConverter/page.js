@@ -40,9 +40,9 @@ export default function CurrencyConverter() {
 
   return (
     <div className="bg-slate-300 flex flex-col gap-2 justify-center items-center text-black h-screen w-screen">
-      <div className="flex flex-col content-center items-center gap-2 bg-yellow-200 min-h-1/2 w-1/2 p-4">
-        <h2>Currency Converter</h2>
-        <input
+      <div className="flex flex-col content-center items-center gap-4 bg-yellow-200 min-h-1/2 w-1/2 p-4 rounded-xl">
+        <h2 className="text-4xl font-bold">Currency Converter<hr className="border-black"/></h2>
+        <input className="px-2"
           type="number"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
