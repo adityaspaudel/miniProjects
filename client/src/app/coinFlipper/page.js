@@ -8,6 +8,7 @@ const CoinFlipperGame = () => {
   const [flipping, setFlipping] = useState(false);
   const [wins, setWins] = useState(0);
   const [losses, setLosses] = useState(0);
+  const [result, setResult] = useState(null); // ✅ separate result state
 
   const handleClick = () => {
     if (!choice) {
@@ -17,20 +18,28 @@ const CoinFlipperGame = () => {
 
     setFlipping(true);
     setSide(null);
+    setResult(null); // reset old result while flipping
 
     setTimeout(() => {
       const randomNum = Math.random();
-      const result = randomNum < 0.5 ? "tail" : "head";
-      setSide(result);
+      const outcome = randomNum < 0.5 ? "tail" : "head";
+      setSide(outcome);
 
-      if (result === choice) {
-        setWins(wins + 1);
+      if (outcome === choice) {
+        setWins((prev) => prev + 1);
+        setResult("win");
       } else {
-        setLosses(losses + 1);
+        setLosses((prev) => prev + 1);
+        setResult("lose");
       }
 
       setFlipping(false);
     }, 1500);
+  };
+
+  const handleChoice = (value) => {
+    setChoice(value);
+    setResult(null); // ✅ clear result whenever choice changes
   };
 
   const handleReset = () => {
@@ -38,11 +47,12 @@ const CoinFlipperGame = () => {
     setChoice(null);
     setWins(0);
     setLosses(0);
+    setResult(null);
   };
 
   return (
     <div className="flex justify-center items-center h-screen w-screen bg-gradient-to-br from-slate-500 to-slate-800 text-black">
-      <div className="flex flex-col bg-sky-200 p-6 gap-6 items-center  rounded-xl shadow-lg min-h-1/2 w-1/2">
+      <div className="flex flex-col bg-sky-200 p-6 gap-6 items-center rounded-xl shadow-lg min-h-1/2 w-1/2">
         <h1 className="text-4xl font-bold text-center">🪙 Coin Flipper Game</h1>
         <hr className="border-black w-full" />
 
@@ -54,7 +64,7 @@ const CoinFlipperGame = () => {
               name="headTail"
               value="head"
               checked={choice === "head"}
-              onChange={(e) => setChoice(e.target.value)}
+              onChange={(e) => handleChoice(e.target.value)}
             />
             Head
           </label>
@@ -64,7 +74,7 @@ const CoinFlipperGame = () => {
               name="headTail"
               value="tail"
               checked={choice === "tail"}
-              onChange={(e) => setChoice(e.target.value)}
+              onChange={(e) => handleChoice(e.target.value)}
             />
             Tail
           </label>
@@ -108,9 +118,9 @@ const CoinFlipperGame = () => {
         </div>
 
         {/* Result Message */}
-        {side && choice && !flipping && (
+        {result && !flipping && (
           <div>
-            {side === choice ? (
+            {result === "win" ? (
               <span className="text-white text-lg bg-green-500 px-4 py-2 rounded-md shadow">
                 🎉 You Won! Great Guess!
               </span>
