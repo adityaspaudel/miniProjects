@@ -9,22 +9,26 @@ export default function CurrencyConverter() {
   const [to, setTo] = useState("USD"); // USD default
   const [result, setResult] = useState(null);
 
-  // Supported currencies
-  const supported = [
-    "NPR", // Nepali Rupee
-    "USD", // US Dollar
-    "INR", // Indian Rupee
-    "CAD", // Canadian Dollar
-    "AUD", // Australian Dollar
-    "KWD", // Kuwaiti Dinar
-    "AED", // UAE Dirham
-    "QAR", // Qatari Riyal
-    "NZD", // New Zealand Dollar
-    "CNY", // Chinese Yuan
-    "JPY", // Japanese Yen
-    "KRW", // South Korean Won
-    "GBP", // UK Pound Sterling
-  ];
+  // Currency mapping for tooltips
+  const currencyNames = {
+    NPR: "Nepalese Rupee",
+    USD: "US Dollar",
+    INR: "Indian Rupee",
+    CAD: "Canadian Dollar",
+    AUD: "Australian Dollar",
+    KWD: "Kuwaiti Dinar",
+    AED: "UAE Dirham",
+    QAR: "Qatari Riyal",
+    NZD: "New Zealand Dollar",
+    CNY: "Chinese Yuan",
+    JPY: "Japanese Yen",
+    KRW: "South Korean Won",
+    GBP: "British Pound Sterling",
+    SAR: "Saudi Arabian Riyal",
+  };
+
+  
+  const supported = Object.keys(currencyNames);
 
   useEffect(() => {
     fetch("https://open.er-api.com/v6/latest/USD")
@@ -67,7 +71,7 @@ export default function CurrencyConverter() {
             className="font-bold"
           >
             {supported.map((code) => (
-              <option key={code} value={code}>
+              <option key={code} value={code} title={currencyNames[code]}>
                 {code}
               </option>
             ))}
@@ -87,7 +91,7 @@ export default function CurrencyConverter() {
             className="font-bold"
           >
             {supported.map((code) => (
-              <option key={code} value={code}>
+              <option key={code} value={code} title={currencyNames[code]}>
                 {code}
               </option>
             ))}
@@ -103,7 +107,8 @@ export default function CurrencyConverter() {
 
         {result && (
           <p>
-            {amount} {from} = {result} {to}
+            {amount} <span className="font-bold">{from}</span> = {result}{" "}
+            <span className="font-bold">{to}</span>
           </p>
         )}
       </div>
