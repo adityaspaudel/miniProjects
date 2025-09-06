@@ -5,106 +5,136 @@ import React, { useState } from "react";
 const CoinFlipperGame = () => {
   const [side, setSide] = useState(null);
   const [choice, setChoice] = useState(null);
-  const [result, setResult] = useState(null);
+  const [flipping, setFlipping] = useState(false);
+  const [wins, setWins] = useState(0);
+  const [losses, setLosses] = useState(0);
 
   const handleClick = () => {
-    const randomNum = Math.random();
-    if (randomNum < 0.5) {
-      setSide("tail");
-      // if (side == choice) {
-      //   setResult("you won");
-      // } else {
-      //   setResult("you lose");
-      // }
-    } else {
-      setSide("head");
-      // if (side == choice) {
-      //   setResult("you won");
-      // } else {
-      //   setResult("you lose");
-      // }
+    if (!choice) {
+      alert("Please select Head or Tail first!");
+      return;
     }
+
+    setFlipping(true);
+    setSide(null);
+
+    setTimeout(() => {
+      const randomNum = Math.random();
+      const result = randomNum < 0.5 ? "tail" : "head";
+      setSide(result);
+
+      if (result === choice) {
+        setWins(wins + 1);
+      } else {
+        setLosses(losses + 1);
+      }
+
+      setFlipping(false);
+    }, 1500);
   };
 
-  // const handleChange = (e) => {
-  //   setChoice(e.target.value);
-  //   console.log(choice);
-  // };
+  const handleReset = () => {
+    setSide(null);
+    setChoice(null);
+    setWins(0);
+    setLosses(0);
+  };
+
   return (
-    <div className="flex gap-2 content-center  justify-center items-center h-screen w-screen bg-slate-400 text-black">
-      <div className="flex flex-col bg-sky-400 p-4 content-center gap-4 items-center min-h-1/2 w-1/2 rounded-lg ">
-        <div>
-          <div className="text-6xl ">Coin Flipper Game</div>
-          <hr className="border-black" />
-        </div>
-        <div className="flex gap-4 ">
-          <label htmlFor="headTail">
+    <div className="flex justify-center items-center h-screen w-screen bg-gradient-to-br from-slate-500 to-slate-800 text-black">
+      <div className="flex flex-col bg-sky-200 p-6 gap-6 items-center  rounded-xl shadow-lg min-h-1/2 w-1/2">
+        <h1 className="text-4xl font-bold text-center">🪙 Coin Flipper Game</h1>
+        <hr className="border-black w-full" />
+
+        {/* Choice */}
+        <div className="flex gap-6 text-lg">
+          <label>
             <input
               type="radio"
               name="headTail"
               value="head"
               checked={choice === "head"}
-              onChange={(e) => {
-                // e.preventDefault();
-                setChoice(e.target.value);
-                console.log(e.target.value);
-              }}
+              onChange={(e) => setChoice(e.target.value)}
             />
             Head
           </label>
           <label>
             <input
-              name="headTail"
               type="radio"
+              name="headTail"
               value="tail"
               checked={choice === "tail"}
-              onChange={(e) => {
-                // e.preventDefault();
-                setChoice(e.target.value);
-                console.log(e.target.value);
-              }}
+              onChange={(e) => setChoice(e.target.value)}
             />
             Tail
           </label>
         </div>
+
+        {/* Show choice */}
         <div>
           {choice ? (
             <p>
-              Your choice is:
-              <span className="bg-emerald-500 px-2">{choice}</span>
+              Your choice:{" "}
+              <span className="bg-emerald-500 px-2 py-1 rounded text-white">
+                {choice}
+              </span>
             </p>
           ) : (
             <p>No choice selected yet</p>
           )}
         </div>
+
+        {/* Flip Button */}
         <button
-          className="inline-block px-2 w-14 rounded-lg bg-amber-600 hover:bg-amber-500"
-          onClick={(e) => {
-            e.preventDefault();
-            handleClick();
-          }}
+          className="px-6 py-2 rounded-lg bg-amber-600 text-white font-semibold shadow hover:bg-amber-500 transition"
+          onClick={handleClick}
+          disabled={flipping}
         >
-          flip
+          {flipping ? "Flipping..." : "Flip"}
         </button>
-        {/* <div>{side && <div>computer's choice: {side}</div>}</div>
-        <duv>result: {result}</duv> */}
-        <div>
-          Here, computer's choice is:
-          <span className="bg-teal-400 px-2 bold">{side}</span>
-        </div>
-        {side !== null && choice !== null ? (
-          side === choice ? (
-            <span className="text-white bold inline-block bg-green-400 px-4 rounded-sm">
-              You won the game! you guessed it correct!!
-            </span>
+
+        {/* Coin Result */}
+        <div className="h-24 flex justify-center items-center">
+          {flipping ? (
+            <div className="animate-spin w-16 h-16 border-4 border-white border-t-transparent rounded-full"></div>
+          ) : side ? (
+            <div className="text-2xl font-bold">
+              🖥 Computer chose:{" "}
+              <span className="bg-teal-400 px-2 py-1 rounded">{side}</span>
+            </div>
           ) : (
-            <span className="text-white bold inline-block bg-red-400 px-4 rounded-sm">
-              You lost! you guessed it wrong!!
-            </span>
-          )
-        ) : (
-          ""
+            <p>Click flip to see the result</p>
+          )}
+        </div>
+
+        {/* Result Message */}
+        {side && choice && !flipping && (
+          <div>
+            {side === choice ? (
+              <span className="text-white text-lg bg-green-500 px-4 py-2 rounded-md shadow">
+                🎉 You Won! Great Guess!
+              </span>
+            ) : (
+              <span className="text-white text-lg bg-red-500 px-4 py-2 rounded-md shadow">
+                ❌ You Lost! Try Again!
+              </span>
+            )}
+          </div>
         )}
+
+        {/* Scoreboard */}
+        <div className="mt-4 bg-white px-6 py-3 rounded-lg shadow flex gap-6">
+          <p className="text-green-600 font-bold">Wins: {wins}</p>
+          <p className="text-red-600 font-bold">Losses: {losses}</p>
+        </div>
+
+        {/* Reset */}
+        <button
+          onClick={handleReset}
+          className="mt-4 px-4 py-2 rounded-lg bg-gray-700 text-white hover:bg-gray-600 transition"
+        >
+          Reset Game
+        </button>
       </div>
     </div>
   );
