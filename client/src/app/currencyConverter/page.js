@@ -9,7 +9,7 @@ export default function CurrencyConverter() {
   const [to, setTo] = useState("USD"); // USD default
   const [result, setResult] = useState(null);
 
-  // Supported currencies (added GBP)
+  // Supported currencies
   const supported = [
     "NPR", // Nepali Rupee
     "USD", // US Dollar
@@ -38,31 +38,69 @@ export default function CurrencyConverter() {
     setResult((usdAmount * rates[to]).toFixed(2)); // USD → 'to'
   };
 
+  // Swap currencies
+  const swapCurrencies = () => {
+    setFrom(to);
+    setTo(from);
+    setResult(null); // clear old result after swap
+  };
+
   return (
     <div className="bg-slate-300 flex flex-col gap-2 justify-center items-center text-black h-screen w-screen">
       <div className="flex flex-col content-center items-center gap-4 bg-yellow-200 min-h-1/2 w-1/2 p-4 rounded-xl">
-        <h2 className="text-4xl font-bold">Currency Converter<hr className="border-black"/></h2>
-        <input className="px-2"
+        <h2 className="text-4xl font-bold">
+          Currency Converter
+          <hr className="border-black" />
+        </h2>
+
+        <input
+          className="px-2"
           type="number"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
         />
-        <select value={from} onChange={(e) => setFrom(e.target.value)}>
-          {supported.map((code) => (
-            <option key={code} value={code}>
-              {code}
-            </option>
-          ))}
-        </select>
-        <span> to </span>
-        <select value={to} onChange={(e) => setTo(e.target.value)}>
-          {supported.map((code) => (
-            <option key={code} value={code}>
-              {code}
-            </option>
-          ))}
-        </select>
-        <button onClick={convert}>Convert</button>
+
+        <div className="flex gap-2 items-center">
+          <select
+            value={from}
+            onChange={(e) => setFrom(e.target.value)}
+            className="font-bold"
+          >
+            {supported.map((code) => (
+              <option key={code} value={code}>
+                {code}
+              </option>
+            ))}
+          </select>
+
+          {/* Swap button */}
+          <button
+            onClick={swapCurrencies}
+            className="bg-blue-400 hover:bg-blue-500 text-white px-2 rounded"
+          >
+            ⇄
+          </button>
+
+          <select
+            value={to}
+            onChange={(e) => setTo(e.target.value)}
+            className="font-bold"
+          >
+            {supported.map((code) => (
+              <option key={code} value={code}>
+                {code}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <button
+          onClick={convert}
+          className="bg-green-400 hover:bg-green-500 px-2 rounded-sm"
+        >
+          Convert
+        </button>
+
         {result && (
           <p>
             {amount} {from} = {result} {to}
