@@ -109,7 +109,7 @@ export default function JamendoMusicPlayer() {
   const currentTrack = tracks[currentIndex];
 
   return (
-    <div className="p-6 flex flex-col gap-4 items-center bg-gray-100 rounded-xl shadow-md w-96 mx-auto">
+    <div className="p-6 flex flex-col gap-4 justify-center items-center bg-gray-100 rounded-xl shadow-md w-96 mx-auto text-black h-screen w-screen">
       <h1 className="text-xl font-bold">🎵 Jamendo Music Player</h1>
 
       {loading && <p>Loading tracks...</p>}
