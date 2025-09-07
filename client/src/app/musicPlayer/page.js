@@ -109,7 +109,7 @@ export default function JamendoMusicPlayer() {
   const currentTrack = tracks[currentIndex];
 
   return (
-    <div className="p-6 flex flex-col gap-4 justify-center items-center bg-gray-100 rounded-xl shadow-md w-96 mx-auto text-black h-screen w-screen">
+    <div className="p-6 flex flex-col gap-4 justify-center items-center bg-gray-400 rounded-xl shadow-md  mx-auto text-black h-screen w-screen">
       <h1 className="text-xl font-bold">🎵 Jamendo Music Player</h1>
 
       {loading && <p>Loading tracks...</p>}
@@ -136,19 +136,27 @@ export default function JamendoMusicPlayer() {
           <div className="flex gap-4 mt-2">
             <button
               onClick={prevTrack}
-              className="bg-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400 transition"
+              className="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-500 transition"
             >
               ⏮ Previous
             </button>
             <button
               onClick={togglePlay}
-              className="bg-blue-500 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-600 transition"
+              className="bg-blue-500 text-white  rounded-lg shadow hover:bg-blue-600 transition"
             >
-              {isPlaying ? "⏸ Pause" : "▶ Play"}
+              {isPlaying ? (
+                <span className="hover:bg-red-400 px-6 py-3 h-full w-full rounded-lg">
+                  ⏸ Pause
+                </span>
+              ) : (
+                <span className="hover:bg-green-400 h-full w-full px-6 py-3 rounded-lg">
+                  ▶ Play
+                </span>
+              )}
             </button>
             <button
               onClick={nextTrack}
-              className="bg-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400 transition"
+              className="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-500 transition"
             >
               ⏭ Next
             </button>
