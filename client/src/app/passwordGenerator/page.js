@@ -2,8 +2,6 @@
 
 import React, { useState, useRef } from "react";
 
-
-
 export default function PasswordGenerator() {
   const [length, setLength] = useState(16);
   const [includeLower, setIncludeLower] = useState(true);
@@ -97,112 +95,107 @@ export default function PasswordGenerator() {
   }
 
   return (
-    <main>
-      <h1>Password Generator</h1>
-
-      <section>
-        <label>
-          Length:
-          <input
-            type="number"
-            min={4}
-            max={128}
-            value={length}
-            onChange={(e) => setLength(Number(e.target.value))}
-          />
-        </label>
-
-        <div>
+    <div className="flex gap-4 justify-center items-center h-screen w-screen bg-slate-500 text-black">
+      <main className="flex flex-col gap-4 p-4 items-center justify-center min-h-1/2 min-w-1/2 bg-red-300 rounded-xl">
+        <h1 className="text-3xl font-bold">Password Generator <hr className="border-black"/></h1>
+        <section>
           <label>
+            Length:
             <input
-              type="checkbox"
-              checked={includeLower}
-              onChange={(e) => setIncludeLower(e.target.checked)}
+              type="number"
+              min={4}
+              max={128}
+              value={length}
+              onChange={(e) => setLength(Number(e.target.value))}
             />
-            include lowercase
           </label>
-        </div>
-
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              checked={includeUpper}
-              onChange={(e) => setIncludeUpper(e.target.checked)}
-            />
-            include uppercase
-          </label>
-        </div>
-
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              checked={includeNumbers}
-              onChange={(e) => setIncludeNumbers(e.target.checked)}
-            />
-            include numbers
-          </label>
-        </div>
-
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              checked={includeSymbols}
-              onChange={(e) => setIncludeSymbols(e.target.checked)}
-            />
-            include symbols
-          </label>
-        </div>
-
-        <div>
-          <button type="button" onClick={generatePassword}>
-            Generate
-          </button>
-          <button type="button" onClick={() => handleQuick(8)}>
-            Quick 8
-          </button>
-          <button type="button" onClick={() => handleQuick(16)}>
-            Quick 16
-          </button>
-          <button type="button" onClick={() => handleQuick(32)}>
-            Quick 32
-          </button>
-        </div>
-      </section>
-
-      <section>
-        <h2>Result</h2>
-        <div ref={resultRef} aria-live="polite">
-          {password || "(no password yet)"}
-        </div>
-        <div>
-          <button type="button" onClick={copyToClipboard} disabled={!password}>
-            {copied ? "Copied!" : "Copy"}
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              generatePassword();
-            }}
-          >
-            Regenerate
-          </button>
-        </div>
-
-        <p>
-          Strength: <strong>{passwordStrength()}</strong>
-        </p>
-
-        <details>
-          <summary>Advanced</summary>
-          <p>Charset preview (for debugging):</p>
-          <pre>{buildCharset() || "(none selected)"}</pre>
-        </details>
-      </section>
-
-     
-    </main>
+          <div>
+            <label>
+              <input
+                type="checkbox"
+                checked={includeLower}
+                onChange={(e) => setIncludeLower(e.target.checked)}
+              />
+              include lowercase
+            </label>
+          </div>
+          <div>
+            <label>
+              <input
+                type="checkbox"
+                checked={includeUpper}
+                onChange={(e) => setIncludeUpper(e.target.checked)}
+              />
+              include uppercase
+            </label>
+          </div>
+          <div>
+            <label>
+              <input
+                type="checkbox"
+                checked={includeNumbers}
+                onChange={(e) => setIncludeNumbers(e.target.checked)}
+              />
+              include numbers
+            </label>
+          </div>
+          <div>
+            <label>
+              <input
+                type="checkbox"
+                checked={includeSymbols}
+                onChange={(e) => setIncludeSymbols(e.target.checked)}
+              />
+              include symbols
+            </label>
+          </div>
+          <div>
+            <button type="button" onClick={generatePassword}>
+              Generate
+            </button>
+            <button type="button" onClick={() => handleQuick(8)}>
+              Quick 8
+            </button>
+            <button type="button" onClick={() => handleQuick(16)}>
+              Quick 16
+            </button>
+            <button type="button" onClick={() => handleQuick(32)}>
+              Quick 32
+            </button>
+          </div>
+        </section>
+        <section className="flex flex-col items-center content-center">
+          <h2>Result</h2>
+          <div ref={resultRef} aria-live="polite">
+            {password || "(no password yet)"}
+          </div>
+          <div>
+            <button
+              type="button"
+              onClick={copyToClipboard}
+              disabled={!password}
+            >
+              {copied ? "Copied!" : "Copy"}
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                generatePassword();
+              }}
+            >
+              Regenerate
+            </button>
+          </div>
+          <p>
+            Strength: <strong>{passwordStrength()}</strong>
+          </p>
+          <details>
+            <summary>Advanced</summary>
+            <p>Charset preview (for debugging):</p>
+            <pre>{buildCharset() || "(none selected)"}</pre>
+          </details>
+        </section>
+      </main>
+    </div>
   );
 }
