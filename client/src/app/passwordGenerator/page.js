@@ -182,16 +182,24 @@ export default function PasswordGenerator() {
             </button>
           </div>
         </section>
-        <section className="flex flex-col items-center content-center">
-          <h2>Result<hr className="border-black"/></h2>
-          <div ref={resultRef} aria-live="polite">
+        <section className="flex flex-col gap-2 items-center content-center">
+          <h2>
+            Result
+            <hr className="border-black" />
+          </h2>
+          <div
+            ref={resultRef}
+            aria-live="polite"
+            className="bg-red-500 font-bold  px-2"
+          >
             {password || "(no password yet)"}
           </div>
-          <div>
+          <div className="flex gap-2">
             <button
               type="button"
               onClick={copyToClipboard}
               disabled={!password}
+              className="bg-blue-500 rounded-sm px-2 text-sm"
             >
               {copied ? "Copied!" : "Copy"}
             </button>
@@ -200,6 +208,7 @@ export default function PasswordGenerator() {
               onClick={() => {
                 generatePassword();
               }}
+              className="bg-blue-500 rounded-sm px-2 text-sm"
             >
               Regenerate
             </button>
@@ -207,9 +216,12 @@ export default function PasswordGenerator() {
           <p>
             Strength: <strong>{passwordStrength()}</strong>
           </p>
-          <details>
+          <details className="flex  flex-col gap-2  content-center items-center w-1/4">
             <summary>Advanced</summary>
-            <p>Charset preview (for debugging):</p>
+            <div>
+              Charset preview (for debugging):
+              <hr className="border-black" />
+            </div>
             <pre>{buildCharset() || "(none selected)"}</pre>
           </details>
         </section>
