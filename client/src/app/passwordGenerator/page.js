@@ -216,8 +216,8 @@ export default function PasswordGenerator() {
           <p>
             Strength: <strong>{passwordStrength()}</strong>
           </p>
-          <details className="flex  flex-col gap-2  content-center items-center w-1/4">
-            <summary>Advanced</summary>
+          <details className="flex  flex-col gap-2  content-center items-center w-1/2">
+            <div>Advanced</div>
             <div>
               Charset preview (for debugging):
               <hr className="border-black" />
