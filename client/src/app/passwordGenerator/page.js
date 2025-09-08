@@ -163,12 +163,12 @@ export default function PasswordGenerator() {
           <button type="button" onClick={() => handleQuick(8)}>
             Quick 8
           </button>
-          {/* <button type="button" onClick={() => handleQuick(16)}>
+          <button type="button" onClick={() => handleQuick(16)}>
             Quick 16
           </button>
           <button type="button" onClick={() => handleQuick(32)}>
             Quick 32
-          </button> */}
+          </button>
         </div>
       </section>
 
@@ -202,11 +202,7 @@ export default function PasswordGenerator() {
         </details>
       </section>
 
-      <footer>
-        <small>
-          Place this component inside app/ in your Next.js project (App Router).
-        </small>
-      </footer>
+     
     </main>
   );
 }
