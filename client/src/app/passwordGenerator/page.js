@@ -97,7 +97,9 @@ export default function PasswordGenerator() {
   return (
     <div className="flex gap-4 justify-center items-center h-screen w-screen bg-slate-500 text-black">
       <main className="flex flex-col gap-4 p-4 items-center justify-center min-h-1/2 min-w-1/2 bg-red-300 rounded-xl">
-        <h1 className="text-3xl font-bold">Password Generator <hr className="border-black"/></h1>
+        <h1 className="text-3xl font-bold">
+          Password Generator <hr className="border-black" />
+        </h1>
         <section>
           <label>
             Length:
@@ -149,23 +151,39 @@ export default function PasswordGenerator() {
               include symbols
             </label>
           </div>
-          <div>
-            <button type="button" onClick={generatePassword}>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={generatePassword}
+              className="bg-green-400 hover:bg-green-600 px-2 rounded-sm text-sm"
+            >
               Generate
             </button>
-            <button type="button" onClick={() => handleQuick(8)}>
+            <button
+              type="button"
+              onClick={() => handleQuick(8)}
+              className="bg-green-400 hover:bg-green-600 px-2 rounded-sm text-sm"
+            >
               Quick 8
             </button>
-            <button type="button" onClick={() => handleQuick(16)}>
+            <button
+              type="button"
+              onClick={() => handleQuick(16)}
+              className="bg-green-400 hover:bg-green-600 px-2 rounded-sm text-sm"
+            >
               Quick 16
             </button>
-            <button type="button" onClick={() => handleQuick(32)}>
+            <button
+              type="button"
+              onClick={() => handleQuick(32)}
+              className="bg-green-400 hover:bg-green-600 px-2 rounded-sm text-sm"
+            >
               Quick 32
             </button>
           </div>
         </section>
         <section className="flex flex-col items-center content-center">
-          <h2>Result</h2>
+          <h2>Result<hr className="border-black"/></h2>
           <div ref={resultRef} aria-live="polite">
             {password || "(no password yet)"}
           </div>
