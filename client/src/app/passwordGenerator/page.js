@@ -101,9 +101,10 @@ export default function PasswordGenerator() {
           Password Generator <hr className="border-black" />
         </h1>
         <section>
-          <label>
-            Length:
+          <label className=" flex gap-2">
+            <span className="font-bold">Length:</span>
             <input
+            className="text-sm font-bold px-2 rounded-sm"
               type="number"
               min={4}
               max={128}
@@ -190,7 +191,7 @@ export default function PasswordGenerator() {
           <div
             ref={resultRef}
             aria-live="polite"
-            className="bg-red-500 font-bold  px-2"
+            className="bg-red-500 font-bold  text-2xl p-2 rounded-xl"
           >
             {password || "(no password yet)"}
           </div>
