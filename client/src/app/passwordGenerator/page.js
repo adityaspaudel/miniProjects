@@ -104,7 +104,7 @@ export default function PasswordGenerator() {
           <label className=" flex gap-2">
             <span className="font-bold">Length:</span>
             <input
-            className="text-sm font-bold px-2 rounded-sm"
+              className="text-sm font-bold px-2 rounded-sm"
               type="number"
               min={4}
               max={128}
@@ -217,7 +217,7 @@ export default function PasswordGenerator() {
           <p>
             Strength: <strong>{passwordStrength()}</strong>
           </p>
-          <details className="flex  flex-col gap-2  content-center items-center w-1/2">
+          <details className="flex  flex-col gap-2  content-center items-center w-1/2 ">
             <div>
               Charset preview (for debugging):
               <hr className="border-black" />
