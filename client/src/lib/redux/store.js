@@ -19,7 +19,7 @@ import budgetReducer from "./slices/budgetSlice";
 import readingListReducer from "./slices/readingListSlice";
 import habitsReducer from "./slices/habitsSlice";
 import weatherReducer from "./slices/weatherSlice";
-
+import notificationReducer from "./slices/weatherSlice"
 
 
 const persistConfig = {
@@ -52,6 +52,7 @@ const rootReducer = combineReducers({
   readingList: readingListReducer,
   habits: habitsReducer,
   weather: weatherReducer,
+  notification:notificationReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
