@@ -14,7 +14,19 @@ function Notification() {
   if (!visible) return null;
 
   return (
-    <div>
+    <div
+      style={{
+        position: "fixed",
+        top: "20px",
+        right: "20px",
+        padding: "12px 20px",
+        borderRadius: "8px",
+        backgroundColor:
+          type === "success" ? "green" : type === "error" ? "red" : "blue",
+        color: "white",
+        zIndex: 9999,
+      }}
+    >
       <span>{message}</span>
       <button
         style={{
