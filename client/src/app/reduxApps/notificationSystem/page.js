@@ -63,10 +63,14 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-slate-100 text-red-500">
-      <Notification />
-      <h1>Notification System</h1>
-      <button onClick={handleShow}>Show Notification</button>
+    <div className="flex items-center justify-center gap-2 h-screen w-screen bg-slate-400">
+      <div className="bg-red-200 text-black min-h-1/2 w-1/2 p-4 flex flex-col content-center items-center">
+        <Notification />
+        <h1 className="text-4xl">
+          Notification System <hr className="border-black" />
+        </h1>
+        <button onClick={handleShow}>Show Notification</button>
+      </div>
     </div>
   );
 }
