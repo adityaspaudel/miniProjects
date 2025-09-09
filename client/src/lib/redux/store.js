@@ -2,7 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 
-import counterReducer from "./slices/counterSlice"; 
+import counterReducer from "./slices/counterSlice";
 import cartReducer from "./slices/cartSlice";
 import themeReducer from "./slices/themeSlice";
 import todosReducer from "./slices/todosSlice";
@@ -19,8 +19,7 @@ import budgetReducer from "./slices/budgetSlice";
 import readingListReducer from "./slices/readingListSlice";
 import habitsReducer from "./slices/habitsSlice";
 import weatherReducer from "./slices/weatherSlice";
-import notificationReducer from "./slices/weatherSlice"
-
+import notificationReducer from "./slices/notificationSlice";
 
 const persistConfig = {
   key: "root",
@@ -35,6 +34,7 @@ const persistConfig = {
     "readingList",
     "habits",
     "weather",
+    "notification",
   ],
 };
 const rootReducer = combineReducers({
@@ -52,7 +52,7 @@ const rootReducer = combineReducers({
   readingList: readingListReducer,
   habits: habitsReducer,
   weather: weatherReducer,
-  notification:notificationReducer
+  notification: notificationReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
