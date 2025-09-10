@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 export default function SidebarToggle() {
   const [isOpen, setIsOpen] = useState(false);
+  const items = ["Apple", "Banana", "Orange", "Mango"];
 
   return (
     <div className="flex h-screen">
@@ -42,13 +43,11 @@ export default function SidebarToggle() {
             Click the button to toggle the sidebar.
           </p>
 
-          <ul>
-            <li>Apple</li>
-            <li>Ball</li>
-            <li>Cat</li>
-            <li>Dog</li>
-            <li>Elephant</li>
-          </ul>
+          <ol type="a" className="list-[lower-alpha] pl-6 ">
+            {items.map((item, index) => (
+              <li key={index}>{item}</li> // ✅ key is important
+            ))}
+          </ol>
         </div>
       </div>
     </div>
