@@ -6,12 +6,12 @@ export default function SidebarToggle() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex">
+    <div className="flex h-screen">
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full bg-gray-800 text-white transform ${
+        className={`h-full bg-gray-800 text-white transform ${
           isOpen ? "translate-x-0 w-64" : "-translate-x-full w-0"
-        } transition-transform duration-300 overflow-hidden`}
+        } transition-all duration-300 overflow-hidden fixed top-0 left-0`}
       >
         <div className="p-5">
           <ul className="space-y-4">
@@ -23,7 +23,11 @@ export default function SidebarToggle() {
       </div>
 
       {/* Main content */}
-      <div className="flex-1 p-5 ml-0 md:ml-0">
+      <div
+        className={`flex-1 p-5 transition-all duration-300 ${
+          isOpen ? "ml-64" : "ml-0"
+        }`}
+      >
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
