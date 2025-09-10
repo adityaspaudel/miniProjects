@@ -35,10 +35,21 @@ export default function SidebarToggle() {
           {isOpen ? "Close Sidebar" : "Open Sidebar"}
         </button>
 
-        <h1 className="text-2xl font-bold mt-5">Welcome to My Page</h1>
-        <p className="mt-2 text-gray-700">
-          Click the button to toggle the sidebar.
-        </p>
+        <div>
+          <h1 className="text-4xl font-bold mt-5">Welcome to My Page</h1>
+
+          <p className="mt-2 text-gray-700">
+            Click the button to toggle the sidebar.
+          </p>
+
+          <ul>
+            <li>Apple</li>
+            <li>Ball</li>
+            <li>Cat</li>
+            <li>Dog</li>
+            <li>Elephant</li>
+          </ul>
+        </div>
       </div>
     </div>
   );
