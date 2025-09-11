@@ -60,25 +60,28 @@ const SnakeAndLadderGame = () => {
     }
   };
   return (
-    <div>
-      <div>SnakeAndLadderGame</div>
-      <div>
-        <button
-          className="p-2 rounded-lg cursor-pointer bg-blue-300 hover:bg-blue-400 "
-          onClick={createBoard}
-        >
-          show board
-        </button>
-        <button
-          className="p-2 rounded-lg cursor-pointer bg-green-300 hover:bg-green-400 "
-          onClick={startGame}
-        >
-          start game
-        </button>
-
-        <div className="text-5xl text-blue-700">
-          currentPosition : {currentPosition}
+    <div className="flex flex-col gap-2 content-center items-center">
+      <div className="flex flex-col">
+        <div>Snakes And Ladders Game</div>
+        <div className="flex gap-2">
+          <button
+            className="p-2 rounded-lg cursor-pointer bg-blue-300 hover:bg-blue-400 "
+            onClick={createBoard}
+          >
+            Show Board
+          </button>
+          <button
+            className="p-2 rounded-lg cursor-pointer bg-green-300 hover:bg-green-400 "
+            onClick={startGame}
+          >
+            Start Game
+          </button>
         </div>
+        <div className="text-5xl text-blue-700">
+          Current Position : {currentPosition}
+        </div>
+      </div>
+      <div className="flex gap-20 content-center items-center">
         <div>
           {board.map((val, ind) => {
             return (
@@ -100,17 +103,19 @@ const SnakeAndLadderGame = () => {
             );
           })}
         </div>
-        <div>
-          <div className=" text-4xl text-red-400 ">snakes:</div>
-          {gameBoardData.snakes.map((val, ind) => (
-            <pre key={ind}>{JSON.stringify(val, 2, 2)}</pre>
-          ))}
-        </div>
-        <div>
-          <div className="text-4xl text-green-400">ladders: </div>
-          {gameBoardData.snakes.map((val, ind) => (
-            <pre key={ind}>{JSON.stringify(val, 2, 2)}</pre>
-          ))}
+        <div className="flex gap-20 text-sm">
+          <div>
+            <div className=" text-4xl text-red-400 ">snakes:</div>
+            {gameBoardData.snakes.map((val, ind) => (
+              <pre key={ind}>{JSON.stringify(val, 2, 2)}</pre>
+            ))}
+          </div>
+          <div>
+            <div className="text-4xl text-green-400">ladders: </div>
+            {gameBoardData.snakes.map((val, ind) => (
+              <pre key={ind}>{JSON.stringify(val, 2, 2)}</pre>
+            ))}
+          </div>
         </div>
       </div>
     </div>
