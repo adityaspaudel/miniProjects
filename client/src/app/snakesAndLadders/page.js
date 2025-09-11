@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 const SnakeAndLadderGame = () => {
   const [board, setBoard] = useState([]);
   const [currentPosition, setCurrentPosition] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
 
   const gameBoardData = {
     ladders: [
@@ -33,14 +34,15 @@ const SnakeAndLadderGame = () => {
       for (let c = 0; c < 10; c++) {
         row.push(number--);
       }
-      // Reverse every other row for zig-zag layout
-      if (r % 2 === 1) row.reverse();
+      if (r % 2 === 1) row.reverse(); // Zigzag
       rows.push(row);
     }
     setBoard(rows);
   }, []);
 
   const startGame = () => {
+    if (gameOver) return; // prevent rolling after win
+
     const randomNumber = Math.floor(Math.random() * 6) + 1;
     if (currentPosition === 0) {
       if (randomNumber === 1) {
@@ -61,20 +63,44 @@ const SnakeAndLadderGame = () => {
 
       setCurrentPosition(newPos);
 
-      if (newPos === 100) alert("🎉 You won!");
+      if (newPos === 100) {
+        setGameOver(true);
+        alert("🎉 You won!");
+      }
     }
+  };
+
+  const restartGame = () => {
+    setCurrentPosition(0);
+    setGameOver(false);
   };
 
   return (
     <div className="flex flex-col gap-4 items-center py-6">
       <h1 className="text-4xl font-bold">Snakes And Ladders Game</h1>
 
-      <button
-        className="p-2 rounded-lg cursor-pointer bg-green-500 text-white hover:bg-green-600"
-        onClick={startGame}
-      >
-        🎲 Roll Dice
-      </button>
+      <div className="flex gap-4">
+        <button
+          className={`p-2 rounded-lg cursor-pointer text-white ${
+            gameOver
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-green-500 hover:bg-green-600"
+          }`}
+          onClick={startGame}
+          disabled={gameOver}
+        >
+          🎲 Roll Dice
+        </button>
+
+        {gameOver && (
+          <button
+            className="p-2 rounded-lg cursor-pointer bg-blue-500 text-white hover:bg-blue-600"
+            onClick={restartGame}
+          >
+            🔄 Restart Game
+          </button>
+        )}
+      </div>
 
       <div className="flex gap-4">
         {/* Game Board */}
@@ -96,6 +122,7 @@ const SnakeAndLadderGame = () => {
             </div>
           ))}
         </div>
+
         {/* Info Section */}
         <div className="flex flex-col gap-12 mt-6 text-sm">
           <div className="flex gap-4">
