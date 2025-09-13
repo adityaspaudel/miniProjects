@@ -3,6 +3,7 @@
 import React, { useRef, useState } from "react";
 
 const CrosswordPuzzleGame = () => {
+  // ✅ The solution grid
   const defaultAnswer = [
     ["c", "a", "t", ""],
     ["", "r", "a", "t"],
@@ -10,6 +11,7 @@ const CrosswordPuzzleGame = () => {
     ["f", "o", "x", ""],
   ];
 
+  // ✅ Initial state for the puzzle
   const inputRef1 = useRef([
     ["", "a", "t", ""],
     ["", "r", "a", ""],
@@ -17,31 +19,82 @@ const CrosswordPuzzleGame = () => {
     ["", "o", "x", ""],
   ]);
 
-  // dummy state to trigger re-render after updates
   const [tick, setTick] = useState(0);
+  const [checked, setChecked] = useState(false);
 
   const handleChange = (row, col, e) => {
     inputRef1.current[row][col] = e.target.value.toLowerCase();
-    setTick((t) => t + 1); // force re-render to update UI
+    setTick((t) => t + 1); // re-render
+  };
+
+  const handleCheck = () => {
+    setChecked(true);
+  };
+
+  const handleReset = () => {
+    inputRef1.current = [
+      ["", "a", "t", ""],
+      ["", "r", "a", ""],
+      ["b", "", "", "d"],
+      ["", "o", "x", ""],
+    ];
+    setChecked(false);
+    setTick((t) => t + 1);
   };
 
   return (
-    <div className="bg-slate-300 text-black p-4">
-      <div>Crossword Puzzle Game</div>
-      <div>
+    <div className="bg-slate-200 text-black min-h-screen flex flex-col items-center justify-center gap-6">
+      <h1 className="text-2xl font-bold">Crossword Puzzle Game</h1>
+
+      {/* Puzzle Grid */}
+      <div className="flex flex-col gap-1">
         {inputRef1.current.map((row, rowIndex) => (
-          <div key={rowIndex} className="flex">
-            {row.map((cell, colIndex) => (
-              <input
-                key={colIndex}
-                maxlength="1"
-                className="w-20 h-20 text-4xl text-center border"
-                value={cell}
-                onChange={(e) => handleChange(rowIndex, colIndex, e)}
-              />
-            ))}
+          <div key={rowIndex} className="flex gap-1">
+            {row.map((cell, colIndex) => {
+              const userValue = cell;
+              const solution = defaultAnswer[rowIndex][colIndex];
+
+              let bgColor = "bg-white";
+              if (checked && solution !== "") {
+                if (userValue === solution) {
+                  bgColor = "bg-green-300"; // correct
+                } else {
+                  bgColor = "bg-red-300"; // wrong
+                }
+              }
+              if (solution === "") {
+                bgColor = "bg-gray-500"; // blocked cell
+              }
+
+              return (
+                <input
+                  key={colIndex}
+                  className={`w-16 h-16 text-2xl text-center border font-bold ${bgColor}`}
+                  maxLength={1}
+                  disabled={solution === ""} // disabled blocked cell
+                  value={cell}
+                  onChange={(e) => handleChange(rowIndex, colIndex, e)}
+                />
+              );
+            })}
           </div>
         ))}
+      </div>
+
+      {/* Buttons */}
+      <div className="flex gap-4">
+        <button
+          onClick={handleCheck}
+          className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+        >
+          Check Answers
+        </button>
+        <button
+          onClick={handleReset}
+          className="px-4 py-2 bg-gray-500 text-white rounded-lg"
+        >
+          Reset
+        </button>
       </div>
     </div>
   );
