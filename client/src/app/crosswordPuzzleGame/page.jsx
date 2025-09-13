@@ -44,57 +44,55 @@ const CrosswordPuzzleGame = () => {
 
   return (
     <div className="bg-slate-200 text-black min-h-screen flex flex-col items-center justify-center gap-6">
-      <h1 className="text-2xl font-bold">Crossword Puzzle Game</h1>
-
-      {/* Puzzle Grid */}
-      <div className="flex flex-col gap-1">
-        {inputRef1.current.map((row, rowIndex) => (
-          <div key={rowIndex} className="flex gap-1">
-            {row.map((cell, colIndex) => {
-              const userValue = cell;
-              const solution = defaultAnswer[rowIndex][colIndex];
-
-              let bgColor = "bg-white";
-              if (checked && solution !== "") {
-                if (userValue === solution) {
-                  bgColor = "bg-green-300"; // correct
-                } else {
-                  bgColor = "bg-red-300"; // wrong
+      <div className="flex flex-col justify-center items-center gap-4 rounded-xl p-4 bg-orange-300 min-h-1/2 w-1/2">
+        <h1 className="text-4xl font-bold">Crossword Puzzle Game<hr className="border-black"/></h1>
+        {/* Puzzle Grid */}
+        <div className="flex flex-col gap-1">
+          {inputRef1.current.map((row, rowIndex) => (
+            <div key={rowIndex} className="flex gap-1">
+              {row.map((cell, colIndex) => {
+                const userValue = cell;
+                const solution = defaultAnswer[rowIndex][colIndex];
+                let bgColor = "bg-white";
+                if (checked && solution !== "") {
+                  if (userValue === solution) {
+                    bgColor = "bg-green-300"; // correct
+                  } else {
+                    bgColor = "bg-red-300"; // wrong
+                  }
                 }
-              }
-              if (solution === "") {
-                bgColor = "bg-gray-500"; // blocked cell
-              }
-
-              return (
-                <input
-                  key={colIndex}
-                  className={`w-16 h-16 text-2xl text-center border font-bold ${bgColor}`}
-                  maxLength={1}
-                  disabled={solution === ""} // disabled blocked cell
-                  value={cell}
-                  onChange={(e) => handleChange(rowIndex, colIndex, e)}
-                />
-              );
-            })}
-          </div>
-        ))}
-      </div>
-
-      {/* Buttons */}
-      <div className="flex gap-4">
-        <button
-          onClick={handleCheck}
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg"
-        >
-          Check Answers
-        </button>
-        <button
-          onClick={handleReset}
-          className="px-4 py-2 bg-gray-500 text-white rounded-lg"
-        >
-          Reset
-        </button>
+                if (solution === "") {
+                  bgColor = "bg-gray-500"; // blocked cell
+                }
+                return (
+                  <input
+                    key={colIndex}
+                    className={`w-16 h-16 text-2xl text-center border font-bold ${bgColor}`}
+                    maxLength={1}
+                    disabled={solution === ""} // disabled blocked cell
+                    value={cell}
+                    onChange={(e) => handleChange(rowIndex, colIndex, e)}
+                  />
+                );
+              })}
+            </div>
+          ))}
+        </div>
+        {/* Buttons */}
+        <div className="flex gap-4">
+          <button
+            onClick={handleCheck}
+            className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+          >
+            Check Answers
+          </button>
+          <button
+            onClick={handleReset}
+            className="px-4 py-2 bg-gray-500 text-white rounded-lg"
+          >
+            Reset
+          </button>
+        </div>
       </div>
     </div>
   );
