@@ -67,7 +67,7 @@ const CrosswordPuzzleGame = () => {
                 return (
                   <input
                     key={colIndex}
-                    className={`w-16 h-16 text-2xl text-center border font-bold ${bgColor}`}
+                    className={`w-16 h-16 text-2xl text-center border font-bold ${bgColor} hover:border-gray-500`}
                     maxLength={1}
                     disabled={solution === ""} // disabled blocked cell
                     value={cell}
@@ -82,13 +82,13 @@ const CrosswordPuzzleGame = () => {
         <div className="flex gap-4">
           <button
             onClick={handleCheck}
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+            className="px-4 py-2 bg-blue-400 hover:bg-blue-500 text-white text-sm rounded-lg"
           >
             Check Answers
           </button>
           <button
             onClick={handleReset}
-            className="px-4 py-2 bg-gray-500 text-white rounded-lg"
+            className="px-4 py-2 bg-gray-400 hover:bg-gray-500 text-white text-sm rounded-lg"
           >
             Reset
           </button>
