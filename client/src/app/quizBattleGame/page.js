@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-// Quiz Battle Game (Styled with Tailwind)
+// Quiz Battle Game (Styled with Tailwind + More Questions)
 export default function QuizBattleGame() {
   const questions = [
     {
@@ -19,6 +19,66 @@ export default function QuizBattleGame() {
       q: "Which planet is known as the Red Planet?",
       choices: ["Earth", "Venus", "Mars", "Jupiter"],
       a: 2,
+    },
+    {
+      q: "Who painted the Mona Lisa?",
+      choices: ["Picasso", "Da Vinci", "Van Gogh", "Michelangelo"],
+      a: 1,
+    },
+    {
+      q: "What is the largest ocean on Earth?",
+      choices: ["Atlantic", "Pacific", "Indian", "Arctic"],
+      a: 1,
+    },
+    {
+      q: "Which gas do plants absorb?",
+      choices: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Helium"],
+      a: 1,
+    },
+    {
+      q: "What is the hardest natural substance?",
+      choices: ["Gold", "Iron", "Diamond", "Silver"],
+      a: 2,
+    },
+    {
+      q: "Who is known as the Father of Computers?",
+      choices: ["Charles Babbage", "Alan Turing", "Bill Gates", "Steve Jobs"],
+      a: 0,
+    },
+    {
+      q: "What is the boiling point of water?",
+      choices: ["90°C", "100°C", "110°C", "120°C"],
+      a: 1,
+    },
+    {
+      q: "Which continent is the Sahara Desert in?",
+      choices: ["Asia", "Africa", "Australia", "Europe"],
+      a: 1,
+    },
+    {
+      q: "What is the capital of Japan?",
+      choices: ["Beijing", "Seoul", "Tokyo", "Kyoto"],
+      a: 2,
+    },
+    {
+      q: "Which organ pumps blood?",
+      choices: ["Brain", "Heart", "Lungs", "Kidney"],
+      a: 1,
+    },
+    {
+      q: "Which is the smallest prime number?",
+      choices: ["0", "1", "2", "3"],
+      a: 2,
+    },
+    {
+      q: "How many continents are there?",
+      choices: ["5", "6", "7", "8"],
+      a: 2,
+    },
+    {
+      q: "Which planet is closest to the Sun?",
+      choices: ["Mercury", "Venus", "Earth", "Mars"],
+      a: 0,
     },
   ];
 
