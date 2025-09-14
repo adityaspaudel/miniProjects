@@ -45,7 +45,10 @@ const CrosswordPuzzleGame = () => {
   return (
     <div className="bg-slate-200 text-black min-h-screen flex flex-col items-center justify-center gap-6">
       <div className="flex flex-col justify-center items-center gap-4 rounded-xl p-4 bg-orange-300 min-h-1/2 w-1/2">
-        <h1 className="text-4xl font-bold">Crossword Puzzle Game<hr className="border-black"/></h1>
+        <h1 className="text-4xl font-bold">
+          Crossword Puzzle Game
+          <hr className="border-black" />
+        </h1>
         {/* Puzzle Grid */}
         <div className="flex flex-col gap-1">
           {inputRef1.current.map((row, rowIndex) => (
@@ -67,7 +70,7 @@ const CrosswordPuzzleGame = () => {
                 return (
                   <input
                     key={colIndex}
-                    className={`w-16 h-16 text-2xl text-center border font-bold ${bgColor} hover:border-gray-500`}
+                    className={`w-16 h-16 text-4xl text-center border font-bold ${bgColor} hover:border-gray-500`}
                     maxLength={1}
                     disabled={solution === ""} // disabled blocked cell
                     value={cell}
@@ -92,6 +95,31 @@ const CrosswordPuzzleGame = () => {
           >
             Reset
           </button>
+        </div>
+        <div className="text-sm">
+          <h1 className="font-bold text-2xl">
+            Hints
+            <hr className="border-black" />
+          </h1>
+          <div>
+            <span className="font-bold">Row 1: </span> A popular domestic animal
+            known for its purr and nine lives
+          </div>
+          <div>
+            {" "}
+            <span className="font-bold">Row 2: </span>A flying mammal, often
+            associated with caves and echolocation
+          </div>
+          <div>
+            {" "}
+            <span className="font-bold">Row 3: </span>
+            It has feathers and flies
+          </div>
+          <div>
+            {" "}
+            <span className="font-bold">Row 4: </span>A smart, wild animal with
+            a bushy tail
+          </div>
         </div>
       </div>
     </div>
