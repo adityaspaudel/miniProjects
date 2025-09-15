@@ -140,7 +140,10 @@ export default function TypingSpeedTest() {
   return (
     <div className="flex bg-amber-100 justify-center items-center w-screen h-screen">
       <div className="flex flex-col gap-4 content-center items-center bg-red-200 p-6 min-h-1/2 min-w-1/2 overflow-auto">
-        <h1 className="text-2xl font-bold mb-4">Typing Speed Test</h1>
+        <h1 className="text-4xl font-bold mb-4">
+          Typing Speed Test
+          <hr className="border-black" />
+        </h1>
 
         {/* Paragraph with wrapped words */}
         <p className="mb-3 break-words max-w-full overflow-auto">
@@ -160,21 +163,21 @@ export default function TypingSpeedTest() {
           <button
             onClick={pauseTest}
             disabled={!started}
-            className="px-4 py-2 bg-yellow-500 text-white rounded disabled:opacity-50"
+            className="px-4 py-2 bg-yellow-500 text-black rounded disabled:opacity-50"
           >
             {paused ? "Resume" : "Pause"}
           </button>
           <button
             onClick={resetTest}
-            className="px-4 py-2 bg-red-600 text-white rounded"
+            className="px-4 py-2 bg-red-600 text-black rounded"
           >
             Reset
           </button>
         </div>
 
-        <p className="text-lg">⏳ Time Left: {timeLeft}s</p>
-        <p className="text-lg">⚡ Live WPM: {wpm}</p>
-        <p className="text-lg text-red-700">
+        <p className="text-lg font-bold">⏳ Time Left: {timeLeft}s</p>
+        <p className="text-lg font-bold">⚡ Live WPM: {wpm}</p>
+        <p className="text-lg text-red-700 font-bold">
           ❌ Mistaken Words: {mistakenWords} | Mistaken Characters:{" "}
           {mistakenChars}
         </p>
