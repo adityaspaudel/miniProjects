@@ -7,7 +7,7 @@ export default function TypingSpeedTest() {
     "The quick brown fox jumps over the lazy dog"
   );
   const [input, setInput] = useState("");
-  const [timeLeft, setTimeLeft] = useState(30); // countdown
+  const [timeLeft, setTimeLeft] = useState(30);
   const [started, setStarted] = useState(false);
   const [wpm, setWpm] = useState(0);
   const timerRef = useRef(null);
@@ -18,13 +18,13 @@ export default function TypingSpeedTest() {
     setInput("");
     setWpm(0);
     setTimeLeft(30);
+
     if (timerRef.current) clearInterval(timerRef.current);
 
     timerRef.current = setInterval(() => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
           clearInterval(timerRef.current);
-          calculateWPM();
           return 0;
         }
         return prev - 1;
@@ -32,30 +32,30 @@ export default function TypingSpeedTest() {
     }, 1000);
   };
 
-  // Stop & calculate
-  const calculateWPM = () => {
-    const wordsTyped = input.trim().split(/\s+/).length;
-    const minutes = (30 - timeLeft) / 60;
-    const result = minutes > 0 ? Math.round(wordsTyped / minutes) : 0;
-    setWpm(result);
-  };
+  // Live WPM calculation
+  useEffect(() => {
+    if (!started) return;
 
-  // Auto calculate when time ends
+    const wordsTyped = input.trim().split(/\s+/).filter(Boolean).length;
+    const minutes = (30 - timeLeft) / 60 || 1 / 60; // avoid divide by zero
+    const result = Math.round(wordsTyped / minutes);
+    setWpm(result);
+  }, [input, timeLeft, started]);
+
+  // Stop when timer ends
   useEffect(() => {
     if (timeLeft === 0) {
-      calculateWPM();
       setStarted(false);
     }
   }, [timeLeft]);
 
   return (
-    <div style={{ padding: "20px", backGroundColor: "red" }}>
+    <div style={{ padding: "20px" }}>
       <h1>Typing Speed Test</h1>
       <p>Type the following text:</p>
       <p style={{ fontWeight: "bold" }}>{text}</p>
 
       <textarea
-        className="bg-white"
         disabled={!started || timeLeft === 0}
         value={input}
         onChange={(e) => setInput(e.target.value)}
@@ -68,7 +68,7 @@ export default function TypingSpeedTest() {
       </div>
 
       <p>Time Left: {timeLeft}s</p>
-      {wpm > 0 && <p>Your WPM: {wpm}</p>}
+      <p>Live WPM: {wpm}</p>
     </div>
   );
 }
