@@ -11,6 +11,8 @@ export default function TypingSpeedTest() {
   const [started, setStarted] = useState(false);
   const [paused, setPaused] = useState(false);
   const [wpm, setWpm] = useState(0);
+  const [mistakenWords, setMistakenWords] = useState(0);
+  const [mistakenChars, setMistakenChars] = useState(0);
   const timerRef = useRef(null);
 
   // Auto start test when focusing textarea
@@ -21,6 +23,8 @@ export default function TypingSpeedTest() {
       setInput("");
       setWpm(0);
       setTimeLeft(60);
+      setMistakenWords(0);
+      setMistakenChars(0);
 
       if (timerRef.current) clearInterval(timerRef.current);
 
@@ -63,17 +67,47 @@ export default function TypingSpeedTest() {
     setPaused(false);
     setInput("");
     setWpm(0);
+    setMistakenWords(0);
+    setMistakenChars(0);
     setTimeLeft(60);
   };
 
-  // Live WPM calculation
+  // Live WPM, mistaken words, mistaken characters calculation
   useEffect(() => {
     if (!started) return;
-    const wordsTyped = input.trim().split(/\s+/).filter(Boolean).length;
+
+    const words = text.split(" ");
+    const typedWords = input.trim().split(/\s+/).filter(Boolean);
+
+    // Mistaken words
+    let wrongWords = 0;
+    typedWords.forEach((word, idx) => {
+      if (words[idx] !== undefined && word !== words[idx]) wrongWords++;
+    });
+    setMistakenWords(wrongWords);
+
+    // Mistaken characters
+    let wrongChars = 0;
+    for (let i = 0; i < typedWords.length; i++) {
+      const typed = typedWords[i];
+      const correct = words[i] || "";
+      for (let j = 0; j < typed.length; j++) {
+        if (typed[j] !== correct[j]) wrongChars++;
+      }
+      // Count extra characters typed beyond correct word length
+      if (typed.length > correct.length)
+        wrongChars += typed.length - correct.length;
+    }
+    setMistakenChars(wrongChars);
+
+    // WPM calculation (correct words only)
+    const correctWords = typedWords.filter(
+      (word, idx) => words[idx] && word === words[idx]
+    ).length;
     const minutes = (60 - timeLeft) / 60 || 1 / 60;
-    const result = Math.round(wordsTyped / minutes);
+    const result = Math.round(correctWords / minutes);
     setWpm(result);
-  }, [input, timeLeft, started]);
+  }, [input, timeLeft, started, text]);
 
   // Stop when timer ends
   useEffect(() => {
@@ -85,7 +119,7 @@ export default function TypingSpeedTest() {
   // Highlight typed words
   const renderHighlightedText = () => {
     const words = text.split(" ");
-    const typedWords = input.trim().split(" ");
+    const typedWords = input.trim().split(/\s+/);
 
     return words.map((word, idx) => {
       let color = "";
@@ -140,6 +174,10 @@ export default function TypingSpeedTest() {
 
         <p className="text-lg">⏳ Time Left: {timeLeft}s</p>
         <p className="text-lg">⚡ Live WPM: {wpm}</p>
+        <p className="text-lg text-red-700">
+          ❌ Mistaken Words: {mistakenWords} | Mistaken Characters:{" "}
+          {mistakenChars}
+        </p>
       </div>
     </div>
   );
