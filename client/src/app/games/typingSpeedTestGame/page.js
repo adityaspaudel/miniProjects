@@ -4,19 +4,19 @@ import React, { useState, useEffect, useRef } from "react";
 
 export default function TypingSpeedTest() {
   const [text, setText] = useState(
-    "The quick brown fox jumps over the lazy dog. Typing is an essential skill in the digital age. The faster and more accurately you can type, the more productive you become. Many people practice typing every day to improve their speed and accuracy. This typing speed test will help you measure your current skills and motivate you to get better. Remember, accuracy is more important than speed at the beginning. Once you learn to type correctly, your speed will naturally increase with practice."
+    "The quick brown fox jumps over the lazy dog. Typing speed tests measure how fast you can type accurately. Practice makes perfect, and consistency is key for improvement."
   );
   const [input, setInput] = useState("");
-  const [timeLeft, setTimeLeft] = useState(30);
+  const [timeLeft, setTimeLeft] = useState(60);
   const [started, setStarted] = useState(false);
+  const [paused, setPaused] = useState(false);
   const [wpm, setWpm] = useState(0);
   const timerRef = useRef(null);
-
-  const words = text.split(" ");
 
   // Start the test
   const startTest = () => {
     setStarted(true);
+    setPaused(false);
     setInput("");
     setWpm(0);
     setTimeLeft(60);
@@ -34,19 +34,43 @@ export default function TypingSpeedTest() {
     }, 1000);
   };
 
-  // Live WPM calculation (only correct words)
+  // Pause the test
+  const pauseTest = () => {
+    if (paused) {
+      // resume
+      setPaused(false);
+      timerRef.current = setInterval(() => {
+        setTimeLeft((prev) => {
+          if (prev <= 1) {
+            clearInterval(timerRef.current);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    } else {
+      // pause
+      clearInterval(timerRef.current);
+      setPaused(true);
+    }
+  };
+
+  // Reset the test
+  const resetTest = () => {
+    clearInterval(timerRef.current);
+    setStarted(false);
+    setPaused(false);
+    setInput("");
+    setWpm(0);
+    setTimeLeft(60);
+  };
+
+  // Live WPM calculation
   useEffect(() => {
     if (!started) return;
-
-    const inputWords = input.trim().split(/\s+/);
-    let correctCount = 0;
-
-    inputWords.forEach((word, idx) => {
-      if (word === words[idx]) correctCount++;
-    });
-
-    const minutes = (60 - timeLeft) / 60 || 1 / 60;
-    const result = Math.round(correctCount / minutes);
+    const wordsTyped = input.trim().split(/\s+/).filter(Boolean).length;
+    const minutes = (60 - timeLeft) / 60 || 1 / 60; // avoid divide by zero
+    const result = Math.round(wordsTyped / minutes);
     setWpm(result);
   }, [input, timeLeft, started]);
 
@@ -59,16 +83,19 @@ export default function TypingSpeedTest() {
 
   // Highlight typed words
   const renderHighlightedText = () => {
-    const inputWords = input.trim().split(/\s+/);
+    const words = text.split(" ");
+    const typedWords = input.trim().split(" ");
 
     return words.map((word, idx) => {
-      let colorClass = "text-gray-800"; // default
-      if (inputWords[idx] !== undefined) {
-        colorClass =
-          inputWords[idx] === word ? "text-green-600" : "text-red-600";
+      let color = "";
+      if (typedWords[idx] !== undefined) {
+        color =
+          typedWords[idx] === word
+            ? "text-green-600"
+            : "text-red-600 underline";
       }
       return (
-        <span key={idx} className={`${colorClass} mr-2`}>
+        <span key={idx} className={`${color} mr-1`}>
           {word}
         </span>
       );
@@ -77,28 +104,41 @@ export default function TypingSpeedTest() {
 
   return (
     <div className="p-6 max-w-3xl mx-auto">
-      <h1 className="text-xl font-bold mb-4">Typing Speed Test</h1>
-
-      <p className="mb-2">Type the following text:</p>
-      <p className="mb-4 leading-relaxed">{renderHighlightedText()}</p>
+      <h1 className="text-2xl font-bold mb-4">Typing Speed Test</h1>
+      <p className="mb-3">{renderHighlightedText()}</p>
 
       <textarea
-        disabled={!started || timeLeft === 0}
+        disabled={!started || timeLeft === 0 || paused}
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Start typing here..."
-        className="w-full h-32 p-2 border rounded mb-3"
+        className="w-full h-28 p-3 border rounded mb-4 focus:outline-none"
       />
 
-      <button
-        onClick={startTest}
-        className="px-4 py-2 bg-blue-500 text-white rounded mb-3"
-      >
-        Start Test
-      </button>
+      <div className="flex gap-3 mb-4">
+        <button
+          onClick={startTest}
+          className="px-4 py-2 bg-blue-600 text-white rounded"
+        >
+          Start
+        </button>
+        <button
+          onClick={pauseTest}
+          disabled={!started}
+          className="px-4 py-2 bg-yellow-500 text-white rounded disabled:opacity-50"
+        >
+          {paused ? "Resume" : "Pause"}
+        </button>
+        <button
+          onClick={resetTest}
+          className="px-4 py-2 bg-red-600 text-white rounded"
+        >
+          Reset
+        </button>
+      </div>
 
-      <p>⏳ Time Left: {timeLeft}s</p>
-      <p>⚡ Live WPM (Correct Words): {wpm}</p>
+      <p className="text-lg">⏳ Time Left: {timeLeft}s</p>
+      <p className="text-lg">⚡ Live WPM: {wpm}</p>
     </div>
   );
 }
