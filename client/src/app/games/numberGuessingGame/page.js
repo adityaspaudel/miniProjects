@@ -1,8 +1,9 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
 const NumberGuessingGame = () => {
   const [number, setNumber] = useState("");
+  const handleChange = () => {};
   return (
     <div>
       <div>NumberGuessingGame</div>
