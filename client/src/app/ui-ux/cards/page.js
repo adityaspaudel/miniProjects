@@ -20,7 +20,7 @@ const CardComponent = () => {
         {/* Content */}
         <div className="mt-3 space-y-2">
           <h1 className="text-lg font-bold text-black">
-            Card Title
+            Wooden Chair
             <hr className="mt-1 border border-black" />
           </h1>
 
@@ -30,13 +30,18 @@ const CardComponent = () => {
           </p>
 
           {/* Tags */}
-          <div className="flex items-center justify-between text-xs font-medium">
-            <span className="cursor-pointer rounded-xl bg-green-400 px-2 text-white hover:bg-green-500">
-              Chair
-            </span>
-            <span className="cursor-pointer rounded-xl bg-green-400 px-2 text-white hover:bg-green-500">
-              Price: Rs. 50
-            </span>
+          <div className="flex flex-col w-full gap-4 items-center space-between text-xs font-medium text-black">
+            <div className="flex gap-2">
+              <span className="cursor-pointer rounded-sm bg-green-100 px-2  hover:bg-green-200">
+                Chair
+              </span>
+              <span className="cursor-pointer rounded-sm bg-green-100 px-2  hover:bg-green-200">
+                Price: Rs. 50
+              </span>
+            </div>
+            <div className="bg-green-400 px-2 rounded-sm content-center items-center hover:bg-green-500 w-full">
+              <button className=" text-center">add to cart</button>
+            </div>
           </div>
         </div>
       </div>
