@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 export default function WordAndCharacterCounter() {
   const [text, setText] = useState("");
-  const maxLength = 200; // You can change this limit
+  const maxLength = 500; // You can change this limit
 
   const handleChange = (e) => {
     setText(e.target.value);
@@ -29,10 +29,10 @@ export default function WordAndCharacterCounter() {
           rows={5}
           cols={40}
         />
-        <div>
+        <div className="font-bold">
           Characters: {text.length} / {maxLength}
         </div>
-        <div>Words: {wordCount}</div>
+        <div className="font-bold">Words: {wordCount}</div>
       </div>
     </div>
   );
