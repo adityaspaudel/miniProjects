@@ -2,6 +2,7 @@ import Link from "next/link";
 
 async function getUsers() {
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  if (!res.ok) throw new Error("Failed to fetch users");
   return res.json();
 }
 
@@ -9,20 +10,24 @@ export default async function Home() {
   const users = await getUsers();
 
   return (
-    <div className="flex justify-center bg-slate-200 h-screen w-screen text-black">
-      <div className="flex flex-col content-center items-center gap-2 min-h-1/2 w-1/2 bg-emerald-200 p-4 rounded-xl">
-        <h1 className="text-4xl font-bold">
-          Dynamic Users (App Router) <hr className="border-black" />
-        </h1>
-        <ul>
+    <div className="bg-slate-300 text-black flex justify-center items-center min-h-screen">
+      <div className="flex flex-col items-center w-full max-w-2xl p-4">
+        <h1 className="text-xl font-bold mb-6">Dynamic Users</h1>
+
+        <div className="flex flex-col gap-3 w-full">
           {users.map((user) => (
-            <li key={user.id} className="hover:text-blue-400">
-              <Link href={`/apiProjects/dynamicUsersProfile/users/${user.id}`}>
-                {user.name}
-              </Link>
-            </li>
+            <Link
+              key={user.id}
+              href={`/apiProjects/dynamicUsersProfile/users/${user.id}`}
+              className="border border-black p-3 rounded hover:bg-slate-400 transition"
+            >
+              <h2 className="font-semibold">{user.name}</h2>
+              <p>@{user.username}</p>
+              <p>{user.email}</p>
+              <p>{user.company.name}</p>
+            </Link>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );
