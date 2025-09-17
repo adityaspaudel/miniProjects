@@ -63,18 +63,39 @@ export default function PomodoroTimer() {
   }, []);
 
   return (
-    <div>
-      <h1>Pomodoro Timer</h1>
-      <h2>{isBreak ? "Break Time 🍵" : "Work Time 💻"}</h2>
-      <h1>{formatTime(timeLeft)}</h1>
-
-      <button onClick={startTimer} disabled={isRunning}>
-        Start
-      </button>
-      <button onClick={pauseTimer} disabled={!isRunning}>
-        Pause
-      </button>
-      <button onClick={resetTimer}>Reset</button>
+    <div className="flex justify-center items-center bg-slate-300 h-screen w-screen ">
+      <div className="flex flex-col gap-2 bg-blue-200 content-center items-center min-h-1/2 w-1/2 rounded-xl">
+        <h1 className="text-4xl font-bold p-4">
+          Pomodoro Timer
+          <hr className="border-black" />
+        </h1>
+        <h2>{isBreak ? "Break Time 🍵" : "Work Time 💻 "}</h2>
+        <h1 className="text-6xl text-red-400 font-mono">
+          {formatTime(timeLeft)}
+        </h1>
+        <div className="flex gap-2">
+          <button
+            onClick={startTimer}
+            disabled={isRunning}
+            className="rounded-sm bg-green-400 hover:bg-green-500 px-2"
+          >
+            Start
+          </button>
+          <button
+            onClick={pauseTimer}
+            disabled={!isRunning}
+            className="rounded-sm bg-red-400 hover:bg-red-500 px-2"
+          >
+            Pause
+          </button>
+          <button
+            onClick={resetTimer}
+            className="rounded-sm bg-gray-400 hover:bg-gray-500 px-2"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
