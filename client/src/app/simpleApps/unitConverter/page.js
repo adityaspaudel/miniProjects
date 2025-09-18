@@ -14,15 +14,44 @@ export default function UnitConverter() {
       return;
     }
 
-    if (unit === "meters") {
-      setResult(`${value} meters = ${(value * 3.28084).toFixed(2)} feet`);
-    } else if (unit === "feet") {
-      setResult(`${value} feet = ${(value / 3.28084).toFixed(2)} meters`);
-    } else if (unit === "kg") {
-      setResult(`${value} kg = ${(value * 2.20462).toFixed(2)} pounds`);
-    } else if (unit === "pounds") {
-      setResult(`${value} pounds = ${(value / 2.20462).toFixed(2)} kg`);
+    let output = "";
+
+    switch (unit) {
+      case "meters":
+        output = `${value} meters = ${(value * 3.28084).toFixed(2)} feet`;
+        break;
+      case "feet":
+        output = `${value} feet = ${(value / 3.28084).toFixed(2)} meters`;
+        break;
+      case "kg":
+        output = `${value} kg = ${(value * 2.20462).toFixed(2)} pounds`;
+        break;
+      case "pounds":
+        output = `${value} pounds = ${(value / 2.20462).toFixed(2)} kg`;
+        break;
+      case "celsius":
+        output = `${value}°C = ${((value * 9) / 5 + 32).toFixed(2)}°F`;
+        break;
+      case "fahrenheit":
+        output = `${value}°F = ${(((value - 32) * 5) / 9).toFixed(2)}°C`;
+        break;
+      case "km":
+        output = `${value} km = ${(value * 0.621371).toFixed(2)} miles`;
+        break;
+      case "miles":
+        output = `${value} miles = ${(value / 0.621371).toFixed(2)} km`;
+        break;
+      case "liters":
+        output = `${value} liters = ${(value * 0.264172).toFixed(2)} gallons`;
+        break;
+      case "gallons":
+        output = `${value} gallons = ${(value / 0.264172).toFixed(2)} liters`;
+        break;
+      default:
+        output = "⚠ Unsupported unit";
     }
+
+    setResult(output);
   };
 
   return (
@@ -43,10 +72,27 @@ export default function UnitConverter() {
           onChange={(e) => setUnit(e.target.value)}
           className="border p-2 w-full mb-3 rounded"
         >
-          <option value="meters">Meters → Feet</option>
-          <option value="feet">Feet → Meters</option>
-          <option value="kg">Kg → Pounds</option>
-          <option value="pounds">Pounds → Kg</option>
+          <optgroup label="Length">
+            <option value="meters">Meters → Feet</option>
+            <option value="feet">Feet → Meters</option>
+            <option value="km">Km → Miles</option>
+            <option value="miles">Miles → Km</option>
+          </optgroup>
+
+          <optgroup label="Weight">
+            <option value="kg">Kg → Pounds</option>
+            <option value="pounds">Pounds → Kg</option>
+          </optgroup>
+
+          <optgroup label="Temperature">
+            <option value="celsius">Celsius → Fahrenheit</option>
+            <option value="fahrenheit">Fahrenheit → Celsius</option>
+          </optgroup>
+
+          <optgroup label="Volume">
+            <option value="liters">Liters → Gallons</option>
+            <option value="gallons">Gallons → Liters</option>
+          </optgroup>
         </select>
 
         <button
