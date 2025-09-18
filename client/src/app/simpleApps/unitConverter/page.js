@@ -56,21 +56,24 @@ export default function UnitConverter() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-gray-800">
-      <div className="p-4 border rounded bg-white shadow-md w-80">
-        <h2 className="text-lg font-bold mb-3 text-center">Unit Converter</h2>
+      <div className="p-8 border flex flex-col gap-4 content-center items-center rounded  shadow-md min-h-1/2 w-1/2 bg-amber-200">
+        <h1 className="text-4xl font-bold mb-3 text-center">
+          Unit Converter
+          <hr className="border-black" />
+        </h1>
 
         <input
           type="number"
           placeholder="Enter value"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="border p-2 w-full mb-3 rounded"
+          className="border p-2 w-full mb-3 rounded bg-white"
         />
 
         <select
           value={unit}
           onChange={(e) => setUnit(e.target.value)}
-          className="border p-2 w-full mb-3 rounded"
+          className="border p-2 w-full mb-3 rounded bg-white"
         >
           <optgroup label="Length">
             <option value="meters">Meters → Feet</option>
