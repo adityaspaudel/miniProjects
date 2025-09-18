@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState, useRef } from "react";
 
-
 export default function ReminderApp() {
   const [title, setTitle] = useState("");
   const [datetime, setDatetime] = useState("");
@@ -12,35 +11,30 @@ export default function ReminderApp() {
   const [now, setNow] = useState(Date.now());
   const alertedRef = useRef(new Set());
 
-  // Load from localStorage on mount
   useEffect(() => {
     try {
-      const raw = localStorage.getItem("reminders_v1" );
+      const raw = localStorage.getItem("reminders_v1");
       if (raw) setReminders(JSON.parse(raw));
     } catch (e) {
       console.error("Failed to load reminders", e);
     }
   }, []);
 
-  // Persist reminders
   useEffect(() => {
     localStorage.setItem("reminders_v1", JSON.stringify(reminders));
   }, [reminders]);
 
-  // Keep current time updated every second (for countdown)
   useEffect(() => {
     const t = setInterval(() => setNow(Date.now()), 1000);
     return () => clearInterval(t);
   }, []);
 
-  // Check due reminders every 5 seconds and notify/alert once
   useEffect(() => {
     const check = () => {
       const nowMs = Date.now();
       reminders.forEach((r) => {
         if (!r.done && !alertedRef.current.has(r.id) && r.time <= nowMs) {
           alertedRef.current.add(r.id);
-          // Try desktop notification, fallback to alert
           if (window.Notification && Notification.permission === "granted") {
             try {
               new Notification("Reminder due: " + r.title, {
@@ -61,7 +55,6 @@ export default function ReminderApp() {
     return () => clearInterval(id);
   }, [reminders]);
 
-  // Request Notification permission (user can decline)
   useEffect(() => {
     if (window.Notification && Notification.permission === "default") {
       Notification.requestPermission().catch(() => {});
@@ -115,7 +108,6 @@ export default function ReminderApp() {
     const r = reminders.find((x) => x.id === id);
     if (!r) return;
     setTitle(r.title);
-    // convert timestamp to input-friendly string
     const dt = new Date(r.time);
     const iso = new Date(dt.getTime() - dt.getTimezoneOffset() * 60000)
       .toISOString()
@@ -147,78 +139,106 @@ export default function ReminderApp() {
   }
 
   return (
-    <div>
-      <h1>Reminder App</h1>
-
-      <form onSubmit={handleAddOrUpdate}>
-        <div>
-          <label>
-            Title:{" "}
-            <input value={title} onChange={(e) => setTitle(e.target.value)} />
-          </label>
-        </div>
-
-        <div>
-          <label>
-            When:{" "}
+    <div className="bg-slate-200 h-screen w-screen flex justify-center items-center">
+      <div className="flex flex-col content-center items-center min-h-1/2 w-1/2 bg-pink-200 p-8 font-sans rounded-xl">
+        <h1 className="text-4xl font-bold mb-4 text-center">
+          Reminder App
+          <hr className="border-black" />
+        </h1>
+        <form onSubmit={handleAddOrUpdate} className="space-y-3">
+          <div>
+            <label className="block text-sm font-medium">Title:</label>
             <input
+              className="w-full border rounded px-2 py-1 bg-white"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium">When:</label>
+            <input
+              className="w-full border rounded px-2 py-1 bg-white"
               type="datetime-local"
               value={datetime}
               onChange={(e) => setDatetime(e.target.value)}
             />
-          </label>
-        </div>
-
-        <div>
-          <label>
-            Notes:{" "}
-            <input value={notes} onChange={(e) => setNotes(e.target.value)} />
-          </label>
-        </div>
-
-        <div>
-          <button type="submit">{editingId ? "Update" : "Add"} Reminder</button>
-          {editingId && (
-            <button type="button" onClick={resetForm}>
-              Cancel
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Notes:</label>
+            <input
+              className="w-full border rounded px-2 py-1 bg-white"
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+            />
+          </div>
+          <div className="flex gap-2">
+            <button
+              type="submit"
+              className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+            >
+              {editingId ? "Update" : "Add"} Reminder
             </button>
-          )}
-        </div>
-      </form>
-
-      <hr />
-
-      <h2>Upcoming Reminders ({reminders.length})</h2>
-      {reminders.length === 0 && <div>No reminders yet — add one above.</div>}
-
-      <ul>
-        {reminders.map((r) => (
-          <li key={r.id}>
-            <div>
-              <strong>{r.title}</strong> {r.done ? "(Done)" : ""}
-            </div>
-            <div>
-              When: {formatTime(r.time)} — {timeRemaining(r.time)}
-            </div>
-            {r.notes && <div>Notes: {r.notes}</div>}
-            <div>
-              <button onClick={() => toggleDone(r.id)}>
-                {r.done ? "Undo" : "Mark done"}
+            {editingId && (
+              <button
+                type="button"
+                className="bg-gray-400 text-white px-3 py-1 rounded hover:bg-gray-500"
+                onClick={resetForm}
+              >
+                Cancel
               </button>
-              <button onClick={() => handleEdit(r.id)}>Edit</button>
-              <button onClick={() => handleDelete(r.id)}>Delete</button>
-            </div>
-            <hr />
-          </li>
-        ))}
-      </ul>
-
-      <div>
-        <small>
+            )}
+          </div>
+        </form>
+        <hr className="my-4" />
+        <h2 className="text-xl font-semibold mb-2">
+          Upcoming Reminders ({reminders.length})
+        </h2>
+        {reminders.length === 0 && (
+          <div className="text-gray-500">No reminders yet — add one above.</div>
+        )}
+        <ul className="space-y-3">
+          {reminders.map((r) => (
+            <li
+              key={r.id}
+              className={`p-3 border rounded ${
+                r.done ? "bg-green-100" : "bg-red-50"
+              }`}
+            >
+              <div className="font-semibold">
+                {r.title} {r.done ? "(Done)" : ""}
+              </div>
+              <div className="text-sm text-gray-600">
+                When: {formatTime(r.time)} — {timeRemaining(r.time)}
+              </div>
+              {r.notes && <div className="text-sm">Notes: {r.notes}</div>}
+              <div className="mt-2 flex gap-2">
+                <button
+                  onClick={() => toggleDone(r.id)}
+                  className="bg-green-500 text-white px-2 py-1 rounded text-sm hover:bg-green-600"
+                >
+                  {r.done ? "Undo" : "Mark done"}
+                </button>
+                <button
+                  onClick={() => handleEdit(r.id)}
+                  className="bg-yellow-500 text-white px-2 py-1 rounded text-sm hover:bg-yellow-600"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDelete(r.id)}
+                  className="bg-red-500 text-white px-2 py-1 rounded text-sm hover:bg-red-600"
+                >
+                  Delete
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-4 text-xs text-gray-500">
           Notes: This app stores reminders in your browser (localStorage).
           Desktop notifications will be used if you grant permission. Alerts are
           shown once when a reminder becomes due.
-        </small>
+        </div>
       </div>
     </div>
   );
