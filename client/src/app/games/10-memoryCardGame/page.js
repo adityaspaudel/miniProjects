@@ -67,18 +67,33 @@ export default function MemoryGame() {
   }, []);
 
   return (
-    <div>
-      <h1>🎴 Memory Game</h1>
-      <button onClick={shuffleCards}>New Game</button>
-      <p>Turns: {turns}</p>
+    <div className="flex flex-col items-center p-6">
+      <h1 className="text-2xl font-bold mb-2">🎴 Memory Game</h1>
+      <button
+        onClick={shuffleCards}
+        className="px-4 py-2 bg-blue-500 text-white rounded mb-2 hover:bg-blue-600"
+      >
+        New Game
+      </button>
+      <p className="mb-4">Turns: {turns}</p>
 
-      <div>
+      {/* Game board using flexbox */}
+      <div className="flex flex-wrap justify-center gap-3 max-w-xs">
         {cards.map((card) => (
-          <span key={card.id} onClick={() => handleChoice(card)}>
+          <div
+            key={card.id}
+            onClick={() => handleChoice(card)}
+            className={`w-16 h-16 flex items-center justify-center border-2 rounded cursor-pointer select-none text-2xl 
+              ${
+                card === firstChoice || card === secondChoice || card.matched
+                  ? "bg-white"
+                  : "bg-gray-700"
+              }`}
+          >
             {card === firstChoice || card === secondChoice || card.matched
               ? card.src
               : "❓"}
-          </span>
+          </div>
         ))}
       </div>
     </div>
