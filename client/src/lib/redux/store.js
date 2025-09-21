@@ -20,8 +20,8 @@ import readingListReducer from "./slices/readingListSlice";
 import habitsReducer from "./slices/habitsSlice";
 import weatherReducer from "./slices/weatherSlice";
 import notificationReducer from "./slices/notificationSlice";
-import inventoryReducer from "./slices/inventorySlice"
-
+import inventoryReducer from "./slices/inventorySlice";
+import userReducer from "./slices/userSlice";
 const persistConfig = {
   key: "root",
   storage,
@@ -36,7 +36,8 @@ const persistConfig = {
     "habits",
     "weather",
     "notification",
-    "inventory"
+    "inventory",
+    "user",
   ],
 };
 const rootReducer = combineReducers({
@@ -55,7 +56,8 @@ const rootReducer = combineReducers({
   habits: habitsReducer,
   weather: weatherReducer,
   notification: notificationReducer,
-  inventory:inventoryReducer
+  inventory: inventoryReducer,
+  user: userReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
