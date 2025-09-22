@@ -35,60 +35,60 @@ export default function PaginationWithAPI() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="max-w-2xl mx-auto mt-8 text-center">
-      <h2 className="text-xl font-semibold mb-4">API Pagination Example</h2>
-
-      {loading ? (
-        <p className="text-gray-500">Loading...</p>
-      ) : (
-        <>
-          {/* Items */}
-          <ul className="space-y-3">
-            {currentItems.map((post) => (
-              <li
-                key={post.id}
-                className="p-3 border rounded text-left shadow-sm"
-              >
-                <h3 className="font-medium">{post.title}</h3>
-                <p className="text-sm text-gray-600">{post.body}</p>
-              </li>
-            ))}
-          </ul>
-
-          {/* Pagination buttons */}
-          <div className="flex justify-center items-center gap-2 mt-6">
-            <button
-              onClick={() => paginate(currentPage - 1)}
-              disabled={currentPage === 1}
-              className="px-3 py-1 border rounded disabled:opacity-50"
-            >
-              Prev
-            </button>
-
-            {[...Array(totalPages)].map((_, i) => (
+    <div className="h-screen w-screen  bg-slate-300 flex text-black justify-center items-center">
+      <div className="flex flex-col content-center items-center min-h-1/2 min-w-1/2 p-4 text-center">
+        <h2 className="text-4xl font-semibold mb-4">
+          API Pagination Example <hr className="border-black" />
+        </h2>
+        {loading ? (
+          <p className="text-gray-500">Loading...</p>
+        ) : (
+          <>
+            {/* Items */}
+            <ul className="space-y-3">
+              {currentItems.map((post) => (
+                <li
+                  key={post.id}
+                  className="p-3 border rounded text-left shadow-sm bg-amber-100"
+                >
+                  <h3 className="font-medium">{post.title}</h3>
+                  <p className="text-sm text-gray-600">{post.body}</p>
+                </li>
+              ))}
+            </ul>
+            {/* Pagination buttons */}
+            <div className="flex justify-center items-center gap-2 mt-6">
               <button
-                key={i}
-                onClick={() => paginate(i + 1)}
-                className={`px-3 py-1 border rounded ${
-                  currentPage === i + 1
-                    ? "bg-blue-500 text-white"
-                    : "bg-white text-black"
-                }`}
+                onClick={() => paginate(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="px-3 py-1 border rounded disabled:opacity-50"
               >
-                {i + 1}
+                Prev
               </button>
-            ))}
-
-            <button
-              onClick={() => paginate(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              className="px-3 py-1 border rounded disabled:opacity-50"
-            >
-              Next
-            </button>
-          </div>
-        </>
-      )}
+              {[...Array(totalPages)].map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => paginate(i + 1)}
+                  className={`px-3 py-1 cursor-pointer border rounded ${
+                    currentPage === i + 1
+                      ? "bg-blue-500 text-white"
+                      : "bg-white text-black"
+                  }`}
+                >
+                  {i + 1}
+                </button>
+              ))}
+              <button
+                onClick={() => paginate(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="px-3 py-1 border rounded disabled:opacity-50"
+              >
+                Next
+              </button>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 }
