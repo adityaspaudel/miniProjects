@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 
 export default function PaginationWithAPI() {
@@ -34,28 +35,32 @@ export default function PaginationWithAPI() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div>
-      <h2>API Pagination Example</h2>
+    <div className="max-w-2xl mx-auto mt-8 text-center">
+      <h2 className="text-xl font-semibold mb-4">API Pagination Example</h2>
 
       {loading ? (
-        <p>Loading...</p>
+        <p className="text-gray-500">Loading...</p>
       ) : (
         <>
           {/* Items */}
-          <ul>
+          <ul className="space-y-3">
             {currentItems.map((post) => (
-              <li key={post.id}>
-                <strong>{post.title}</strong>
-                <p>{post.body}</p>
+              <li
+                key={post.id}
+                className="p-3 border rounded text-left shadow-sm"
+              >
+                <h3 className="font-medium">{post.title}</h3>
+                <p className="text-sm text-gray-600">{post.body}</p>
               </li>
             ))}
           </ul>
 
           {/* Pagination buttons */}
-          <div>
+          <div className="flex justify-center items-center gap-2 mt-6">
             <button
               onClick={() => paginate(currentPage - 1)}
               disabled={currentPage === 1}
+              className="px-3 py-1 border rounded disabled:opacity-50"
             >
               Prev
             </button>
@@ -64,7 +69,11 @@ export default function PaginationWithAPI() {
               <button
                 key={i}
                 onClick={() => paginate(i + 1)}
-                disabled={currentPage === i + 1}
+                className={`px-3 py-1 border rounded ${
+                  currentPage === i + 1
+                    ? "bg-blue-500 text-white"
+                    : "bg-white text-black"
+                }`}
               >
                 {i + 1}
               </button>
@@ -73,6 +82,7 @@ export default function PaginationWithAPI() {
             <button
               onClick={() => paginate(currentPage + 1)}
               disabled={currentPage === totalPages}
+              className="px-3 py-1 border rounded disabled:opacity-50"
             >
               Next
             </button>
