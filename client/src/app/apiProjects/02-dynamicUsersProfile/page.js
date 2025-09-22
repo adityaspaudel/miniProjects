@@ -10,16 +10,19 @@ export default async function Home() {
   const users = await getUsers();
 
   return (
-    <div className="bg-slate-300 text-black flex justify-center items-center min-h-screen">
-      <div className="flex flex-col items-center w-full max-w-2xl p-4">
-        <h1 className="text-xl font-bold mb-6">Dynamic Users</h1>
+    <div className="bg-slate-100 text-black flex flex-wrap justify-center items-center w-screen h-screen">
+      <div className="flex flex-col content-center items-center p-4 bg-emerald-100">
+        <h1 className="text-4xl font-bold mb-6">
+          Dynamic Users
+          <hr className="border-black" />
+        </h1>
 
-        <div className="flex flex-col gap-3 w-full">
+        <div className="flex flex-row gap-3 flex-wrap  w-full h-full">
           {users.map((user) => (
             <Link
               key={user.id}
-              href={`/apiProjects/dynamicUsersProfile/users/${user.id}`}
-              className="border border-black p-3 rounded hover:bg-slate-400 transition"
+              href={`/apiProjects/02-dynamicUsersProfile/users/${user.id}`}
+              className="border border-black p-3 rounded hover:bg-emerald-400 transition"
             >
               <h2 className="font-semibold">{user.name}</h2>
               <p>@{user.username}</p>

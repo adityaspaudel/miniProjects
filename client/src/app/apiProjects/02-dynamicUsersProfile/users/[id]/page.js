@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 
 async function getUser(id) {
@@ -13,11 +12,9 @@ export default async function UserDetail({ params }) {
 
   return (
     <div className="bg-slate-100 min-h-screen w-screen flex justify-center items-center p-6 text-black ">
-      <div className="bg-emerald-400 shadow-xl rounded-2xl p-6 w-full max-w-lg space-y-4">
+      <div className="bg-emerald-100 shadow-xl rounded-2xl p-6 w-full max-w-lg space-y-4">
         {/* Name */}
-        <h1 className="text-2xl font-bold text-center ">
-          {user.name}
-        </h1>
+        <h1 className="text-2xl font-bold text-center ">{user.name}</h1>
         <hr className="border-black" />
 
         {/* Basic Info */}
@@ -33,7 +30,6 @@ export default async function UserDetail({ params }) {
             <strong>Website:</strong>{" "}
             <a
               href={`https://${user.website}`}
-              
               className="text-blue-600 hover:underline"
             >
               {user.website}
@@ -67,7 +63,7 @@ export default async function UserDetail({ params }) {
         <div className="text-center pt-4">
           <Link
             href="/apiProjects/dynamicUsersProfile"
-            className="text-emerald-700 hover:underline font-medium"
+            className="text-emerald-800 hover:underline font-medium"
           >
             ⬅ Back to Users
           </Link>
