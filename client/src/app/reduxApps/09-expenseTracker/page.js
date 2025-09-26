@@ -49,9 +49,9 @@ export default function ExpenseTracker() {
   }));
 
   return (
-    <div className="flex flex-col gap-2 justify-center items-center bg-slate-300 text-black h-screen w-screen">
+    <div className="flex flex-col gap-2 justify-center items-center bg-slate-300 text-black ">
       <div className="flex gap-4">
-        <div className=" flex flex-col gap-2 content-center items-center h-auto min-w-1/2 bg-orange-400 p-4 rounded-xl">
+        <div className=" flex flex-col gap-2 content-center items-center  bg-orange-400 p-4 rounded-xl">
           <div className="">
             <h1 className="text-4xl font-bold">Expense Tracker</h1>
             <hr className="border-black border-1" />
@@ -83,24 +83,57 @@ export default function ExpenseTracker() {
             </button>
           </form>
           {/* Expense List */}
-          <h2 className="font-bold"> Expenses</h2>
-          <ul className="flex flex-col bg-blue-200 p-4 font-mono w-full">
-            {expenses.map((exp) => (
-              <li key={exp.id} className="flex  justify-between items-center">
-                <div className="flex gap-2 justify-between items-center w-3/4">
-                  <div>{exp.title}</div>
-                  <div> Rs. {exp.amount}</div>
-                </div>
-                <button
-                  onClick={() => dispatch(removeExpense(exp.id))}
-                  className="text-sm bg-red-400 hover:bg-red-500 px-2 rounded-sm"
-                >
-                  {" "}
-                  Remove
-                </button>
-              </li>
-            ))}
-          </ul>
+          <div className="flex flex-col gap-2">
+            <div className="flex gap-4 content-between items-center">
+              <ul className="flex flex-col bg-blue-200 p-4 font-mono w-full">
+                {" "}
+                <h2 className="font-bold"> Expenses</h2>
+                {expenses.map((exp) => (
+                  <li
+                    key={exp.id}
+                    className="flex  justify-between items-center"
+                  >
+                    <div className="flex gap-2 justify-between items-center w-3/4">
+                      <div>{exp.title}</div>
+                      <div> Rs. {exp.amount}</div>
+                    </div>
+                    <button
+                      onClick={() => dispatch(removeExpense(exp.id))}
+                      className="text-sm bg-red-400 hover:bg-red-500 px-2 rounded-sm"
+                    >
+                      {" "}
+                      Remove
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex gap-2">
+                {expenses.length > 0 && (
+                  <PieChart
+                    series={[
+                      {
+                        data: pieChartData,
+                        innerRadius: 0,
+                        outerRadius: 100,
+                        paddingAngle: 0,
+                        cornerRadius: 2,
+                      },
+                    ]}
+                    height={200}
+                    width={200}
+                    slotProps={{
+                      legend: {
+                        direction: "column",
+                        position: { vertical: "middle", horizontal: "right" },
+                        padding: 0,
+                      },
+                    }}
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+
           {/* Total */}
           <h3 className="font-bold">
             Total: Rs. {total} <hr className="w-full border-black" />
@@ -112,30 +145,6 @@ export default function ExpenseTracker() {
             >
               Clear All
             </button>
-          )}
-        </div>
-        <div>
-          {expenses.length > 0 && (
-            <PieChart
-              series={[
-                {
-                  data: pieChartData,
-                  innerRadius: 30,
-                  outerRadius: 100,
-                  paddingAngle: 5,
-                  cornerRadius: 5,
-                },
-              ]}
-              height={300}
-              width={500}
-              slotProps={{
-                legend: {
-                  direction: "column",
-                  position: { vertical: "middle", horizontal: "right" },
-                  padding: 0,
-                },
-              }}
-            />
           )}
         </div>
       </div>
