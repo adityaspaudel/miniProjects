@@ -7,7 +7,7 @@ import {
 } from "@/lib/redux/slices/expenseSlice";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import Button from "@mui/material/Button";
 // Changed import to PieChart
 import { PieChart } from "@mui/x-charts/PieChart";
 
@@ -75,12 +75,16 @@ export default function ExpenseTracker() {
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
             />
-            <button
+
+            <Button
               type="submit"
-              className="text-sm bg-green-400 hover:bg-green-500 px-2 rounded-sm"
+              size="small"
+              variant="contained"
+              color="success"
             >
-              Add Expense
-            </button>
+              {" "}
+              Add expense
+            </Button>
           </form>
           {/* Expense List */}
           <div className="flex flex-col gap-2">
@@ -97,13 +101,15 @@ export default function ExpenseTracker() {
                       <div>{exp.title}</div>
                       <div> Rs. {exp.amount}</div>
                     </div>
-                    <button
+                    <Button
                       onClick={() => dispatch(removeExpense(exp.id))}
-                      className="text-sm bg-red-400 hover:bg-red-500 px-2 rounded-sm"
+                      color="error"
+                      variant="contained"
+                      sx={{ height: "14px", fontSize: "14px", padding: "10px" }}
                     >
                       {" "}
                       Remove
-                    </button>
+                    </Button>
                   </li>
                 ))}
               </ul>
@@ -139,12 +145,13 @@ export default function ExpenseTracker() {
             Total: Rs. {total} <hr className="w-full border-black" />
           </h3>
           {expenses.length > 0 && (
-            <button
+            <Button
               onClick={() => dispatch(clearExpenses())}
-              className="bg-gray-300 hover:bg-gray-400 text-red-500  font-bold px-4 rounded-sm"
+              color="warning"
+              variant="contained"
             >
               Clear All
-            </button>
+            </Button>
           )}
         </div>
       </div>
