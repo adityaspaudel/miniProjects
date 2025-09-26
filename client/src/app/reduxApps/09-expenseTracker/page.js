@@ -49,7 +49,7 @@ export default function ExpenseTracker() {
   }));
 
   return (
-    <div className="flex flex-col gap-2 justify-center items-center bg-slate-300 text-black ">
+    <div className="flex flex-col gap-2 justify-center items-center bg-slate-300 text-black h-screen w-screen">
       <div className="flex gap-4">
         <div className=" flex flex-col gap-2 content-center items-center  bg-orange-400 p-4 rounded-xl">
           <div className="">
@@ -91,7 +91,7 @@ export default function ExpenseTracker() {
                 {expenses.map((exp) => (
                   <li
                     key={exp.id}
-                    className="flex  justify-between items-center"
+                    className="flex gap-2 justify-between items-center"
                   >
                     <div className="flex gap-2 justify-between items-center w-3/4">
                       <div>{exp.title}</div>
