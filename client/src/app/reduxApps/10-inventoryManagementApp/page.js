@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Input } from "@mui/joy";
 import Button from "@mui/joy/Button";
+import { PieChart } from "@mui/x-charts";
 
 // import { Button } from "@mui/material";
 
@@ -29,6 +30,12 @@ export default function Home() {
     setQty(0);
     setPrice(0);
   };
+
+  // 🛠️ DATA TRANSFORMATION: Required for PieChart
+  const pieChartData = items.map((val, index) => ({
+    value: val.price,
+    label: val.name,
+  }));
 
   return (
     <div className="flex items-center justify-center bg-slate-400 h-screen w-screen">
@@ -91,6 +98,26 @@ export default function Home() {
           ))}
         </ul>
       </div>
+      <PieChart
+        series={[
+          {
+            data: pieChartData,
+            innerRadius: 0,
+            outerRadius: 100,
+            paddingAngle: 0,
+            cornerRadius: 2,
+          },
+        ]}
+        height={200}
+        width={200}
+        slotProps={{
+          legend: {
+            direction: "column",
+            position: { vertical: "middle", horizontal: "right" },
+            padding: 0,
+          },
+        }}
+      />
     </div>
   );
 }
