@@ -29,37 +29,37 @@ export default function UrlShortener() {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">URL Shortener</h1>
-
-      <form onSubmit={handleShorten} className="flex gap-2 mb-6">
-        <input
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-          placeholder="Enter URL"
-          className="flex-1 p-2 border rounded"
-        />
-        <button
-          type="submit"
-          className="px-4 py-2 bg-blue-600 text-white rounded"
-        >
-          Shorten
-        </button>
-      </form>
-
-      <ul className="space-y-2">
-        {items.map((it) => (
-          <li key={it.slug} className="text-sm">
-            <a
-              href={`/26-urlShortener/${it.slug}`}
-              className="text-blue-600 underline"
-            >
-              {window.location.origin}/26-urlShortener/{it.slug}
-            </a>
-            <div className="text-gray-600">→ {it.original}</div>
-          </li>
-        ))}
-      </ul>
+    <div className="flex h-screen w-screen justify-center items-center bg-slate-50 text-black">
+      <div className="flex  flex-col justify-center items-center min-h/1/2 w-1/2 bg-orange-400   p-6 rounded-xl">
+        <h1 className="text-4xl font-bold mb-4">URL Shortener<hr className="border-black"/></h1>
+        <form onSubmit={handleShorten} className="flex gap-2 mb-6">
+          <input
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+            placeholder="Enter URL"
+            className="flex-1 p-2 border rounded"
+          />
+          <button
+            type="submit"
+            className="px-4 py-2 bg-blue-600 text-white rounded"
+          >
+            Shorten
+          </button>
+        </form>
+        <ul className="space-y-2">
+          {items.map((it) => (
+            <li key={it.slug} className="text-sm">
+              <a
+                href={`/26-urlShortener/${it.slug}`}
+                className="text-blue-600 underline"
+              >
+                {window.location.origin}/26-urlShortener/{it.slug}
+              </a>
+              <div className="text-gray-600">→ {it.original}</div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
