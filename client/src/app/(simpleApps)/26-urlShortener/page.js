@@ -30,7 +30,7 @@ export default function UrlShortener() {
 
   return (
     <div className="flex h-screen w-screen justify-center items-center bg-slate-50 text-black">
-      <div className="flex  flex-col justify-center items-center min-h/1/2 w-1/2 bg-orange-400   p-6 rounded-xl">
+      <div className="flex  flex-col justify-center items-center min-h/1/2 w-1/2 bg-orange-200 p-6 rounded-xl">
         <h1 className="text-4xl font-bold mb-4">URL Shortener<hr className="border-black"/></h1>
         <form onSubmit={handleShorten} className="flex gap-2 mb-6">
           <input
