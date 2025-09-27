@@ -75,49 +75,53 @@ export default function Home() {
             Add
           </Button>
         </div>
-        <ul className="space-y-2">
-          {items.map((item) => (
-            <li
-              key={item.id}
-              className="flex gap-4 justify-between items-center p-2 border-black rounded bg-slate-50"
-            >
-              <div>
-                <div className="font-medium">{item.name}</div>
-                <div className="text-sm text-gray-600">
-                  Qty: {item.qty} • Rs.{item.price}
-                </div>
-              </div>
-              <Button
-                onClick={() => dispatch(deleteItem(item.id))}
-                variant="solid"
-                color="danger"
+        <div className="flex gap-4 items-center content-between">
+          <ul className="space-y-2">
+            {items.map((item) => (
+              <li
+                key={item.id}
+                className="flex gap-4 justify-between items-center p-2 border-black rounded bg-slate-50"
               >
-                Delete
-              </Button>
-            </li>
-          ))}
-        </ul>
+                <div>
+                  <div className="font-medium">{item.name}</div>
+                  <div className="text-sm text-gray-600">
+                    Qty: {item.qty} • Rs.{item.price}
+                  </div>
+                </div>
+                <Button
+                  onClick={() => dispatch(deleteItem(item.id))}
+                  variant="solid"
+                  color="danger"
+                >
+                  Delete
+                </Button>
+              </li>
+            ))}
+          </ul>
+          <div>
+            <PieChart
+              series={[
+                {
+                  data: pieChartData,
+                  innerRadius: 0,
+                  outerRadius: 75,
+                  paddingAngle: 0,
+                  cornerRadius: 2,
+                },
+              ]}
+              height={150}
+              width={150}
+              slotProps={{
+                legend: {
+                  direction: "column",
+                  position: { vertical: "middle", horizontal: "right" },
+                  padding: 0,
+                },
+              }}
+            />
+          </div>
+        </div>
       </div>
-      <PieChart
-        series={[
-          {
-            data: pieChartData,
-            innerRadius: 0,
-            outerRadius: 100,
-            paddingAngle: 0,
-            cornerRadius: 2,
-          },
-        ]}
-        height={200}
-        width={200}
-        slotProps={{
-          legend: {
-            direction: "column",
-            position: { vertical: "middle", horizontal: "right" },
-            padding: 0,
-          },
-        }}
-      />
     </div>
   );
 }
