@@ -8,8 +8,8 @@ const AdminDashboard = () => {
     <div className=" flex gap-2 bg-gray-700 h-screen text-white">
       {/* side nave bar */}
       <div className="flex flex-col items-center content-center bg-gray-600 w-64 font-sans">
-        <div className="flex flex-col items-center content-center">
-          <div className="flex flex-col items-center content-center hover:bg-slate-700  gap-4 h-12 ">
+        <div className="flex flex-col h-screen">
+          <div className="flex flex-col  hover:bg-slate-700  gap-4 h-full w-full">
             {/* logo and logo name  */}
             <div className="flex gap-2 px-2">
               <img
@@ -56,7 +56,15 @@ const AdminDashboard = () => {
           </div>
 
           {/* square and oval */}
-          <div className="flex h-10 w-10 bg-purple-500/50 rounded-xl"></div>
+          <div className="flex flex-col items-center content-center w-full h-full ">
+            <div className="flex flex-col items-center justify-center h-44 w-44 bg-purple-500/50 rounded-xl">
+              <div className=" flex flex-col items-center content-center h-24 w-24 border-slate-200 border-8 rounded-[50%] p-4">
+                <h1 className="font-bold">5:12</h1>
+                <p className="text-[10px]">lorem ipsum</p>
+              </div>
+              <span>lorem ipsum</span>
+            </div>
+          </div>
         </div>
       </div>
       <div className=" w-full flex flex-col gap-2">
