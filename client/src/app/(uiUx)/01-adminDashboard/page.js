@@ -57,12 +57,12 @@ const AdminDashboard = () => {
 
           {/* square and oval */}
           <div className="flex flex-col items-center content-center w-full h-full ">
-            <div className="flex flex-col items-center justify-center h-44 w-44 bg-purple-500/50 rounded-xl">
-              <div className=" flex flex-col items-center content-center h-24 w-24 border-slate-200 border-8 rounded-[50%] p-4">
-                <h1 className="font-bold">5:12</h1>
-                <p className="text-[10px]">lorem ipsum</p>
+            <div className="flex flex-col gap-4 items-center justify-center h-44 w-44 bg-purple-500/50 rounded-xl">
+              <div className=" flex flex-col items-center content-center h-28 w-28 border-slate-200 border-8 rounded-[50%] p-4">
+                <h1 className="font-bold font-serif">5:12</h1>
+                <p className="text-[10px]">lorem ipsum lorem</p>
               </div>
-              <span>lorem ipsum</span>
+              <span className="uppercase">lorem ipsum</span>
             </div>
           </div>
         </div>
