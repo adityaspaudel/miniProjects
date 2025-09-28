@@ -5,59 +5,67 @@ import React from "react";
 
 const AdminDashboard = () => {
   return (
-    <div className=" text-white flex gap-2 bg-gray-800">
-      <div className="bg-gray-600 w-64 font-sans ">
-        <div>
-          <div className="flex  hover:bg-slate-800 px-2 gap-4 h-12">
-            <img
-              src="/calculator.jpg"
-              height={48}
-              width={48}
-              alt="logo"
-              className="rounded-3xl"
-            />
-            <span className="flex content-center items-center">
-              Admin Dashboard
-            </span>
+    <div className=" flex gap-2 bg-gray-700 h-screen text-white">
+      {/* side nave bar */}
+      <div className="flex flex-col items-center content-center bg-gray-600 w-64 font-sans">
+        <div className="flex flex-col items-center content-center">
+          <div className="flex flex-col items-center content-center hover:bg-slate-700  gap-4 h-12 ">
+            {/* logo and logo name  */}
+            <div className="flex gap-2 px-2">
+              <img
+                src="/calculator.jpg"
+                height={48}
+                width={48}
+                alt="logo"
+                className="rounded-3xl"
+              />
+              <span className="flex content-center items-center">
+                Admin Dashboard
+              </span>
+            </div>
+            <ul>
+              <li className="flex gap-4 px-2 hover:bg-slate-500">
+                <span>🏠</span>
+                <span>Home</span>
+              </li>
+              <li className="flex gap-4 px-2 hover:bg-slate-500">
+                <span>✉️</span>
+                <span>Message</span>
+              </li>
+              <li className="flex gap-4 px-2 hover:bg-slate-500">
+                <span>🔔</span>
+                <span>Notification</span>
+              </li>
+              <li className="flex gap-4 px-2 hover:bg-slate-500">
+                <span>💵</span>
+                <span>Money</span>
+              </li>
+              <li className="flex gap-4 px-2 hover:bg-slate-500">
+                <span>💹</span>
+                <span>Chart</span>
+              </li>
+              <li className="flex gap-4 px-2 hover:bg-slate-500">
+                <span>🔎</span>
+                <span>Search</span>
+              </li>
+              <li className="flex gap-4 px-2 hover:bg-slate-500">
+                <span>🛞</span>
+                <span>Setting</span>
+              </li>
+            </ul>
           </div>
-          <ul>
-            <li className="flex gap-4 px-2 hover:bg-slate-500">
-              <span>🏠</span>
-              <span>Home</span>
-            </li>
-            <li className="flex gap-4 px-2 hover:bg-slate-500">
-              <span>✉️</span>
-              <span>Message</span>
-            </li>
-            <li className="flex gap-4 px-2 hover:bg-slate-500">
-              <span>🔔</span>
-              <span>Notification</span>
-            </li>
-            <li className="flex gap-4 px-2 hover:bg-slate-500">
-              <span>💵</span>
-              <span>Money</span>
-            </li>
-            <li className="flex gap-4 px-2 hover:bg-slate-500">
-              <span>💹</span>
-              <span>Chart</span>
-            </li>
-            <li className="flex gap-4 px-2 hover:bg-slate-500">
-              <span>🔎</span>
-              <span>Search</span>
-            </li>
-            <li className="flex gap-4 px-2 hover:bg-slate-500">
-              <span>🛞</span>
-              <span>Setting</span>
-            </li>
-          </ul>
+
+          {/* square and oval */}
+          <div className="flex h-10 w-10 bg-purple-500/50 rounded-xl"></div>
         </div>
       </div>
       <div className=" w-full flex flex-col gap-2">
         <div className="bg-slate-600 flex content-between justify-between items-center gap-4">
+          {/* top menu bar  */}
           <div className="flex gap-4">
             <span className="w-4 px-2">#</span>
-            <span>1sdcdslkcmsd</span>
-            <span>1sdamcakck</span>
+            <span>lorem ipsum</span>
+            <span>total</span>
             <span>dcascakkads1</span>
           </div>
           <div className="flex gap-2">
@@ -67,8 +75,10 @@ const AdminDashboard = () => {
             <span>1</span>
           </div>
         </div>
+        {/* contents  */}
         <div className=" flex gap-2 items-center justify-between content-center">
           <div className="bg-slate-600 flex content-start items-start justify-start ">
+            {/* pie chart  */}
             <PieChartComponent />
           </div>
           <div className="flex gap-2 items-center content-center">
@@ -94,6 +104,7 @@ const AdminDashboard = () => {
               </div>
             </div>
           </div>
+          {/* square like shape */}
           <div className="bg-slate-600">
             <QuadrantInfographic />
           </div>

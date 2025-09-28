@@ -21,8 +21,8 @@ export default function QuadrantInfographic() {
   return (
     <div className="flex   bg-[#0f0c24] text-white w-44 flex-wrap">
       <div className="flex gap-6 ">
-        {items.map((item) => (
-          <div className="w-36 flex gap-6 flex-wrap">
+        {items.map((item, key) => (
+          <div key={key} className="w-36 flex gap-6 flex-wrap">
             {item.map((val) => (
               <div
                 key={val.id}
