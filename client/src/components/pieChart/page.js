@@ -2,46 +2,50 @@
 
 "use client";
 import * as React from "react";
+import { pieArcClasses, PieChart, pieClasses } from "@mui/x-charts/PieChart";
+import { rainbowSurgePalette } from "@mui/x-charts/colorPalettes";
+import { useTheme } from "@mui/material/styles";
 
-import { PieChart, pieArcLabelClasses } from "@mui/x-charts/PieChart";
+export default function PieChartComponent() {
+  const theme = useTheme();
+  const palette = rainbowSurgePalette(theme.palette.mode);
+  const data1 = [
+    { label: "01", value: 400 },
+    { label: "02", value: 300 },
+    { label: "03", value: 300 },
+  ];
 
-const data = [
-  { label: "Group A", value: 400, color: "#0088FE" },
-  { label: "Group B", value: 300, color: "#00C49F" },
-  { label: "Group C", value: 300, color: "#FFBB28" },
-];
+  const data2 = [{ value: 400 }, { value: 300 }, { value: 300 }];
 
-const sizing = {
-  margin: {},
-  width: 200,
-  height: 200,
-  hideLegend: false,
-};
-const TOTAL = data.map((item) => item.value).reduce((a, b) => a + b, 0);
+  const settings = {
+    series: [
+      {
+        id: "inner",
+        innerRadius: 0,
+        outerRadius: 70,
+        data: data1,
+        highlightScope: { fade: "global", highlight: "item" },
+      },
+      {
+        id: "outer",
+        innerRadius: 80,
+        outerRadius: 81,
+        data: data2,
+        highlightScope: { fade: "global", highlight: "item" },
+      },
+    ],
+    height: 300,
+    hideLegend: false,
+  };
 
-const getArcLabel = (params) => {
-  const percent = params.value / TOTAL;
-  return `${(percent * 100).toFixed(0)}%`;
-};
-
-export default function PieCharComponent() {
   return (
     <PieChart
-      series={[
-        {
-          outerRadius: 80,
-          data,
-          arcLabel: getArcLabel,
-          hideLegend: false,
-        },
-      ]}
+      {...settings}
       sx={{
-        [`& .${pieArcLabelClasses.root}`]: {
-          fill: "black",
-          fontSize: 12,
+        [`.${pieClasses.series}[data-series="outer"] .${pieArcClasses.root}`]: {
+          opacity: 0.8,
         },
       }}
-      {...sizing}
     />
   );
 }

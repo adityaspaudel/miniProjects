@@ -114,7 +114,12 @@ const AdminDashboard = () => {
           </div>
           {/* square like shape */}
           <div className="bg-slate-600">
-            <QuadrantInfographic />
+            <div
+              className="bg-red-400"
+              style={{
+                clipPath: "polygon(50% 0%, 100% 0%, 98% 100%, 0% 100%, 0% 50%)",
+              }}
+            ></div>
           </div>
         </div>
       </div>
