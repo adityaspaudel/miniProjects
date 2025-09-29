@@ -10,9 +10,9 @@ export default function PieChartComponent() {
   const theme = useTheme();
   const palette = rainbowSurgePalette(theme.palette.mode);
   const data1 = [
-    { label: "01", value: 400 },
-    { label: "02", value: 300 },
-    { label: "03", value: 300 },
+    { label: "A", value: 400 },
+    { label: "B", value: 300 },
+    { label: "C", value: 300 },
   ];
 
   const data2 = [{ value: 400 }, { value: 300 }, { value: 300 }];
@@ -20,7 +20,7 @@ export default function PieChartComponent() {
   const settings = {
     series: [
       {
-        id: "inner",
+        // id: "inner",
         innerRadius: 0,
         outerRadius: 70,
         data: data1,

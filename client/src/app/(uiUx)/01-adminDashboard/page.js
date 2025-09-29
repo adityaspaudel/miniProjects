@@ -87,7 +87,7 @@ const AdminDashboard = () => {
           </div>
         </div>
         {/* contents  */}
-        <div className=" flex gap-2 items-center justify-between content-center">
+        <div className=" flex  gap-12 items-center justify-center content-center">
           <div className="bg-slate-600 flex content-start items-start justify-start ">
             {/* pie chart  */}
             <PieChartComponent />
@@ -119,14 +119,92 @@ const AdminDashboard = () => {
               </div>
             </div>
           </div>
+
           {/* square like shape */}
-          <div className="bg-slate-600">
-            <div
-              className="bg-red-400"
-              style={{
-                clipPath: "polygon(50% 0%, 100% 0%, 98% 100%, 0% 100%, 0% 50%)",
-              }}
-            ></div>
+          <div className="flex flex-col w-96">
+            <div className="flex gap-2">
+              {/* part-1  */}
+              <div className="flex bg-slate-600  flex-wrap gap-8 h-40 w-40 shadow-[40px_40px_10px_-10px_rgba(200,150,150,1)] p-8">
+                <div
+                  className="shadow-xl shadow-purple-600"
+                  style={{
+                    clipPath:
+                      "polygon(40% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 40%)",
+                  }}
+                >
+                  <div className="h-8 w-8 bg-purple-600 text-center p-2">A</div>
+                </div>
+                <div
+                  className="shadow-[5px_5px_5px_-5px_rgba(200,150,150,1)] "
+                  style={{
+                    clipPath:
+                      "polygon(60% 0, 100% 40%, 100% 100%, 0 100%, 0 0)",
+                  }}
+                >
+                  <div className="h-8 w-8 bg-purple-600 text-center p-2">B</div>
+                </div>
+                <div
+                  style={{
+                    clipPath:
+                      "polygon(100% 0, 100% 100%, 40% 100%, 0 60%, 0 0)",
+                  }}
+                >
+                  <div className="h-8 w-8 bg-purple-600 text-center p-2">C</div>{" "}
+                </div>
+                <div
+                  style={{
+                    clipPath:
+                      "polygon(100% 0, 100% 60%, 60% 100%, 0 100%, 0 0)",
+                  }}
+                >
+                  <div className="h-8 w-8 bg-purple-600 text-center p-2">D</div>{" "}
+                </div>
+              </div>
+              {/* part 2 */}
+              <div className="flex bg-slate-600  flex-wrap gap-8 h-40 w-40 shadow-[40px_40px_10px_-10px_rgba(200,150,150,1)] p-8">
+                <div
+                  className="shadow-xl shadow-blue-600"
+                  style={{
+                    clipPath:
+                      "polygon(40% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 40%)",
+                  }}
+                >
+                  <div className="h-8 w-8 bg-blue-600 text-center p-2">A</div>
+                </div>
+                <div
+                  className="shadow-[5px_5px_5px_-5px_rgba(200,150,150,1)] "
+                  style={{
+                    clipPath:
+                      "polygon(60% 0, 100% 40%, 100% 100%, 0 100%, 0 0)",
+                  }}
+                >
+                  <div className="h-8 w-8 bg-blue-600 text-center p-2">B</div>
+                </div>
+                <div
+                  style={{
+                    clipPath:
+                      "polygon(100% 0, 100% 100%, 40% 100%, 0 60%, 0 0)",
+                  }}
+                >
+                  <div className="h-8 w-8 bg-blue-600 text-center p-2">C</div>{" "}
+                </div>
+                <div
+                  style={{
+                    clipPath:
+                      "polygon(100% 0, 100% 60%, 60% 100%, 0 100%, 0 0)",
+                  }}
+                >
+                  <div className="h-8 w-8 bg-blue-600 text-center p-2">D</div>{" "}
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <h1 className="uppercase">lorem ipsum lorem ipsum </h1>
+              <div className="text-[8px] text-center text-wrap uppercase">
+                lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+                lorem ipsum lorem ipsum lorem ipsum{" "}
+              </div>
+            </div>
           </div>
         </div>
       </div>
