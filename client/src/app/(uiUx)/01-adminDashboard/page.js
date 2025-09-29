@@ -2,6 +2,9 @@
 import QuadrantInfographic from "@/components/infoChart/page";
 import PieChartComponent from "@/components/pieChart/page";
 import React from "react";
+import { BsCartCheckFill } from "react-icons/bs";
+
+import { FaCommentsDollar } from "react-icons/fa6";
 
 const AdminDashboard = () => {
   return (
@@ -90,25 +93,29 @@ const AdminDashboard = () => {
             <PieChartComponent />
           </div>
           <div className="flex gap-2 items-center content-center">
-            <div className="bg-slate-600 flex flex-col gap-0 content-center items-center ">
-              <div className="h-28 w-28 border-[12px] rounded-xl border-purple-500 p-2 bg-purple-800">
-                <div>Lorem ipsum</div>
-                <div>1678</div>
-              </div>
-              <div className="h-8 w-0 border-[6px] border-purple-500"></div>
-              <div className="h-24 w-24 border-[12px] -mt-2 rounded-full border-purple-500 text-4xl p-2 bg-slate-800">
-                🛒
-              </div>
-            </div>
-            <div className="bg-slate-600 flex flex-col gap-0 content-center items-center ">
-              <div className="h-28 w-28 border-[12px] rounded-xl border-sky-500 p-2  bg-sky-800">
-                <div>Lorem ipsum</div>
-                <div>1890</div>
-              </div>
-              <div className="h-8 w-0 border-[6px] border-sky-500"></div>
-
-              <div className="h-24 w-24 border-[12px] -mt-2 rounded-full border-sky-500 text-4xl p-2 bg-slate-800">
-                💸
+            <div className="flex flex-col  content-center items-center ">
+              <div className="text-center">Lorem ipsum dolor</div>
+              <div className="flex gap items-content content-center gap-4">
+                <div className="bg-slate-600 flex flex-col  content-center items-center ">
+                  <div className="flex flex-col content-center items-center h-28 w-28 border-[6px] rounded-xl border-purple-500 p-2 bg-purple-800 uppercase">
+                    <div className="text-xs text-center">Lorem ipsum dolor</div>
+                    <div>1678</div>
+                  </div>
+                  <div className="h-8 w-0 border-[6px] border-purple-500"></div>
+                  <div className="flex flex-col content-center items-center h-24 w-24 border-[12px] -mt-2 rounded-full border-purple-500 text-4xl p-4 bg-slate-800">
+                    <BsCartCheckFill />
+                  </div>
+                </div>
+                <div className="bg-slate-600 flex flex-col gap-0 content-center items-center ">
+                  <div className="flex flex-col content-center items-center h-28 w-28 border-[6px] rounded-xl border-sky-500 p-2  bg-sky-800 uppercase">
+                    <div className="text-xs text-center">Lorem ipsum dolor</div>
+                    <div>1890</div>
+                  </div>
+                  <div className="h-8 w-0 border-[6px] border-sky-500"></div>
+                  <div className="flex flex-col content-center items-center h-24 w-24 border-[12px] -mt-2 rounded-full border-sky-500 text-4xl p-4 bg-slate-800">
+                    <FaCommentsDollar />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
