@@ -77,7 +77,7 @@ const AdminDashboard = () => {
             <span className="w-4 px-2">#</span>
             <span>lorem ipsum</span>
             <span>total</span>
-            <span>dcascakkads1</span>
+            <span>price</span>
           </div>
           <div className="flex gap-2">
             <span>🛎️</span>
@@ -87,16 +87,16 @@ const AdminDashboard = () => {
           </div>
         </div>
         {/* contents  */}
-        <div className=" flex  gap-12 items-center justify-center content-center">
-          <div className="bg-slate-600 flex content-start items-start justify-start ">
+        <div className=" flex  gap-2 content-center items-center">
+          <div className="bg-slate-600  flex content-center items-center">
             {/* pie chart  */}
             <PieChartComponent />
           </div>
-          <div className="flex gap-2 items-center content-center">
+          <div className="flex gap-2 items-center content-center p-4">
             <div className="flex flex-col  content-center items-center ">
               <div className="text-center">Lorem ipsum dolor</div>
-              <div className="flex gap items-content content-center gap-4">
-                <div className="bg-slate-600 flex flex-col  content-center items-center ">
+              <div className="flex gap items-content content-center gap-4 p-4">
+                <div className="bg-slate-600 flex flex-col  content-center items-center p-4">
                   <div className="flex flex-col content-center items-center h-28 w-28 border-[6px] rounded-xl border-purple-500 p-2 bg-purple-800 uppercase">
                     <div className="text-xs text-center">Lorem ipsum dolor</div>
                     <div>1678</div>
@@ -106,7 +106,7 @@ const AdminDashboard = () => {
                     <BsCartCheckFill />
                   </div>
                 </div>
-                <div className="bg-slate-600 flex flex-col gap-0 content-center items-center ">
+                <div className="bg-slate-600 flex flex-col gap-0 content-center items-center p-4">
                   <div className="flex flex-col content-center items-center h-28 w-28 border-[6px] rounded-xl border-sky-500 p-2  bg-sky-800 uppercase">
                     <div className="text-xs text-center">Lorem ipsum dolor</div>
                     <div>1890</div>
@@ -121,10 +121,10 @@ const AdminDashboard = () => {
           </div>
 
           {/* square like shape */}
-          <div className="flex flex-col w-96">
+          <div className="flex flex-col">
             <div className="flex gap-2">
               {/* part-1  */}
-              <div className="flex bg-slate-600  flex-wrap gap-8 h-40 w-40 shadow-[40px_40px_10px_-10px_rgba(200,150,150,1)] p-8">
+              <div className="flex bg-slate-600  flex-wrap gap-8 h-40 w-40  p-8">
                 <div
                   className="shadow-xl shadow-purple-600"
                   style={{
@@ -161,7 +161,7 @@ const AdminDashboard = () => {
                 </div>
               </div>
               {/* part 2 */}
-              <div className="flex bg-slate-600  flex-wrap gap-8 h-40 w-40 shadow-[40px_40px_10px_-10px_rgba(200,150,150,1)] p-8">
+              <div className="flex bg-slate-600  flex-wrap gap-8 h-40 w-40  p-8">
                 <div
                   className="shadow-xl shadow-blue-600"
                   style={{
@@ -199,7 +199,9 @@ const AdminDashboard = () => {
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <h1 className="uppercase">lorem ipsum lorem ipsum </h1>
+              <h1 className="uppercase text-center">
+                lorem ipsum lorem ipsum{" "}
+              </h1>
               <div className="text-[8px] text-center text-wrap uppercase">
                 lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
                 lorem ipsum lorem ipsum lorem ipsum{" "}
