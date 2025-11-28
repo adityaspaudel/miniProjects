@@ -20,16 +20,15 @@ export default function PieChartComponent() {
   const settings = {
     series: [
       {
-        // id: "inner",
         innerRadius: 0,
-        outerRadius: 70,
+        outerRadius: 50,
         data: data1,
         highlightScope: { fade: "global", highlight: "item" },
       },
       {
         id: "outer",
-        innerRadius: 80,
-        outerRadius: 81,
+        innerRadius: 60,
+        outerRadius: 61,
         data: data2,
         highlightScope: { fade: "global", highlight: "item" },
       },
@@ -43,7 +42,7 @@ export default function PieChartComponent() {
       {...settings}
       sx={{
         [`.${pieClasses.series}[data-series="outer"] .${pieArcClasses.root}`]: {
-          opacity: 0.8,
+          opacity: 1,
         },
       }}
     />
