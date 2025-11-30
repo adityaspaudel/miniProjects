@@ -60,11 +60,11 @@ const Love = () => {
 
 	return (
 		<div className="flex flex-col gap-8 bg-gray-200 justify-center items-center m-auto min-h-screen text-black  w-screen">
-			<div className="flex flex-col gap-8 bg-green-200 justify-center items-center m-auto min-h-md min-w-2xl p-8">
+			<div className="flex flex-col gap-8 bg-green-200 justify-center items-center m-auto min-h-md min-w-2xl p-8 rounded-md">
 				<h1 className="text-2xl font-bold">Love Calculator<hr className="border border-black"/></h1>
 				<div className="flex gap-4 w-[400px]">
 					<input
-						className="p-2 text-black rounded-md"
+						className="p-2 text-black rounded-md bg-gray-100"
 						name="yourName"
 						type="text"
 						value={formData.yourName}
@@ -73,7 +73,7 @@ const Love = () => {
 					/>
 					<span className="text-3xl">❤️</span>
 					<input
-						className="p-2 text-black rounded-md"
+						className="p-2 text-black rounded-md bg-gray-100"
 						name="partnerName"
 						type="text"
 						value={formData.partnerName}
