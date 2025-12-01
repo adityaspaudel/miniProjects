@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
+
 const Home = () => {
 	const games = [
 		"1-coinFlipper",
@@ -39,6 +40,7 @@ const Home = () => {
 		"16-wishlistApp",
 		"17-githubUserFinder",
 	];
+
 	const simpleApps = [
 		"1-accordian",
 		"2-bmiCalculator",
@@ -68,33 +70,47 @@ const Home = () => {
 		"26-urlShortener",
 	];
 
+	const renderCards = (items, basePath) =>
+		items.map((item, idx) => (
+			<Link href={`/${basePath}/${item}`} key={idx}>
+				<div className="bg-white shadow-md rounded-lg p-4 hover:scale-105 hover:shadow-xl transition-transform cursor-pointer text-center">
+					{item.split("-")[1]}
+				</div>
+			</Link>
+		));
+
 	return (
-		<div>
-			<div>React Projects</div>
-			<div className="flex flex-wrap gap-4 cursor-pointer border-2 ">
-				<div>
-					<div>Games</div>
-					{games.map((game, idx) => (
-						<Link href={`/games/${game}`} key={idx}>
-							<div>{game}</div>
-						</Link>
-					))}
+		<div className="min-h-screen text-black bg-gray-100 p-6">
+			<h1 className="text-4xl font-bold mb-8 text-center text-gray-800">
+				React Projects Hub
+			</h1>
+
+			<div className="flex flex-col md:flex-row md:justify-between gap-8">
+				<div className="flex-1">
+					<h2 className="text-2xl font-semibold mb-4 text-gray-700 text-center">
+						Games
+					</h2>
+					<div className="flex flex-col flex-wrap gap-4 justify-center">
+						{renderCards(games, "games")}
+					</div>
 				</div>
-				<div>
-					<div>Redux Apps</div>
-					{reduxApps.map((rApp, idx) => (
-						<Link href={`/reduxApps/${rApp}`} key={idx}>
-							<div>{rApp}</div>
-						</Link>
-					))}
+
+				<div className="flex-1">
+					<h2 className="text-2xl font-semibold mb-4 text-gray-700 text-center">
+						Redux Apps
+					</h2>
+					<div className="flex flex-col flex-wrap gap-4 justify-center">
+						{renderCards(reduxApps, "reduxApps")}
+					</div>
 				</div>
-				<div>
-					<div>SimpleApps</div>
-					{simpleApps.map((app, idx) => (
-						<Link href={`/simpleApps/${app}`} key={idx}>
-							<div>{app}</div>
-						</Link>
-					))}
+
+				<div className="flex-1">
+					<h2 className="text-2xl font-semibold mb-4 text-gray-700 text-center">
+						Simple Apps
+					</h2>
+					<div className="flex flex-col flex-wrap gap-4 justify-center">
+						{renderCards(simpleApps, "simpleApps")}
+					</div>
 				</div>
 			</div>
 		</div>
