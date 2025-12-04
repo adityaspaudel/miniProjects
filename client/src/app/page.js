@@ -20,6 +20,7 @@ const Home = () => {
 		"14-wordPuzzleGame",
 		"15-jumpingGame",
 		"16-brickBreaker",
+		"17-racingGame",
 	];
 
 	const reduxApps = [
