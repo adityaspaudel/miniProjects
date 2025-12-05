@@ -72,7 +72,7 @@ export default function JumpGame() {
 	};
 
 	return (
-		<div className="flex flex-col items-center min-h-screen bg-gray-100 py-10 text-black">
+		<div className="flex flex-col items-center min-h-screen  py-10 text-black w-screen bg-pink-200">
 			<h1 className="text-3xl font-bold mb-6">Jumping Game</h1>
 			<h1 className="text-2xl font-semibold">Score: {score}</h1>
 			<div
@@ -89,7 +89,6 @@ export default function JumpGame() {
 				>
 					<div className="absolute bg-red-600 w-1 h-3 rounded-md mt-2 ml-5"></div>
 				</div>
-
 				{/* Obstacle */}
 				<div
 					className="absolute bg-red-600 w-10 h-10 rounded-tl-2xl rounded-tr-2xl"
@@ -99,27 +98,23 @@ export default function JumpGame() {
 					}}
 				></div>
 			</div>
-
 			{gameOver && (
 				<p className="text-red-600 font-bold text-xl mt-4">Game Over!</p>
 			)}
-
 			<div className="flex gap-4 mt-6">
 				<button
 					onClick={restart}
-					className="px-4 py-2 bg-blue-600 text-white rounded shadow"
+					className="px-4 py bg-blue-500 hover:bg-blue-600 text-white rounded shadow hover:shadow-md shadow-black cursor-pointer transition 1s"
 				>
 					Restart
 				</button>
-
 				<button
 					onClick={() => setPaused((p) => !p)}
-					className="px-4 py-2 bg-yellow-500 text-white rounded shadow"
+					className="px-4 py bg-yellow-500 hover:bg-yellow-600 rounded-sm text-white \ shadow hover:shadow-md shadow-black cursor-pointer transition 1s"
 				>
 					{paused ? "Play" : "Pause"}
 				</button>
 			</div>
-
 			<p className="mt-4 text-gray-600">
 				Press ⬆️ to jump, ⬅️ to move left, ➡️ to move right
 			</p>
