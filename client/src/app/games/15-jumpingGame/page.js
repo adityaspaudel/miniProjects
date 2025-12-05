@@ -9,17 +9,18 @@ export default function JumpGame() {
 	const [obstacleLeft, setObstacleLeft] = useState(500);
 	const [playerX, setPlayerX] = useState(50);
 	const [playerY, setPlayerY] = useState(0);
-
+	const [score, setScore] = useState(0);
 	// Obstacle movement
 	useEffect(() => {
 		if (gameOver || paused) return;
 
 		const interval = setInterval(() => {
+			setScore(score + 1);
 			setObstacleLeft((pos) => (pos <= -20 ? 500 : pos - 10));
 		}, 50);
 
 		return () => clearInterval(interval);
-	}, [gameOver, paused]);
+	}, [gameOver, paused, score]);
 
 	// Collision detection
 	useEffect(() => {
@@ -67,28 +68,31 @@ export default function JumpGame() {
 		setJumping(false);
 		setPlayerX(50);
 		setPlayerY(0);
+		setScore(0);
 	};
 
 	return (
 		<div className="flex flex-col items-center min-h-screen bg-gray-100 py-10 text-black">
 			<h1 className="text-3xl font-bold mb-6">Jumping Game</h1>
-
+			<h1 className="text-2xl font-semibold">Score: {score}</h1>
 			<div
 				className="relative bg-white border border-gray-400 rounded overflow-hidden"
 				style={{ width: 500, height: 200 }}
 			>
 				{/* Player */}
 				<div
-					className="absolute bg-blue-600 w-10 h-10 transition-all duration-300"
+					className="absolute bg-blue-600 w-6 h-6 transition-all duration-300 rounded-t-md"
 					style={{
 						left: playerX,
 						bottom: jumping ? 100 : 0,
 					}}
-				></div>
+				>
+					<div className="absolute bg-red-600 w-1 h-3 rounded-md mt-2 ml-5"></div>
+				</div>
 
 				{/* Obstacle */}
 				<div
-					className="absolute bg-red-600 w-10 h-10"
+					className="absolute bg-red-600 w-10 h-10 rounded-tl-2xl rounded-tr-2xl"
 					style={{
 						bottom: 0,
 						left: obstacleLeft,
