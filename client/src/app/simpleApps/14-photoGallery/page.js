@@ -2,8 +2,26 @@
 
 import Image from "next/image";
 import React, { useEffect, useState, useCallback } from "react";
+import { Button } from "@/components/ui/button";
+import {
+	Dialog,
+	DialogClose,
+	DialogContent,
+	DialogDescription,
+	DialogFooter,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 const PhotoGallery = () => {
+	const [open, setOpen] = React.useState(false);
+	const handleOpen = () => setOpen(true);
+	const handleClose = () => setOpen(false);
+	const [selected, setSelected] = useState(null);
+
 	const imageUrls = [
 		{
 			id: 1,
@@ -309,18 +327,57 @@ const PhotoGallery = () => {
 
 	return (
 		<div className="p-2 flex flex-col justify-center items-center min-h-screen w-screen bg-amber-50 text-black">
-			<h1 className="text-2xl font-semibold ">Photo Gallery</h1>
-			<div className="flex flex-wrap gap-0.5 sm:gap-1 md:gap-1.5 xl:gap-2 justify-evenly items-center bg-blue-100">
-				{imageUrls.map((products, idx) => (
-					<div key={idx}>
-						<Image
-							className="h-80 w-80 object-cover hover:scale-102 transition .5s flex  flex-wrap items-center justify-between"
-							src={`${products?.url}`}
-							height={300}
-							width={300}
-							alt={products.category}
-						/>
-					</div>
+			<h1 className="text-2xl font-semibold my-3">Photo Gallery</h1>
+
+			<div className="flex flex-wrap gap-2 justify-center items-center bg-blue-100 p-2">
+				{imageUrls.map((item) => (
+					<Dialog key={item.id}>
+						<DialogTrigger asChild>
+							<Button
+								variant="outline"
+								className="p-0"
+								onClick={() => setSelected(item)}
+							>
+								<Image
+									className="h-52 w-52 object-cover hover:scale-105 transition duration-300"
+									src={item.url}
+									height={250}
+									width={250}
+									alt={item.title}
+								/>
+							</Button>
+						</DialogTrigger>
+
+						<DialogContent className="sm:max-w-[450px]">
+							<DialogHeader>
+								<DialogTitle>{selected?.title}</DialogTitle>
+								<DialogDescription>
+									Category: {selected?.category}
+								</DialogDescription>
+							</DialogHeader>
+
+							<div className="flex flex-col gap-3">
+								<Image
+									src={selected?.url || ""}
+									height={350}
+									width={350}
+									alt="Preview"
+									className="rounded-md object-cover"
+								/>
+
+								<div className="grid gap-2">
+									<Label>Change Title</Label>
+									<Input defaultValue={selected?.title} disabled/>
+								</div>
+
+								<div className="grid gap-2">
+									<Label>Edit Category</Label>
+									<Input defaultValue={selected?.category} disabled/>
+								</div>
+							</div>
+
+						</DialogContent>
+					</Dialog>
 				))}
 			</div>
 		</div>
@@ -328,4 +385,3 @@ const PhotoGallery = () => {
 };
 
 export default PhotoGallery;
-
