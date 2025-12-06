@@ -1,16 +1,26 @@
 "use client";
 
-import { ListItem } from "@material-ui/core";
-import { InsertEmoticonSharp, InsertEmoticonTwoTone } from "@material-ui/icons";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import { Button } from "@/components/ui/button";
+import {
+	Dialog,
+	DialogClose,
+	DialogContent,
+	DialogDescription,
+	DialogFooter,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
-const ImageGallery = () => {
-	const [imageCount, setImageCount] = useState(0);
-	useEffect(() => {
-		// This will cause re-renders each time `imageCount` changes
-		if (imageCount < imageUrls.length) setImageCount(imageCount + 1);
-	}, [imageCount]);
+const PhotoGallery = () => {
+	const [open, setOpen] = React.useState(false);
+	const handleOpen = () => setOpen(true);
+	const handleClose = () => setOpen(false);
+	const [selected, setSelected] = useState(null);
 
 	const imageUrls = [
 		{
@@ -315,33 +325,63 @@ const ImageGallery = () => {
 		},
 	];
 
-	// Example of how to access individual URLs
-	// Outputs the first image URL
-
 	return (
-		<div className="p-2">
-			<h1>ImageGallery</h1>
-			{imageCount}
-			<div className="flex gap-[2px] sm:gap-[4px] md:gap-[6px] xl:gap-[8px]bg-blue-600  ">
-				{imageUrls.map((item, id) => {
-					return (
-						<div
-							key={id}
-							className="">
-							{/*  */}
-							<div className="">
-								<img
-									className="object-cover flex gap-2 bg-green-600  h-[150px] w-[150px] sm:h-[200px] sm:w-[200px] md:h-[250px] md:w-[250px]  xl:h-[300px] xl:w-[300px] p-2"
+		<div className="p-2 flex flex-col justify-center items-center min-h-screen w-screen bg-amber-50 text-black">
+			<h1 className="text-2xl font-semibold my-3">Photo Gallery</h1>
+
+			<div className="flex flex-wrap gap-2 justify-center items-center bg-blue-100 p-2">
+				{imageUrls.map((item) => (
+					<Dialog key={item.id}>
+						<DialogTrigger asChild>
+							<Button
+								variant="outline"
+								className="p-0"
+								onClick={() => setSelected(item)}
+							>
+								<Image
+									className="h-52 w-52 object-cover hover:scale-105 transition duration-300"
 									src={item.url}
+									height={250}
+									width={250}
+									alt={item.title}
 								/>
+							</Button>
+						</DialogTrigger>
+
+						<DialogContent className="sm:max-w-[450px]">
+							<DialogHeader>
+								<DialogTitle>{selected?.title}</DialogTitle>
+								<DialogDescription>
+									Category: {selected?.category}
+								</DialogDescription>
+							</DialogHeader>
+
+							<div className="flex flex-col gap-3">
+								<Image
+									src={selected?.url || ""}
+									height={350}
+									width={350}
+									alt="Preview"
+									className="rounded-md object-cover"
+								/>
+
+								<div className="grid gap-2">
+									<Label>Change Title</Label>
+									<Input defaultValue={selected?.title} disabled/>
+								</div>
+
+								<div className="grid gap-2">
+									<Label>Edit Category</Label>
+									<Input defaultValue={selected?.category} disabled/>
+								</div>
 							</div>
-							<div>{item.category}</div>
-						</div>
-					);
-				})}
+
+						</DialogContent>
+					</Dialog>
+				))}
 			</div>
 		</div>
 	);
 };
 
-export default ImageGallery;
+export default PhotoGallery;
