@@ -62,6 +62,9 @@ A collection of **React.js projects** including **Games**, **Redux Apps**, and *
 13. Aim Training Game
 14. Word Puzzle Game
 15. Jumping Game
+16. Brick Breaker
+17. Racing Game
+18. Tic Tac Toe
 
 ### Redux Apps
 
@@ -85,7 +88,7 @@ A collection of **React.js projects** including **Games**, **Redux Apps**, and *
 
 ### Simple Apps
 
-1. Accordian
+1. Accordion
 2. BMI Calculator
 3. Calculator
 4. Color Picker App
@@ -133,5 +136,5 @@ A collection of **React.js projects** including **Games**, **Redux Apps**, and *
 
 ```bash
 git clone https://github.com/adityaspaudel/miniProjects.git
-cd miniProjects
+cd MiniProjects
 ```
