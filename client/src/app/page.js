@@ -21,6 +21,7 @@ const Home = () => {
 		"15-jumpingGame",
 		"16-brickBreaker",
 		"17-racingGame",
+		"18-ticTacToe",
 	];
 
 	const reduxApps = [
@@ -44,7 +45,7 @@ const Home = () => {
 	];
 
 	const simpleApps = [
-		"1-accordian",
+		"1-accordion",
 		"2-bmiCalculator",
 		"3-calculator",
 		"4-colorPickerApp",
