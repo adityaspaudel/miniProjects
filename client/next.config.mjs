@@ -1,6 +1,10 @@
-// old file
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+	reactCompiler: true,
+	images: {
+		domains: ["images.unsplash.com"],
+	},
+};
 
 export default nextConfig;
 

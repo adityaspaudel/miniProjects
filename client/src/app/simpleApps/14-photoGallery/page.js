@@ -1,17 +1,9 @@
 "use client";
 
-import { ListItem } from "@material-ui/core";
-import { InsertEmoticonSharp, InsertEmoticonTwoTone } from "@material-ui/icons";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
-const ImageGallery = () => {
-	const [imageCount, setImageCount] = useState(0);
-	useEffect(() => {
-		// This will cause re-renders each time `imageCount` changes
-		if (imageCount < imageUrls.length) setImageCount(imageCount + 1);
-	}, [imageCount]);
-
+const PhotoGallery = () => {
 	const imageUrls = [
 		{
 			id: 1,
@@ -315,33 +307,25 @@ const ImageGallery = () => {
 		},
 	];
 
-	// Example of how to access individual URLs
-	// Outputs the first image URL
-
 	return (
-		<div className="p-2">
-			<h1>ImageGallery</h1>
-			{imageCount}
-			<div className="flex gap-[2px] sm:gap-[4px] md:gap-[6px] xl:gap-[8px]bg-blue-600  ">
-				{imageUrls.map((item, id) => {
-					return (
-						<div
-							key={id}
-							className="">
-							{/*  */}
-							<div className="">
-								<img
-									className="object-cover flex gap-2 bg-green-600  h-[150px] w-[150px] sm:h-[200px] sm:w-[200px] md:h-[250px] md:w-[250px]  xl:h-[300px] xl:w-[300px] p-2"
-									src={item.url}
-								/>
-							</div>
-							<div>{item.category}</div>
-						</div>
-					);
-				})}
+		<div className="p-2 flex flex-col justify-center items-center min-h-screen w-screen bg-amber-50 text-black">
+			<h1 className="text-2xl font-semibold ">Photo Gallery</h1>
+			<div className="flex flex-wrap gap-0.5 sm:gap-1 md:gap-1.5 xl:gap-2 justify-evenly items-center bg-blue-100">
+				{imageUrls.map((products, idx) => (
+					<div key={idx}>
+						<Image
+							className="h-80 w-80 object-cover hover:scale-102 transition .5s flex  flex-wrap items-center justify-between"
+							src={`${products?.url}`}
+							height={300}
+							width={300}
+							alt={products.category}
+						/>
+					</div>
+				))}
 			</div>
 		</div>
 	);
 };
 
-export default ImageGallery;
+export default PhotoGallery;
+
