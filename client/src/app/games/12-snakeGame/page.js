@@ -36,10 +36,15 @@ export default function SnakeGame() {
 		return () => window.removeEventListener("keydown", handleKey);
 	}, [direction]);
 
+	// GAME LOOP
 	useEffect(() => {
 		if (!snake || !food || gameOver || youWon) return;
 
+		const intervalSpeed = 120; // ms per movement
 		const interval = setInterval(() => {
+			// Increase score by time
+			setScore((prev) => prev + 1);
+
 			setSnake((prevSnake) => {
 				const newSnake = [...prevSnake];
 				const head = {
@@ -47,6 +52,7 @@ export default function SnakeGame() {
 					y: newSnake[0].y + direction.y,
 				};
 
+				// Hit wall
 				if (
 					head.x < 0 ||
 					head.x >= gridSize ||
@@ -58,6 +64,7 @@ export default function SnakeGame() {
 					return prevSnake;
 				}
 
+				// Hit itself
 				for (let part of newSnake) {
 					if (head.x === part.x && head.y === part.y) {
 						setGameOver(true);
@@ -69,7 +76,9 @@ export default function SnakeGame() {
 				newSnake.unshift(head);
 
 				if (head.x === food.x && head.y === food.y) {
-					setScore((prev) => prev + 10); // Increase score
+					// Food eaten → bonus score
+					setScore((prev) => prev + 15);
+
 					setFood({
 						x: Math.floor(Math.random() * gridSize),
 						y: Math.floor(Math.random() * gridSize),
@@ -78,7 +87,6 @@ export default function SnakeGame() {
 					newSnake.pop();
 				}
 
-				// Win Condition
 				if (newSnake.length >= 20) {
 					setYouWon(true);
 					clearInterval(interval);
@@ -86,7 +94,7 @@ export default function SnakeGame() {
 
 				return newSnake;
 			});
-		}, 150);
+		}, intervalSpeed);
 
 		return () => clearInterval(interval);
 	}, [direction, food, gameOver, youWon, snake]);
@@ -98,9 +106,9 @@ export default function SnakeGame() {
 			x: Math.floor(Math.random() * gridSize),
 			y: Math.floor(Math.random() * gridSize),
 		});
+		setScore(0);
 		setGameOver(false);
 		setYouWon(false);
-		setScore(0);
 	};
 
 	if (!snake || !food) return null;
@@ -123,10 +131,10 @@ export default function SnakeGame() {
 	}
 
 	return (
-		<div className="flex flex-col items-center py-10 bg-gray-100 min-h-screen text-black">
+		<div className="flex flex-col items-center py-10 bg-gray-400 min-h-screen text-black">
 			<h1 className="text-3xl font-bold mb-2">Snake Game</h1>
 
-			{/* Score + Snake Length Display */}
+			{/* SCORE DISPLAY */}
 			<div className="flex gap-6 mb-4 text-lg font-semibold">
 				<p>
 					Score: <span className="text-blue-600">{score}</span>
