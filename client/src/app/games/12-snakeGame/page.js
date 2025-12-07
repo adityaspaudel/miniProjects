@@ -5,15 +5,21 @@ import { useEffect, useState } from "react";
 export default function SnakeGame() {
 	const gridSize = 20;
 
-	const [snake, setSnake] = useState([{ x: 10, y: 10 }]);
-	const [food, setFood] = useState({
-		x: Math.floor(Math.random() * gridSize),
-		y: Math.floor(Math.random() * gridSize),
-	});
+	const [snake, setSnake] = useState(null);
+	const [food, setFood] = useState(null);
 	const [direction, setDirection] = useState({ x: 1, y: 0 });
 	const [gameOver, setGameOver] = useState(false);
+	const [youWon, setYouWon] = useState(false);
+	const [score, setScore] = useState(0);
 
-	// Handle arrow keys
+	useEffect(() => {
+		setSnake([{ x: 10, y: 10 }]);
+		setFood({
+			x: Math.floor(Math.random() * gridSize),
+			y: Math.floor(Math.random() * gridSize),
+		});
+	}, []);
+
 	useEffect(() => {
 		const handleKey = (e) => {
 			if (e.key === "ArrowUp" && direction.y !== 1)
@@ -30,9 +36,8 @@ export default function SnakeGame() {
 		return () => window.removeEventListener("keydown", handleKey);
 	}, [direction]);
 
-	// Game Loop
 	useEffect(() => {
-		if (gameOver) return;
+		if (!snake || !food || gameOver || youWon) return;
 
 		const interval = setInterval(() => {
 			setSnake((prevSnake) => {
@@ -42,7 +47,6 @@ export default function SnakeGame() {
 					y: newSnake[0].y + direction.y,
 				};
 
-				// Hit wall → Game Over
 				if (
 					head.x < 0 ||
 					head.x >= gridSize ||
@@ -54,7 +58,6 @@ export default function SnakeGame() {
 					return prevSnake;
 				}
 
-				// Hit itself → Game Over
 				for (let part of newSnake) {
 					if (head.x === part.x && head.y === part.y) {
 						setGameOver(true);
@@ -65,14 +68,20 @@ export default function SnakeGame() {
 
 				newSnake.unshift(head);
 
-				// If eaten food
 				if (head.x === food.x && head.y === food.y) {
+					setScore((prev) => prev + 10); // Increase score
 					setFood({
 						x: Math.floor(Math.random() * gridSize),
 						y: Math.floor(Math.random() * gridSize),
 					});
 				} else {
-					newSnake.pop(); // move normally
+					newSnake.pop();
+				}
+
+				// Win Condition
+				if (newSnake.length >= 20) {
+					setYouWon(true);
+					clearInterval(interval);
 				}
 
 				return newSnake;
@@ -80,7 +89,7 @@ export default function SnakeGame() {
 		}, 150);
 
 		return () => clearInterval(interval);
-	}, [direction, food, gameOver]);
+	}, [direction, food, gameOver, youWon, snake]);
 
 	const restartGame = () => {
 		setSnake([{ x: 10, y: 10 }]);
@@ -90,9 +99,12 @@ export default function SnakeGame() {
 			y: Math.floor(Math.random() * gridSize),
 		});
 		setGameOver(false);
+		setYouWon(false);
+		setScore(0);
 	};
 
-	// Render Grid
+	if (!snake || !food) return null;
+
 	const grid = [];
 	for (let y = 0; y < gridSize; y++) {
 		for (let x = 0; x < gridSize; x++) {
@@ -112,19 +124,31 @@ export default function SnakeGame() {
 
 	return (
 		<div className="flex flex-col items-center py-10 bg-gray-100 min-h-screen text-black">
-			<h1 className="text-3xl font-bold mb-4">Snake Game </h1>
+			<h1 className="text-3xl font-bold mb-2">Snake Game</h1>
+
+			{/* Score + Snake Length Display */}
+			<div className="flex gap-6 mb-4 text-lg font-semibold">
+				<p>
+					Score: <span className="text-blue-600">{score}</span>
+				</p>
+				<p>
+					Snake Length: <span className="text-green-700">{snake.length}</span>
+				</p>
+			</div>
 
 			<div
 				className="grid"
-				style={{
-					gridTemplateColumns: `repeat(${gridSize}, 20px)`,
-				}}
+				style={{ gridTemplateColumns: `repeat(${gridSize}, 20px)` }}
 			>
 				{grid}
 			</div>
 
 			{gameOver && (
 				<p className="text-red-600 font-bold text-xl mt-4">Game Over!</p>
+			)}
+
+			{youWon && (
+				<p className="text-green-600 font-bold text-xl mt-4">🎉 You Won!</p>
 			)}
 
 			<button
