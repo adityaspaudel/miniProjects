@@ -1,7 +1,0 @@
-{
-	"users": [
-		{ "id": 1, "name": "Aaditya", "role": "MERN Developer" },
-		{ "id": 2, "name": "Alex", "role": "Designer" }
-	],
-	"posts": [{ "id": 1, "title": "Learning Next.js", "body": "Amazing!" }]
-}
