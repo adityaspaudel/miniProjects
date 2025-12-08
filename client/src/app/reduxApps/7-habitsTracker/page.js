@@ -1,88 +1,88 @@
 "use client";
 
 import {
-  addHabit,
-  clearHabits,
-  removeHabit,
-  toggleHabit,
+	addHabit,
+	clearHabits,
+	removeHabit,
+	toggleHabit,
 } from "@/lib/redux/slices/habitsSlice";
 
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function HabitTracker() {
-  const [habit, setHabit] = useState("");
-  const habits = useSelector((state) => state.habits.list);
-  const dispatch = useDispatch();
+	const [habit, setHabit] = useState("");
+	const habits = useSelector((state) => state.habits.list);
+	const dispatch = useDispatch();
 
-  const handleAdd = () => {
-    if (habit.trim() !== "") {
-      dispatch(addHabit(habit));
-      setHabit("");
-    }
-  };
+	const handleAdd = () => {
+		if (habit.trim() !== "") {
+			dispatch(addHabit(habit));
+			setHabit("");
+		}
+	};
 
-  return (
-    <div className="text-black bg-slate-300 flex justify-center items-center h-screen w-screen">
-      <div className="text-black bg-orange-300 flex flex-col p-4 gap-2 min-h-1/2 w-1/2 content-center items-center rounded-lg">
-        <div>
-          <h2 className="text-4xl font-bold">Habit Tracker</h2>
-          <hr className="border-black border-1" />
-        </div>
-        <div className="flex flex-col gap-2 ">
-          <div className="flex gap-2">
-            <input className="px-2 border-black rounded-sm"
-              type="text"
-              value={habit}
-              placeholder="Enter a habit"
-              onChange={(e) => {
-                e.preventDefault();
-                setHabit(e.target.value);
-              }}
-            />
-            <button
-              onClick={() => handleAdd()}
-              className="bg-green-400 hove:bg-green-500 text-sm px-2 rounded-sm"
-            >
-              Add
-            </button>
-            {habits.length !== 0 ? (
-              <button
-                onClick={() => dispatch(clearHabits())}
-                className="bg-gray-400 hover:bg-gray-500 rounded-sm px-2 text-sm"
-              >
-                Clear All
-              </button>
-            ) : (
-              ""
-            )}
-          </div>
-        </div>
-        <ul className="flex flex-col gap-2 ">
-          {habits.map((h) => (
-            <li
-              key={h.id}
-              className="flex gap-12 justify-between items-center w-full"
-            >
-              <span
-                onClick={() => dispatch(toggleHabit(h.id))}
-                className={` ${
-                  h.completed ? "line-through text-gray-500" : "no-underline"
-                }`}
-                title={`${h.completed ? "completed" : "pending"}`}
-              >
-                {h.title}
-              </span>
-              <button
-                onClick={() => dispatch(removeHabit(h.id))}
-                className="bg-red-400 hover:bg-red-500 px-2 rounded-sm text-sm"
-              >
-                remove
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
+	return (
+		<div className="flex justify-center items-center h-screen bg-gradient-to-r from-slate-200 to-slate-400">
+			<div className="bg-white shadow-lg rounded-lg p-6 w-[500px] flex flex-col gap-4">
+				<h2 className="text-3xl font-bold text-center text-slate-700">
+					Habit Tracker
+				</h2>
+				<hr />
+
+				{/* Input Section */}
+				<div className="flex gap-2">
+					<input
+						className="px-3 py-1 w-full border rounded-md outline-none focus:ring-2 focus:ring-orange-400"
+						type="text"
+						placeholder="Enter a habit"
+						value={habit}
+						onChange={(e) => setHabit(e.target.value)}
+					/>
+
+					<button
+						onClick={handleAdd}
+						className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md transition"
+					>
+						Add
+					</button>
+
+					{habits.length > 0 && (
+						<button
+							onClick={() => dispatch(clearHabits())}
+							className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded-md transition"
+						>
+							Clear
+						</button>
+					)}
+				</div>
+
+				{/* List Section */}
+				<ul className="flex flex-col gap-2 mt-2 max-h-[300px] overflow-y-auto pr-1">
+					{habits.map((h) => (
+						<li
+							key={h.id}
+							className="flex justify-between items-center bg-orange-200 px-3 py-2 rounded-md"
+						>
+							<span
+								onClick={() => dispatch(toggleHabit(h.id))}
+								className={`cursor-pointer ${
+									h.completed ? "line-through text-gray-500" : "text-slate-700"
+								}`}
+							>
+								{h.title}
+							</span>
+
+							<button
+								onClick={() => dispatch(removeHabit(h.id))}
+								className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded-md transition text-xs"
+							>
+								Remove
+							</button>
+						</li>
+					))}
+				</ul>
+			</div>
+		</div>
+	);
 }
