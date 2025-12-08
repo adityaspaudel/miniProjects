@@ -1,158 +1,40 @@
 {
-  "users": [
-    {
-      "id": "1",
-      "name": "Aaditya Paudel",
-      "email": "aaditya1@example.com"
-    },
-    {
-      "id": "2",
-      "name": "John Doe",
-      "email": "john2@example.com"
-    },
-    {
-      "id": "3",
-      "name": "Jane Smith",
-      "email": "jane3@example.com"
-    },
-    {
-      "id": "4",
-      "name": "Alice Johnson",
-      "email": "alice4@example.com"
-    },
-    {
-      "id": "5",
-      "name": "Bob Brown",
-      "email": "bob5@example.com"
-    },
-    {
-      "id": "6",
-      "name": "Charlie Davis",
-      "email": "charlie6@example.com"
-    },
-    {
-      "id": "7",
-      "name": "Diana Evans",
-      "email": "diana7@example.com"
-    },
-    {
-      "id": "8",
-      "name": "Ethan Foster",
-      "email": "ethan8@example.com"
-    },
-    {
-      "id": "9",
-      "name": "Fiona Green",
-      "email": "fiona9@example.com"
-    },
-    {
-      "id": "10",
-      "name": "George Hill",
-      "email": "george10@example.com"
-    }
-  ],
-  "posts": [
-    {
-      "id": "1",
-      "title": "Post 1",
-      "userId": 1
-    },
-    {
-      "id": "2",
-      "title": "Post 2",
-      "userId": 2
-    },
-    {
-      "id": "3",
-      "title": "Post 3",
-      "userId": 3
-    },
-    {
-      "id": "4",
-      "title": "Post 4",
-      "userId": 4
-    },
-    {
-      "id": "5",
-      "title": "Post 5",
-      "userId": 5
-    },
-    {
-      "id": "6",
-      "title": "Post 6",
-      "userId": 6
-    },
-    {
-      "id": "7",
-      "title": "Post 7",
-      "userId": 7
-    },
-    {
-      "id": "8",
-      "title": "Post 8",
-      "userId": 8
-    },
-    {
-      "id": "9",
-      "title": "Post 9",
-      "userId": 9
-    },
-    {
-      "id": "10",
-      "title": "Post 10",
-      "userId": 10
-    }
-  ],
-  "products": [
-    {
-      "id": "1",
-      "name": "Product 1",
-      "price": 100
-    },
-    {
-      "id": "2",
-      "name": "Product 2",
-      "price": 200
-    },
-    {
-      "id": "3",
-      "name": "Product 3",
-      "price": 300
-    },
-    {
-      "id": "4",
-      "name": "Product 4",
-      "price": 400
-    },
-    {
-      "id": "5",
-      "name": "Product 5",
-      "price": 500
-    },
-    {
-      "id": "6",
-      "name": "Product 6",
-      "price": 600
-    },
-    {
-      "id": "7",
-      "name": "Product 7",
-      "price": 700
-    },
-    {
-      "id": "8",
-      "name": "Product 8",
-      "price": 800
-    },
-    {
-      "id": "9",
-      "name": "Product 9",
-      "price": 900
-    },
-    {
-      "id": "10",
-      "name": "Product 10",
-      "price": 1000
-    }
-  ]
+	"users": [
+		{ "id": 1, "name": "Aaditya Paudel", "email": "aaditya1@example.com" },
+		{ "id": 2, "name": "John Doe", "email": "john2@example.com" },
+		{ "id": 3, "name": "Jane Smith", "email": "jane3@example.com" },
+		{ "id": 4, "name": "Alice Johnson", "email": "alice4@example.com" },
+		{ "id": 5, "name": "Bob Brown", "email": "bob5@example.com" },
+		{ "id": 6, "name": "Charlie Davis", "email": "charlie6@example.com" },
+		{ "id": 7, "name": "Diana Evans", "email": "diana7@example.com" },
+		{ "id": 8, "name": "Ethan Foster", "email": "ethan8@example.com" },
+		{ "id": 9, "name": "Fiona Green", "email": "fiona9@example.com" },
+		{ "id": 10, "name": "George Hill", "email": "george10@example.com" }
+	],
+
+	"posts": [
+		{ "id": 1, "title": "Post 1", "userId": 1 },
+		{ "id": 2, "title": "Post 2", "userId": 2 },
+		{ "id": 3, "title": "Post 3", "userId": 3 },
+		{ "id": 4, "title": "Post 4", "userId": 4 },
+		{ "id": 5, "title": "Post 5", "userId": 5 },
+		{ "id": 6, "title": "Post 6", "userId": 6 },
+		{ "id": 7, "title": "Post 7", "userId": 7 },
+		{ "id": 8, "title": "Post 8", "userId": 8 },
+		{ "id": 9, "title": "Post 9", "userId": 9 },
+		{ "id": 10, "title": "Post 10", "userId": 10 }
+	],
+
+	"products": [
+		{ "id": 1, "name": "Product 1", "price": 100 },
+		{ "id": 2, "name": "Product Two", "price": 200 },
+		{ "id": 3, "name": "Product 3", "price": 300 },
+		{ "id": 4, "name": "Product 4", "price": 400 },
+		{ "id": 5, "name": "Product 5", "price": 500 },
+		{ "id": 6, "name": "Product 6", "price": 600 },
+		{ "id": 7, "name": "Product 7", "price": 700 },
+		{ "id": 8, "name": "Product 8", "price": 800 },
+		{ "id": 9, "name": "Product 9", "price": 900 },
+		{ "id": 10, "name": "Product 10", "price": 1000 }
+	]
 }

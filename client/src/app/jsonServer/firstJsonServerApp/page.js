@@ -9,12 +9,12 @@ export default function Home() {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState("");
 
-	// Form States for Create / Update
+	// Form States for Create / Update Product
 	const [productName, setProductName] = useState("");
 	const [productPrice, setProductPrice] = useState("");
 	const [editId, setEditId] = useState(null);
 
-	// Fetch ALL Data
+	// Fetch ALL Data (Users, Posts, Products)
 	const fetchData = async () => {
 		try {
 			const [usersRes, postsRes, productsRes] = await Promise.all([
@@ -22,6 +22,9 @@ export default function Home() {
 				fetch("http://localhost:5000/posts"),
 				fetch("http://localhost:5000/products"),
 			]);
+
+			if (!usersRes.ok || !postsRes.ok || !productsRes.ok)
+				throw new Error("Failed to fetch");
 
 			const [usersData, postsData, productsData] = await Promise.all([
 				usersRes.json(),
@@ -34,7 +37,7 @@ export default function Home() {
 			setProducts(productsData);
 			setLoading(false);
 		} catch (err) {
-			setError("Failed to load data.");
+			setError("❌ Failed to load JSON Server. Is it running?");
 			setLoading(false);
 		}
 	};
@@ -45,7 +48,10 @@ export default function Home() {
 
 	// CREATE Product
 	const handleAddProduct = async () => {
-		if (!productName || !productPrice) return alert("Fill all fields");
+		if (!productName || !productPrice) {
+			alert("Fill all fields");
+			return;
+		}
 
 		await fetch("http://localhost:5000/products", {
 			method: "POST",
@@ -61,11 +67,18 @@ export default function Home() {
 		fetchData();
 	};
 
-	// EDIT Product → Fill form with existing data
+	// EDIT --> Load values into input fields
 	const handleEditClick = (product) => {
 		setEditId(product.id);
 		setProductName(product.name);
 		setProductPrice(product.price);
+	};
+
+	// CANCEL EDIT
+	const handleCancelEdit = () => {
+		setEditId(null);
+		setProductName("");
+		setProductPrice("");
 	};
 
 	// UPDATE Product
@@ -87,15 +100,18 @@ export default function Home() {
 
 	// DELETE Product
 	const handleDeleteProduct = async (id) => {
+		if (!confirm("Are you sure you want to delete this?")) return;
+
 		await fetch(`http://localhost:5000/products/${id}`, {
 			method: "DELETE",
 		});
 		fetchData();
 	};
 
-	if (loading) return <p className="p-4">Loading...</p>;
+	if (loading) return <p className="p-4">⏳ Loading...</p>;
 	if (error) return <p className="p-4 text-red-500">{error}</p>;
 
+	// Utility: Get Username by ID
 	const getUserName = (userId) => {
 		const user = users.find((u) => u.id === Number(userId));
 		return user ? user.name : "Unknown";
@@ -103,25 +119,25 @@ export default function Home() {
 
 	return (
 		<div className="p-6 space-y-10 max-w-4xl mx-auto">
-			{/* Users */}
+			{/* USERS LIST */}
 			<section>
-				<h2 className="text-3xl font-bold mb-4">Users</h2>
+				<h2 className="text-3xl font-bold mb-2">Users</h2>
 				<ul className="space-y-1">
 					{users.map((user) => (
 						<li key={user.id}>
-							{user.name} - {user.email}
+							{user.name} — {user.email}
 						</li>
 					))}
 				</ul>
 			</section>
 
-			{/* Posts */}
+			{/* POSTS LIST */}
 			<section>
-				<h2 className="text-3xl font-bold mb-4">Posts</h2>
+				<h2 className="text-3xl font-bold mb-2">Posts</h2>
 				<ul className="space-y-1">
 					{posts.map((post) => (
 						<li key={post.id}>
-							{post.title} —{" "}
+							<b>{post.title}</b> —{" "}
 							<span className="text-blue-600">{getUserName(post.userId)}</span>
 						</li>
 					))}
@@ -130,7 +146,7 @@ export default function Home() {
 
 			{/* PRODUCTS CRUD */}
 			<section>
-				<h2 className="text-3xl font-bold mb-4">Products Manager (CRUD)</h2>
+				<h2 className="text-3xl font-bold mb-4">Products Management (CRUD)</h2>
 
 				{/* FORM */}
 				<div className="flex gap-2 mb-4">
@@ -149,12 +165,17 @@ export default function Home() {
 					/>
 
 					{editId ? (
-						<button
-							onClick={handleUpdateProduct}
-							className="bg-green-600 text-white px-4"
-						>
-							Update
-						</button>
+						<>
+							<button
+								onClick={handleUpdateProduct}
+								className="bg-green-600 text-white px-4"
+							>
+								Save
+							</button>
+							<button onClick={handleCancelEdit} className="bg-gray-400 px-4">
+								Cancel
+							</button>
+						</>
 					) : (
 						<button
 							onClick={handleAddProduct}
@@ -170,7 +191,7 @@ export default function Home() {
 					{products.map((product) => (
 						<li key={product.id} className="flex justify-between">
 							<span>
-								{product.name} - ${product.price}
+								{product.name} — $<b>{product.price}</b>
 							</span>
 
 							<div className="flex gap-2">
