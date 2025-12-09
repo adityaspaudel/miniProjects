@@ -71,6 +71,7 @@ const Home = () => {
 		"24-wordsAndCharactersCounter",
 		"25-paginationWithAPI",
 		"26-urlShortener",
+		"27-calendarEventCreator",
 	];
 
 	const renderCards = (items, basePath) =>
