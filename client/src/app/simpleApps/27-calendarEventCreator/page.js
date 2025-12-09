@@ -13,8 +13,7 @@ const CalendarEventCreator = () => {
 		setEventTitle("");
 	};
 
-	// Separate upcoming and past events
-	const today = new Date().toISOString().split("T")[0]; // format: yyyy-mm-dd
+	const today = new Date().toISOString().split("T")[0];
 
 	const upcomingEvents = events
 		.filter((ev) => ev.date >= today)
@@ -22,50 +21,54 @@ const CalendarEventCreator = () => {
 
 	const pastEvents = events
 		.filter((ev) => ev.date < today)
-		.sort((a, b) => (a.date > b.date ? -1 : 1)); // most recent past first
+		.sort((a, b) => (a.date > b.date ? -1 : 1));
 
 	return (
-		<div className="min-h-screen flex flex-col items-center justify-start p-6 bg-gray-100">
-			<h1 className="text-3xl font-bold mb-6">Calendar Event Creator</h1>
+		<div className="min-h-screen flex flex-col items-center p-8 bg-gray-50">
+			<h1 className="text-4xl font-extrabold text-gray-800 mb-8">
+				📅 Calendar Event Creator
+			</h1>
 
-			<div className="flex flex-col md:flex-row items-center gap-4 mb-6">
+			<div className="flex flex-col md:flex-row items-center gap-4 mb-8 w-full max-w-xl">
 				<input
 					type="date"
-					className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+					className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition"
 					value={date}
 					onChange={(e) => setDate(e.target.value)}
 				/>
 				<input
 					type="text"
 					placeholder="Event Title"
-					className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+					className="flex-2 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition"
 					value={eventTitle}
 					onChange={(e) => setEventTitle(e.target.value)}
 				/>
 				<button
-					className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+					className="bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:bg-indigo-700 transition"
 					onClick={handleAddEvent}
 				>
 					Add Event
 				</button>
 			</div>
 
-			<div className="w-full max-w-md">
-				<h2 className="text-xl font-semibold mb-3">Upcoming Events:</h2>
+			<div className="w-full max-w-xl">
+				<h2 className="text-2xl font-semibold mb-4 text-gray-700">
+					Upcoming Events
+				</h2>
 				{upcomingEvents.length === 0 ? (
-					<p className="text-gray-500">No upcoming events.</p>
+					<p className="text-gray-400 mb-4">No upcoming events.</p>
 				) : (
-					<ul className="space-y-2">
+					<ul className="space-y-3 mb-6">
 						{upcomingEvents.map((ev, index) => (
 							<li
 								key={index}
-								className="bg-white p-3 rounded shadow flex justify-between items-center"
+								className="bg-white p-4 rounded-xl shadow-sm flex justify-between items-center hover:shadow-md transition"
 							>
-								<span>
-									<span className="font-semibold">{ev.date}:</span> {ev.title}
+								<span className="text-gray-800">
+									<span className="font-semibold">{ev.date}</span>: {ev.title}
 								</span>
 								<button
-									className="text-red-500 hover:underline"
+									className="text-red-500 hover:text-red-600 font-medium"
 									onClick={() =>
 										setEvents(events.filter((_, i) => i !== events.indexOf(ev)))
 									}
@@ -77,21 +80,23 @@ const CalendarEventCreator = () => {
 					</ul>
 				)}
 
-				<h2 className="text-xl font-semibold mt-6 mb-3">Past Events:</h2>
+				<h2 className="text-2xl font-semibold mb-4 text-gray-700">
+					Past Events
+				</h2>
 				{pastEvents.length === 0 ? (
-					<p className="text-gray-500">No past events.</p>
+					<p className="text-gray-400 mb-4">No past events.</p>
 				) : (
-					<ul className="space-y-2">
+					<ul className="space-y-3">
 						{pastEvents.map((ev, index) => (
 							<li
 								key={index}
-								className="bg-gray-200 p-3 rounded shadow flex justify-between items-center"
+								className="bg-gray-100 p-4 rounded-xl shadow-sm flex justify-between items-center hover:shadow-md transition"
 							>
-								<span>
-									<span className="font-semibold">{ev.date}:</span> {ev.title}
+								<span className="text-gray-600">
+									<span className="font-semibold">{ev.date}</span>: {ev.title}
 								</span>
 								<button
-									className="text-red-500 hover:underline"
+									className="text-red-500 hover:text-red-600 font-medium"
 									onClick={() =>
 										setEvents(events.filter((_, i) => i !== events.indexOf(ev)))
 									}
