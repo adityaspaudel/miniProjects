@@ -39,7 +39,7 @@ export default function UserLoginPage() {
 
             <button
               onClick={handleLogout}
-              className="bg-red-400 hover:bg-red-500 px-2 rounded-sm"
+              className="bg-red-400 hover:bg-red-500 px-2 rounded-sm text-white cursor-pointer"
             >
               Logout
             </button>
@@ -47,36 +47,41 @@ export default function UserLoginPage() {
         ) : (
           <form
             onSubmit={handleLogin}
-            className="flex flex-col gap-2 content-center items-center min-h-1/2 w-1/2 bg-yellow-100 rounded-lg p-4 shadow shadow-gray-400 hover:shadow-md transition 1s"
+            className="flex flex-col gap-4 content-start items-start min-h-1/2 w-md bg-yellow-100 rounded-lg px-8 py-4 shadow shadow-gray-400 hover:shadow-md transition 1s"
           >
-            <div>
-              <h1 className="font-bold text-3xl ">Login Form</h1>
+            <div className="flex flex-col">
+              <h1 className="font-bold text-3xl text-center ">Login Form</h1>
               <hr className="border border-black" />
             </div>
+            <div className="flex flex-col w-full">
+              <label htmlFor="email ">Email</label>
+              <input
+                className=" border border-gray-400 rounded-md font-mono bg-gray-100 px-4 py-1 w-full"
+                name="email"
+                type="email"
+                placeholder="abcdef@gmail.com"
+                required
+                value={formData.email}
+                onChange={handleChange}
+              />
+            </div>
 
-            <label htmlFor="email">Enter your email:</label>
-            <input
-              className=" border border-gray-400 rounded-md font-mono bg-gray-100 px-4 py-1"
-              name="email"
-              type="email"
-              required
-              value={formData.email}
-              onChange={handleChange}
-            />
-
-            <label htmlFor="password">Enter your password:</label>
-            <input
-              className=" border border-gray-400 px-4 py-1 rounded-md font-mono bg-gray-100"
-              name="password"
-              type="password"
-              required
-              value={formData.password}
-              onChange={handleChange}
-            />
+            <div className="flex flex-col w-full">
+              <label htmlFor="password">Password</label>
+              <input
+                className=" border border-gray-400 px-4 py-1 rounded-md font-mono bg-gray-100 w-full"
+                name="password"
+                type="password"
+                placeholder="password"
+                required
+                value={formData.password}
+                onChange={handleChange}
+              />
+            </div>
 
             <button
               type="submit"
-              className="bg-green-400 hover:bg-green-500 px-2 rounded-md text-white cursor-pointer"
+              className="bg-green-400 hover:bg-green-500 px-2 rounded-md py-1 text-white cursor-pointer"
             >
               Login
             </button>

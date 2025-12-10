@@ -24,7 +24,7 @@ export default function NotesPage() {
         </div>
         <div className="flex gap-4">
           <input
-            className=" bg-gray-100 border px-4 py-2 rounded-xl"
+            className=" bg-gray-100 border w-80 border-gray-400 px-4 py-2 rounded-sm"
             type="text"
             value={noteText}
             onChange={(e) => setNoteText(e.target.value)}
@@ -47,7 +47,7 @@ export default function NotesPage() {
               <div>{note.text}</div>
               <button
                 onClick={() => dispatch(deleteNote(note.id))}
-                className="px-2 text-sm text-white  cursor-pointer bg-red-400 hover:bg-red-500 rounded-sm"
+                className="px-2 text-sm text-white  cursor-pointer bg-red-500 hover:bg-red-600 rounded-sm"
               >
                 Delete
               </button>
