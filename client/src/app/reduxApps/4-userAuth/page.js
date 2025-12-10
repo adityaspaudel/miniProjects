@@ -30,7 +30,7 @@ export default function UserLoginPage() {
   };
 
   return (
-    <div className="flex flex-col gap-2 justify-center items-center bg-gray-500 h-screen w-screen">
+    <div className="flex flex-col gap-2 justify-center items-center bg-gray-300 h-screen w-screen">
       <div className="flex flex-col gap-2 justify-center items-center  h-full w-full rounded-md p-4 text-black">
         {isLoggedIn ? (
           <div className="flex flex-col gap-2 justify-center items-center p-4 ">
@@ -47,19 +47,16 @@ export default function UserLoginPage() {
         ) : (
           <form
             onSubmit={handleLogin}
-            className="flex flex-col gap-2 justify-center items-center min-h-1/2 w-1/2 bg-yellow-300 rounded-lg p-4"
+            className="flex flex-col gap-2 content-center items-center min-h-1/2 w-1/2 bg-yellow-100 rounded-lg p-4 shadow shadow-gray-400 hover:shadow-md transition 1s"
           >
             <div>
               <h1 className="font-bold text-3xl ">Login Form</h1>
-              <hr className="border-1 border-black" />
+              <hr className="border border-black" />
             </div>
-            <h2 className="text-sm text-red-500 italic underline">
-              Please log in
-            </h2>
 
             <label htmlFor="email">Enter your email:</label>
             <input
-              className="px-2 border-2 border-black rounded-sm font-mono"
+              className=" border border-gray-400 rounded-md font-mono bg-gray-100 px-4 py-1"
               name="email"
               type="email"
               required
@@ -69,7 +66,7 @@ export default function UserLoginPage() {
 
             <label htmlFor="password">Enter your password:</label>
             <input
-              className="px-2 border-2 border-black rounded-sm font-mono"
+              className=" border border-gray-400 px-4 py-1 rounded-md font-mono bg-gray-100"
               name="password"
               type="password"
               required
@@ -79,7 +76,7 @@ export default function UserLoginPage() {
 
             <button
               type="submit"
-              className="bg-green-400 hover:bg-green-500 px-2 rounded-sm"
+              className="bg-green-400 hover:bg-green-500 px-2 rounded-md text-white cursor-pointer"
             >
               Login
             </button>
