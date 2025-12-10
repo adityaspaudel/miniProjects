@@ -77,7 +77,7 @@ const Home = () => {
   const renderCards = (items, basePath) =>
     items.map((item, idx) => (
       <Link href={`/${basePath}/${item}`} key={idx}>
-        <div className="bg-gray-100 hover:font-semibold hover:bg-gray-300 shadow-gray-400 shadow rounded-lg px-8 py-4 hover:scale-105 hover:shadow-md transition-transform cursor-pointer ">
+        <div className="bg-gray-100 hover:font-semibold hover:bg-green-600 hover:text-white shadow-gray-400 shadow rounded-lg px-8 py-4 hover:scale-105 hover:shadow-md transition-transform cursor-pointer ">
           {item}
         </div>
       </Link>
