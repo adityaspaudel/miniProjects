@@ -63,15 +63,16 @@ export default function Home() {
   };
 
   return (
-    <div className="flex items-center justify-center gap-2 h-screen w-screen bg-slate-400">
-      <div className="bg-red-200 text-black min-h-1/2 w-1/2 p-4 flex flex-col content-center items-center gap-2 rounded-xl">
+    <div className="flex items-center justify-center gap-2 h-screen w-screen bg-amber-200">
+      <div className="bg-red-200 text-black min-h-1/2 w-1/2 p-4 flex flex-col content-center items-center gap-2 rounded-xl shadow shadow-black hover:shadow-md transition 1s">
         <Notification />
-        <h1 className="text-4xl">
+        <h1 className="text-4xl font-semibold">
           Notification System <hr className="border-black" />
         </h1>
+        <br />
         <button
           onClick={handleShow}
-          className="bg-sky-500 hover:bg-sky-600 text-sm rounded-sm px-2"
+          className="bg-sky-500 hover:bg-sky-600 text-sm rounded-sm px-2 py-1 text-white"
         >
           Show Notification
         </button>

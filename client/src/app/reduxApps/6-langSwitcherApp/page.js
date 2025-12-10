@@ -12,17 +12,17 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center bg-stone-400 h-screen w-screen text-black">
-      <div className="p-4 flex flex-col content-center gap-2 items-center bg-yellow-300 h-1/2 w-1/2 rounded-xl">
+    <div className="flex flex-col justify-center items-center bg-pink-200 h-screen w-screen text-black">
+      <div className="p-4 flex flex-col content-center gap-2 items-center bg-yellow-200 h-1/2 w-1/2 rounded-xl">
         <div>
           <h1 className="text-4xl font-bold">Language Switcher App</h1>
           <hr className="border-black" />
         </div>
-
+        <br />
         <select
           value={language}
           onChange={handleLanguageChange}
-          className="border px-2 py-1 rounded"
+          className="border px-2 py-1 rounded bg-gray-100"
         >
           <option value="en">English</option>
           <option value="np">Nepali</option>

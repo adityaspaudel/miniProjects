@@ -22,19 +22,20 @@ export default function MoviesPage() {
 
   return (
     <div className="flex flex-col gap-2 justify-center items-center bg-slate-600 h-screen w-screen text-black">
-      <div className="flex flex-col gap-2 justify-center items-center bg-yellow-300 p-4 min-h-1/2 w-1/2 rounded-lg">
+      <div className="flex flex-col gap-2 content-center items-center bg-yellow-300 p-4 min-h-1/2 w-1/2 rounded-lg">
         <div>
-          <h1 className="text-4xl"> Favorite Movies App</h1>
-          <hr className="border-1 border-black" />
+          <h1 className="text-4xl font-bold"> Favorite Movies App</h1>
+          <hr className="border border-black" />
         </div>
         {/* Movies List */}
-        <h2>Movies</h2>
+        {/* <h2>Add Movies</h2> */}
+        <br/>
         <div className="flex  gap-2">
           {movies.map((movie) => (
             <button
               key={movie.id}
               onClick={() => dispatch(addFavorite(movie))}
-              className="bg-green-400 hover:bg-green-500  flex gap-2 text-sm px-4 rounded-sm"
+              className="bg-green-400 hover:bg-green-500  flex gap-2 text-sm px-4 py-1 rounded-sm text-white cursor-pointer "
               title={`add ${movie.title}`}
             >
               {movie.title}
@@ -48,18 +49,18 @@ export default function MoviesPage() {
         {favorites.length === 0 ? (
           <p>No favorite movies yet.</p>
         ) : (
-          <ul className="flex gap-2 flex-col font-mono">
+          <ul className="flex gap-2 flex-col font-mono bg-amber-100 px-4 py-2 w-full transition 2s">
             {favorites.map((movie) => (
               <li
                 key={movie.id}
-                className=" flex  justify-between items-center gap-12"
+                className=" flex  justify-between items-center gap-12 px-4"
               >
                 <span className="inline-block">
                   {movie.title} :({movie.year})
                 </span>
                 <button
                   onClick={() => dispatch(removeFavorite(movie.id))}
-                  className="text-sm bg-red-400 hover:bg-red-500 px-4 rounded-sm"
+                  className="text-sm bg-red-500 hover:bg-red-600 px-4 rounded-sm text-white cursor-pointer"
                 >
                   Remove
                 </button>
@@ -70,7 +71,7 @@ export default function MoviesPage() {
         {favorites.length > 0 && (
           <button
             onClick={() => dispatch(clearFavorites())}
-            className="mt-4 px-4 py-2 bg-gray-600 hover:bg-gray-800 text-white rounded"
+            className="mt-4 px-4 py-2 bg-gray-700 hover:bg-gray-800 text-white rounded cursor-pointer"
           >
             Clear All
           </button>

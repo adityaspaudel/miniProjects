@@ -49,12 +49,12 @@ export default function ExpenseTracker() {
   }));
 
   return (
-    <div className="flex flex-col gap-2 justify-center items-center bg-slate-300 text-black h-screen w-screen">
+    <div className="flex flex-col gap-2 justify-center items-center bg-slate-300 text-black h-screen w-screen px-8 py-4">
       <div className="flex gap-4">
-        <div className=" flex flex-col gap-2 content-center items-center  bg-orange-400 p-4 rounded-xl">
+        <div className=" flex flex-col gap-2 content-center items-center  bg-orange-400 p-4 rounded-xl max-w-4xl">
           <div className="">
             <h1 className="text-4xl font-bold">Expense Tracker</h1>
-            <hr className="border-black border-1" />
+            <hr className="border-black border" />
           </div>
           {/* Form */}
           <form
@@ -62,14 +62,14 @@ export default function ExpenseTracker() {
             className="flex gap-4 justify-between items-center"
           >
             <input
-              className="text-black px-2 rounded-sm"
+              className="text-black px-2 rounded-sm bg-gray-100 border-gray-400"
               type="text"
               placeholder="Expense Title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
             <input
-              className="text-black px-2 rounded-sm"
+              className="text-black px-2 rounded-sm bg-gray-100 border-gray-400"
               type="number"
               placeholder="Amount"
               value={amount}
@@ -89,29 +89,38 @@ export default function ExpenseTracker() {
           {/* Expense List */}
           <div className="flex flex-col gap-2">
             <div className="flex gap-4 content-between items-center">
-              <ul className="flex flex-col bg-blue-200 p-4 font-mono w-full">
+              <ul className="flex flex-col bg-blue-200 font-mono w-full">
                 {" "}
-                <h2 className="font-bold"> Expenses</h2>
-                {expenses.map((exp) => (
-                  <li
-                    key={exp.id}
-                    className="flex gap-2 justify-between items-center"
-                  >
-                    <div className="flex gap-2 justify-between items-center w-3/4">
-                      <div>{exp.title}</div>
-                      <div> Rs. {exp.amount}</div>
-                    </div>
-                    <Button
-                      onClick={() => dispatch(removeExpense(exp.id))}
-                      color="error"
-                      variant="contained"
-                      sx={{ height: "14px", fontSize: "14px", padding: "10px" }}
-                    >
-                      {" "}
-                      Remove
-                    </Button>
-                  </li>
-                ))}
+                {expenses.length > 0 && (
+                  <div className="p-4">
+                    <h2 className="font-bold"> Expenses</h2>
+
+                    {expenses.map((exp) => (
+                      <li
+                        key={exp.id}
+                        className="flex gap-2  justify-between items-center"
+                      >
+                        <div className="flex gap-2 justify-between items-center w-3/4">
+                          <div>{exp.title}</div>
+                          <div> Rs. {exp.amount}</div>
+                        </div>
+                        <Button
+                          onClick={() => dispatch(removeExpense(exp.id))}
+                          color="error"
+                          variant="contained"
+                          sx={{
+                            height: "14px",
+                            fontSize: "14px",
+                            padding: "10px",
+                          }}
+                        >
+                          {" "}
+                          Remove
+                        </Button>
+                      </li>
+                    ))}
+                  </div>
+                )}
               </ul>
               <div className="flex gap-2">
                 {expenses.length > 0 && (
