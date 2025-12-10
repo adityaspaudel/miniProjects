@@ -17,7 +17,7 @@ const Home = () => {
     "11-ticTacToe",
     "12-snakeGame",
     "13-aimTrainingGame",
-    "14-wordPuzzleGame",
+    "14-wordScrambleGame",
     "15-jumpingGame",
     "16-brickBreaker",
     "17-racingGame",

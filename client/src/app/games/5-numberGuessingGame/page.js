@@ -42,13 +42,13 @@ const NumberGuessingGame = () => {
 
   return (
     <div className="flex items-center justify-center gap-2 h-screen w-screen bg-slate-300 text-black">
-      <div className="flex flex-col gap-4 content-center items-center min-h-1/n w-1/2 rounded-xl bg-amber-200">
+      <div className="flex flex-col gap-4 content-center items-center min-h-1/n w-1/2 rounded-xl bg-amber-200 px-8 py-4">
         <h1 className="text-4xl font-bold">
           Number Guessing Game
           <hr className="border-black" />
         </h1>
         <p>{message}</p>
-        <input className="p-2 rounded-sm"
+        <input className="px-4 py-1 rounded-sm bg-gray-100 border border-gray-400"
           type="number"
           name="number"
           value={number}
@@ -57,13 +57,13 @@ const NumberGuessingGame = () => {
         />
         <button
           onClick={handleGuess}
-          className="bg-green-400 hover:bg-green-500 text-sm rounded-sm p-2"
+          className="bg-green-500 hover:bg-green-600 text-sm rounded-sm p-2 text-white"
         >
           Guess
         </button>
         <button
           onClick={handleReset}
-          className="bg-gray-400 hover:bg-gray-500 text-sm rounded-sm p-2"
+          className="bg-gray-500 hover:bg-gray-600 text-sm rounded-sm p-2 text-white"
         >
           Reset
         </button>

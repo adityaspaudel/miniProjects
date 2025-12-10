@@ -131,7 +131,7 @@ export default function SnakeGame() {
 	}
 
 	return (
-		<div className="flex flex-col items-center py-10 bg-gray-400 min-h-screen text-black">
+		<div className="flex flex-col items-center py-10 bg-yellow-200 min-h-screen text-black">
 			<h1 className="text-3xl font-bold mb-2">Snake Game</h1>
 
 			{/* SCORE DISPLAY */}
