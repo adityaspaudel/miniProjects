@@ -35,8 +35,8 @@ export default function PaginationWithAPI() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="h-screen w-screen  bg-slate-300 flex text-black justify-center items-center">
-      <div className="flex flex-col content-center items-center min-h-1/2 min-w-1/2 p-4 text-center">
+    <div className="min-h-screen w-screen  bg-amber-100 flex text-black justify-center items-center">
+      <div className="flex flex-col content-center items-center min-h-1/2 max-w-1/2 p-4 text-center">
         <h2 className="text-4xl font-semibold mb-4">
           API Pagination Example <hr className="border-black" />
         </h2>
@@ -49,7 +49,7 @@ export default function PaginationWithAPI() {
               {currentItems.map((post) => (
                 <li
                   key={post.id}
-                  className="p-3 border rounded text-left shadow-sm bg-amber-100"
+                  className="p-3 border rounded text-left shadow-sm bg-emerald-300"
                 >
                   <h3 className="font-medium">{post.title}</h3>
                   <p className="text-sm text-gray-600">{post.body}</p>
@@ -61,7 +61,7 @@ export default function PaginationWithAPI() {
               <button
                 onClick={() => paginate(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="px-3 py-1 border rounded disabled:opacity-50"
+                className="px-3 py-1 border rounded disabled:opacity-50 bg-blue-500 hover:bg-blue-600 text-white"
               >
                 Prev
               </button>
@@ -69,7 +69,7 @@ export default function PaginationWithAPI() {
                 <button
                   key={i}
                   onClick={() => paginate(i + 1)}
-                  className={`px-3 py-1 cursor-pointer border rounded ${
+                  className={`px-3 py-1 cursor-pointer border rounded hover:bg-blue-300 ${
                     currentPage === i + 1
                       ? "bg-blue-500 text-white"
                       : "bg-white text-black"
@@ -81,7 +81,7 @@ export default function PaginationWithAPI() {
               <button
                 onClick={() => paginate(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="px-3 py-1 border rounded disabled:opacity-50"
+                className="px-3 py-1 border rounded disabled:opacity-50 bg-blue-500  hover:bg-blue-600 text-white"
               >
                 Next
               </button>

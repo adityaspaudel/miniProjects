@@ -65,10 +65,9 @@ const App = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-4 content-center items-center bg-amber-600 min-h-screen w-screen">
-      <h1>PDF Generator App</h1>
+    <div className="flex flex-col gap-4 p-4 content-center items-center bg-amber-300 min-h-screen w-screen">
+      <h1 className="text-2xl font-bold">PDF Generator App</h1>
       <p>Click the button below to generate and download the PDF.</p>
-
       {/* Conditionally render the PDFViewer and PDFDownloadLink only when on the client-side */}
       {isClient ? (
         <div className="h-1/2 w-1/2">

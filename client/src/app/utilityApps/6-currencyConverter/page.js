@@ -27,7 +27,6 @@ export default function CurrencyConverter() {
     SAR: "Saudi Arabian Riyal",
   };
 
-  
   const supported = Object.keys(currencyNames);
 
   useEffect(() => {
@@ -50,15 +49,15 @@ export default function CurrencyConverter() {
   };
 
   return (
-    <div className="bg-slate-300 flex flex-col gap-2 justify-center items-center text-black h-screen w-screen">
-      <div className="flex flex-col content-center items-center gap-4 bg-yellow-200 min-h-1/2 w-1/2 p-4 rounded-xl">
+    <div className="bg-yellow-300 flex flex-col gap-2 justify-center items-center text-black h-screen w-screen">
+      <div className="flex flex-col content-center items-center gap-4 bg-slate-200 min-h-1/2 w-1/2 p-4 rounded-xl">
         <h2 className="text-4xl font-bold">
           Currency Converter
           <hr className="border-black" />
         </h2>
 
         <input
-          className="px-2"
+          className="px-2 py-1 bg-white "
           type="number"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
@@ -100,7 +99,7 @@ export default function CurrencyConverter() {
 
         <button
           onClick={convert}
-          className="bg-green-400 hover:bg-green-500 px-2 rounded-sm"
+          className="bg-green-400 hover:bg-green-500 px-2 rounded-sm text-white cursor-pointer"
         >
           Convert
         </button>

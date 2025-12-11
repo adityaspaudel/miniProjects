@@ -85,7 +85,9 @@ const DigitalWatch = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen gap-2 bg-black">
-      <div className="font-sans text-green-400">Digital Watch</div>
+      <h1 className="font-sans text-green-400 text-2xl font-bold">
+        Digital Watch
+      </h1>
       <div className="flex p-6 text-5xl font-bold text-green-400 bg-gray-800 border-2 gap-2w-64 rounded-2xl">
         <div>
           {hours}:{minutes}:{seconds}

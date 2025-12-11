@@ -14,8 +14,8 @@ export default function WordAndCharacterCounter() {
   const wordCount = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
 
   return (
-    <div className="bg-slate-300 h-screen w-screen flex justify-center items-center">
-      <div className="flex flex-col gap-4 content-center items-center bg-emerald-200 min-h-1/2 w-1/2 p-4 rounded-xl">
+    <div className="bg-emerald-300 h-screen w-screen flex justify-center items-center">
+      <div className="flex flex-col gap-4 content-center items-center bg-slate-300 min-h-1/2 w-1/2 p-4 rounded-xl">
         <h1 className="text-4xl font-bold">
           Word & Character Counter
           <hr className="border-black" />

@@ -109,7 +109,7 @@ export default function JamendoMusicPlayer() {
   const currentTrack = tracks[currentIndex];
 
   return (
-    <div className="p-6 flex flex-col gap-4 justify-center items-center bg-gray-400 rounded-xl shadow-md  mx-auto text-black h-screen w-screen">
+    <div className="p-6 flex flex-col gap-4 justify-center items-center bg-purple-400  shadow-md  mx-auto text-black min-h-screen w-screen">
       <div className="flex flex-col gap-4 items-center content-center bg-stone-400 rounded-xl p-4 min-h-1/2 w-1/2">
         <h1 className="text-4xl font-bold flex">
           🎵
@@ -142,7 +142,7 @@ export default function JamendoMusicPlayer() {
             <div className="flex gap-4 mt-2">
               <button
                 onClick={prevTrack}
-                className="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-500 transition"
+                className="bg-gray-400 px-4 py-2 rounded-lg hover:bg-gray-500 transition text-white"
               >
                 ⏮ Previous
               </button>
@@ -162,7 +162,7 @@ export default function JamendoMusicPlayer() {
               </button>
               <button
                 onClick={nextTrack}
-                className="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-500 transition"
+                className="bg-gray-400 px-4 py-2 rounded-lg hover:bg-gray-500 transition text-white"
               >
                 ⏭ Next
               </button>

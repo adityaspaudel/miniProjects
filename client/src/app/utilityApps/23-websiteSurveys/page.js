@@ -96,8 +96,8 @@ const SurveyWebsite = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center bg-sky-100 w-screen h-screen ">
-      <div className="flex flex-col gap-2 justify-center items-center bg-yellow-600 border-green-400 w-1/2 h-1/2 border-2 rounded-xl p-4">
+    <div className="flex flex-col justify-center items-center bg-yellow-600 w-screen h-screen ">
+      <div className="flex flex-col gap-2 content-center items-center bg-sky-100  w-1/2 h-1/2 border-2 rounded-xl p-4">
         <div className="text-4xl font-bold">Survey Website</div>
         <br />
 
@@ -146,7 +146,7 @@ const SurveyWebsite = () => {
         <div className="flex flex-col justify-start content-start items-start  align-start">
           {value <= 11 && (
             <button
-              className="text-sm bg-green-300 hover:bg-green-500 rounded-lg p-2"
+              className="text-sm bg-green-500 hover:bg-green-600 rounded-lg px-2 py-1 text-white"
               onClick={(e) => {
                 e.preventDefault();
                 setValue(value + 1);
