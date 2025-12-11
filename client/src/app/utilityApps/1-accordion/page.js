@@ -14,12 +14,12 @@ const Accordion = () => {
 		{
 			title: "Section 2",
 			content:
-				"Section 2 content: Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
+				"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
 		},
 		{
 			title: "Section 3",
 			content:
-				"Section 3 content: Lorem Ipsum is simply dummy text to illustrate the accordion functionality...",
+				"Lorem Ipsum is simply dummy text to illustrate the accordion functionality...",
 		},
 	];
 
@@ -29,15 +29,15 @@ const Accordion = () => {
 	};
 
 	return (
-		<div className="flex min-h-screen w-screen bg-gray-200 items-center justify-center p-8 text-black">
-			<div className="w-full max-w-md bg-yellow-300 rounded-lg shadow-lg p-4">
-				<h1 className="text-2xl font-bold mb-4">Accordion</h1>
-				<div className="space-y-2">
+		<div className="flex min-h-screen w-screen bg-yellow-100 items-center justify-center p-8 text-black">
+			<div className="flex flex-col content-center items-center max-w-md bg-gray-200 rounded-lg shadow-lg p-4">
+				<h1 className="text-2xl font-bold mb-4  text-center">Accordion<hr className="border border-black"/></h1>
+				<div className="space-y-2 px-4">
 					{sections.map((section, idx) => (
 						<div key={idx} className="border-b border-gray-400">
 							<button
 								onClick={() => handleToggle(idx)}
-								className="w-full text-left py-2 px-4 font-semibold text-red-700 hover:bg-red-100 rounded"
+								className="w-full text-left py-2 px-4 font-semibold text-red-700 hover:bg-red-200 rounded"
 							>
 								{section.title}
 							</button>

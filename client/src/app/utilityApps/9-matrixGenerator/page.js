@@ -16,7 +16,7 @@ const MatrixGenerator = () => {
 
   return (
     <div className="flex flex-col items-center justify-center gap-2 h-screen w-screen bg-green-400">
-      <div className="flex flex-col items-center content-center gap-4 text-4xl min-h-1/2 w-1/2  bg-stone-400 rounded-xl p-4">
+      <div className="flex flex-col items-center content-center gap-4 text-4xl min-h-1/2 w-1/2  bg-stone-200 rounded-xl p-4">
         <div className="text-black text-2xl font-bold">
           Matrix Generator <hr className=" border border-black" />
         </div>

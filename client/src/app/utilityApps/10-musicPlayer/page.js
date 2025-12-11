@@ -110,7 +110,7 @@ export default function JamendoMusicPlayer() {
 
   return (
     <div className="p-6 flex flex-col gap-4 justify-center items-center bg-purple-400  shadow-md  mx-auto text-black min-h-screen w-screen">
-      <div className="flex flex-col gap-4 items-center content-center bg-stone-400 rounded-xl p-4 min-h-1/2 w-1/2">
+      <div className="flex flex-col gap-4 items-center content-center bg-stone-200 rounded-xl p-4 min-h-1/2 w-1/2">
         <h1 className="text-4xl font-bold flex">
           🎵
           <div>

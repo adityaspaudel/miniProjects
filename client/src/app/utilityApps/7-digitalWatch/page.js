@@ -84,21 +84,23 @@ const DigitalWatch = () => {
   console.log(`${hours}:${minutes}:${seconds}`);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen gap-2 bg-black">
-      <h1 className="font-sans text-green-400 text-2xl font-bold">
-        Digital Watch
-      </h1>
-      <div className="flex p-6 text-5xl font-bold text-green-400 bg-gray-800 border-2 gap-2w-64 rounded-2xl">
-        <div>
-          {hours}:{minutes}:{seconds}
+    <div className="bg-emerald-400 min-h-screen flex items-center justify-center">
+      <div className="flex flex-col items-center justify-center  gap-2 bg-gray-200 rounded-xl p-4">
+        <h1 className="font-sans text-green-400 text-2xl font-bold">
+          Digital Watch<hr className="border border-emerald-400"/>
+        </h1>
+        <div className="flex p-6 text-5xl font-bold text-green-400 bg-gray-800 border-2 gap-2w-64 rounded-2xl">
+          <div>
+            {hours}:{minutes}:{seconds}
+          </div>
+          <div className="text-sm text-gray-500 ">{milliseconds}</div>
         </div>
-        <div className="text-sm text-gray-500 ">{milliseconds}</div>
-      </div>
-      <div className="font-mono text-amber-400">
-        {dayOfWeek},{" "}
-        <span className="text-lime-400">
-          {dayOfMonth}/{month}/{year}
-        </span>
+        <div className="font-mono text-amber-600">
+          {dayOfWeek},{" "}
+          <span className="text-lime-600">
+            {dayOfMonth}/{month}/{year}
+          </span>
+        </div>
       </div>
     </div>
   );

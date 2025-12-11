@@ -16,10 +16,10 @@ const Counter = () => {
     setCount(count - 1);
   };
   return (
-    <div className="flex items-center content-center h-screen w-screen ">
-      <div className="flex flex-col gap-10 w-[600px] h-[400px] content-center border-2  items-center m-auto bg-pink-400  text-black rounded-2xl p-8">
+    <div className="flex items-center content-center h-screen w-screen bg-pink-400">
+      <div className="flex flex-col gap-10 w-[600px] h-[400px] content-center border-2  items-center m-auto  bg-gray-200 text-black rounded-2xl p-8">
         <h2 className="text-black- text-2xl font-bold underline">
-          Increment / Decrement Counter
+          Counter
         </h2>
         <button className="text-8xl text-black">{count}</button>
         <div className="flex gap-4 text-white">
