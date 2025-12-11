@@ -45,7 +45,7 @@ export default function AimTrainer() {
 	};
 
 	return (
-		<div className="flex flex-col items-center py-10 min-h-screen bg-gray-100 text-black">
+		<div className="flex flex-col items-center py-10 min-h-screen bg-blue-200 text-black">
 			<h1 className="text-3xl font-bold mb-4">Aim Trainer Game</h1>
 
 			<div className="flex gap-8 text-xl font-semibold mb-4">
