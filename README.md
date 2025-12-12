@@ -115,6 +115,8 @@ A collection of **React.js projects** including **Games**, **Redux Apps**, and *
 24. Words And Characters Counter
 25. Pagination With API
 26. URL Shortener
+27. Calendar Event Creator
+28. SimpleCalendar
 
 ---
 
