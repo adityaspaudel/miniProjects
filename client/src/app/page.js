@@ -73,6 +73,7 @@ const Home = () => {
     "26-urlShortener",
     "27-calendarEventCreator",
     "28-simpleCalendar",
+    "29-fuelCostCalculator",
   ];
 
   const renderCards = (items, basePath) =>
