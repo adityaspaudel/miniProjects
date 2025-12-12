@@ -74,6 +74,7 @@ const Home = () => {
     "27-calendarEventCreator",
     "28-simpleCalendar",
     "29-fuelCostCalculator",
+    "30-ageCalculator",
   ];
 
   const renderCards = (items, basePath) =>

@@ -15,12 +15,11 @@ export default function FuelCalculator() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white p-6">
-      <div className="w-full max-w-sm">
+    <div className="min-h-screen flex items-center justify-center bg-rose-200 p-6">
+      <div className="w-full max-w-sm bg-gray-200 p-8 rounded-md">
         <h1 className="text-lg font-semibold mb-5 text-gray-800">
           Fuel Cost Calculator
         </h1>
-
         {/* Input fields */}
         <div className="space-y-4">
           <input
@@ -30,7 +29,6 @@ export default function FuelCalculator() {
             onChange={(e) => setDistance(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-black"
           />
-
           <input
             type="number"
             placeholder="Mileage (KM/L)"
@@ -38,7 +36,6 @@ export default function FuelCalculator() {
             onChange={(e) => setMileage(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-black"
           />
-
           <input
             type="number"
             placeholder="Fuel Price (per L)"
@@ -46,7 +43,6 @@ export default function FuelCalculator() {
             onChange={(e) => setFuelPrice(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-black"
           />
-
           {/* Button */}
           <button
             onClick={calculateCost}
@@ -55,7 +51,6 @@ export default function FuelCalculator() {
             Calculate
           </button>
         </div>
-
         {/* Result */}
         {totalCost && (
           <p className="mt-5 text-gray-900 text-center text-lg">
