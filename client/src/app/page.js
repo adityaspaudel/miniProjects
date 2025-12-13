@@ -72,6 +72,9 @@ const Home = () => {
     "25-paginationWithAPI",
     "26-urlShortener",
     "27-calendarEventCreator",
+    "28-simpleCalendar",
+    "29-fuelCostCalculator",
+    "30-ageCalculator",
   ];
 
   const renderCards = (items, basePath) =>

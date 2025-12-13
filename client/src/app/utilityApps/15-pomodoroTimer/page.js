@@ -63,8 +63,8 @@ export default function PomodoroTimer() {
   }, []);
 
   return (
-    <div className="flex justify-center items-center bg-slate-300 h-screen w-screen ">
-      <div className="flex flex-col gap-2 bg-blue-200 content-center items-center min-h-1/2 w-1/2 rounded-xl">
+    <div className="flex justify-center items-center bg-blue-300 h-screen w-screen ">
+      <div className="flex flex-col gap-2 bg-slate-200 content-center items-center min-h-1/2 w-1/2 rounded-xl">
         <h1 className="text-4xl font-bold p-4">
           Pomodoro Timer
           <hr className="border-black" />
@@ -73,24 +73,24 @@ export default function PomodoroTimer() {
         <h1 className="text-6xl text-red-400 font-mono">
           {formatTime(timeLeft)}
         </h1>
-        <div className="flex gap-2">
+        <div className="flex gap-2 text-white">
           <button
             onClick={startTimer}
             disabled={isRunning}
-            className="rounded-sm bg-green-400 hover:bg-green-500 px-2"
+            className="rounded-sm bg-green-400 hover:bg-green-500  px-2 py-1"
           >
             Start
           </button>
           <button
             onClick={pauseTimer}
             disabled={!isRunning}
-            className="rounded-sm bg-red-400 hover:bg-red-500 px-2"
+            className="rounded-sm bg-red-400 hover:bg-red-500 px-2 py-1"
           >
             Pause
           </button>
           <button
             onClick={resetTimer}
-            className="rounded-sm bg-gray-400 hover:bg-gray-500 px-2"
+            className="rounded-sm bg-gray-400 hover:bg-gray-500 px-2 py-1"
           >
             Reset
           </button>

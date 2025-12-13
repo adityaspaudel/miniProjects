@@ -95,12 +95,12 @@ export default function PasswordGenerator() {
   }
 
   return (
-    <div className="flex gap-4 justify-center items-center h-screen w-screen bg-slate-500 text-black">
-      <main className="flex flex-col gap-4 p-4 items-center justify-center min-h-1/2 min-w-1/2 bg-red-300 rounded-xl">
+    <div className="flex gap-4 justify-center items-center h-screen w-screen bg-red-300 text-black">
+      <main className="flex flex-col gap-4 p-4 items-center justify-center min-h-1/2 min-w-1/2 bg-slate-300 rounded-xl">
         <h1 className="text-3xl font-bold">
           Password Generator <hr className="border-black" />
         </h1>
-        <section>
+        <section className="flex flex-col gap-2">
           <label className=" flex gap-2">
             <span className="font-bold">Length:</span>
             <input
@@ -113,7 +113,7 @@ export default function PasswordGenerator() {
             />
           </label>
           <div>
-            <label>
+            <label className="flex gap-2">
               <input
                 type="checkbox"
                 checked={includeLower}
@@ -123,7 +123,7 @@ export default function PasswordGenerator() {
             </label>
           </div>
           <div>
-            <label>
+            <label className="flex gap-2">
               <input
                 type="checkbox"
                 checked={includeUpper}
@@ -133,7 +133,7 @@ export default function PasswordGenerator() {
             </label>
           </div>
           <div>
-            <label>
+            <label className="flex gap-2">
               <input
                 type="checkbox"
                 checked={includeNumbers}
@@ -143,7 +143,7 @@ export default function PasswordGenerator() {
             </label>
           </div>
           <div>
-            <label>
+            <label className="flex gap-2">
               <input
                 type="checkbox"
                 checked={includeSymbols}
@@ -152,38 +152,38 @@ export default function PasswordGenerator() {
               include symbols
             </label>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 text-white">
             <button
               type="button"
               onClick={generatePassword}
-              className="bg-green-400 hover:bg-green-600 px-2 rounded-sm text-sm"
+              className="bg-green-400 hover:bg-green-600  rounded-sm text-sm px-2 py-1"
             >
               Generate
             </button>
             <button
               type="button"
               onClick={() => handleQuick(8)}
-              className="bg-green-400 hover:bg-green-600 px-2 rounded-sm text-sm"
+              className="bg-green-400 hover:bg-green-600 px-2 py-1 rounded-sm text-sm"
             >
               Quick 8
             </button>
             <button
               type="button"
               onClick={() => handleQuick(16)}
-              className="bg-green-400 hover:bg-green-600 px-2 rounded-sm text-sm"
+              className="bg-green-400 hover:bg-green-600 px-2 py-1 rounded-sm text-sm"
             >
               Quick 16
             </button>
             <button
               type="button"
               onClick={() => handleQuick(32)}
-              className="bg-green-400 hover:bg-green-600 px-2 rounded-sm text-sm"
+              className="bg-green-400 hover:bg-green-600 px-2 py-1 rounded-sm text-sm"
             >
               Quick 32
             </button>
           </div>
         </section>
-        <section className="flex flex-col gap-2 items-center content-center">
+        <section className="flex flex-col gap-2 items-center content-center py-1">
           <h2>
             Result
             <hr className="border-black" />
@@ -195,12 +195,12 @@ export default function PasswordGenerator() {
           >
             {password || "(no password yet)"}
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 text-white">
             <button
               type="button"
               onClick={copyToClipboard}
               disabled={!password}
-              className="bg-blue-500 rounded-sm px-2 text-sm"
+              className="bg-blue-500 hover:bg-blue-600 rounded-sm px-2 py-1 text-sm"
             >
               {copied ? "Copied!" : "Copy"}
             </button>
@@ -209,7 +209,7 @@ export default function PasswordGenerator() {
               onClick={() => {
                 generatePassword();
               }}
-              className="bg-blue-500 rounded-sm px-2 text-sm"
+              className="bg-blue-500 hover:bg-blue-600 rounded-sm px-2 py-1 text-sm"
             >
               Regenerate
             </button>

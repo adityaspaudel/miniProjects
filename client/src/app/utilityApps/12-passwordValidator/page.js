@@ -37,38 +37,41 @@ const FormValidator = () => {
     alert("formSubmitted successfully", JSON.stringify(formData));
   };
   return (
-    <div className="flex flex-col items-center justify-center gap-2 bg-amber-200">
-      <div className="flex flex-col items-center justify-center w-1/2 gap-2 p-4 bg-blue-300 border-2 rounded-lg h-1/2">
-        <div>FormValidator</div>
+    <div className="flex flex-col items-center justify-center gap-2 bg-amber-200 min-h-screen">
+      <div className="flex flex-col items-center justify-center w-1/2 gap-4 p-4 bg-gray-300 border-2 rounded-lg h-1/2">
+        <h1 className="text-2xl font-bold">Form Validator</h1>
         <form onSubmit={handleSubmit}>
-          <div className="flex flex-col">
-            <label>email</label>
+          <div className="flex flex-col gap-2">
+            <label>Email</label>
             <input
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="bg-white rounded-sm w-96"
+              className="bg-white rounded-sm w-96 px-2 py-1"
             />
             <div className="italic text-red-400">{errors.email}</div>
           </div>
 
           <div className="flex flex-col">
-            <label>password</label>
+            <label>Password</label>
             <input
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="bg-white rounded-sm w-96"
+              className="bg-white rounded-sm w-96 px-2 py-1"
             />
             <div className="italic text-red-400">{errors.password}</div>
           </div>
           <br />
           <div className="flex justify-between items-baseline-last ">
-            <button type="submit" className="px-2 bg-green-400">
+            <button
+              type="submit"
+              className="px-2 bg-green-500 hover:bg-green-600"
+            >
               submit
             </button>
             <button
-              className="px-2 bg-gray-400"
+              className="px-2 bg-gray-500 hover:bg-gray-600"
               onClick={(e) => {
                 e.preventDefault();
                 setFormData({ email: "", password: "" });

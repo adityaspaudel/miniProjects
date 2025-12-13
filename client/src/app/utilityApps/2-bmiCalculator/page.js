@@ -27,10 +27,10 @@ const BmiCalculator = () => {
     console.log(bmi);
   };
   return (
-    <div className="flex flex-col items-center justify-center h-screen gap-2 font-sans border-2 text-black  bg-amber-100">
-      <div className="flex flex-col items-center justify-center gap-2 p-8 border-2 border-green-400 bg-amber-100 rounded-xl h-1/2 w-1/2">
-        <div className="text-4xl">BMI Calculator</div>
-        <hr className="w-64 border-gray-800 border-1" /> 
+    <div className="flex flex-col items-center justify-center min-h-screen gap-2 font-sans border-2 text-black  bg-amber-100">
+      <div className="flex flex-col items-center justify-center gap-2 p-8  border bg-gray-100 rounded-xl min-h-1/2 w-1/2">
+        <div className="text-4xl font-semibold">BMI Calculator</div>
+        <hr className="w-64 border-gray-800 border" />
         <form
           className="flex flex-col items-start justify-center gap-2 "
           onSubmit={(e) => {
@@ -43,7 +43,7 @@ const BmiCalculator = () => {
             <input
               ref={weightRef}
               type="number"
-              className="text-sm bg-white border-2 rounded-sm "
+              className="text-sm px-2 py-1 bg-white border-2 rounded-sm "
               min="10"
               max="200"
             />
@@ -53,7 +53,7 @@ const BmiCalculator = () => {
             <input
               ref={heightRef}
               type="number"
-              className="text-sm bg-white border-2 rounded-sm"
+              className="text-sm px-2 py-1 bg-white border-2 rounded-sm"
               min="20"
               max="250"
             />

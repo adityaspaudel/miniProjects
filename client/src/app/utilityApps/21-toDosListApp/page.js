@@ -10,19 +10,24 @@ const ToDoListApp = () => {
     setTodos((t) => [...t, inputRef.current.value]);
   };
   return (
-    <div className=" bg-yellow-200 h-screen w-screen flex justify-center items-center">
-      <div className="bg-green-400 flex flex-col gap-2 justify-center items-center border-2 border-green-400 rounded-xl w-1/2 min-h-1/2 p-4">
-        <div className="text-4xl">ToDoListApp</div>
-        <hr className="w-full border-1" />
-        <div>
+    <div className=" bg-green-500 h-screen w-screen flex justify-center items-center">
+      <div className="bg-yellow-200 flex flex-col gap-4 content-center items-center border-2  rounded-xl w-1/2 min-h-1/2 p-4">
+        <div className="text-4xl font-bold">
+          To Do List App <hr className="w-full border-black" />
+        </div>
+        <div className="flex gap-4">
           <label htmlFor="todo"></label>
           <input
             name="todo"
-            className="border-2 text-black"
+            className="border text-black bg-white px-4 py-1"
+            placeholder="Add a todo"
             type="text"
             ref={inputRef}
           />
-          <button onClick={addTodo}> ✚ add </button>
+          <button onClick={addTodo} className="bg-green-500 hover:bg-green-600 rounded sm px-2 py-1 text-white">
+            {" "}
+            ✚ add{" "}
+          </button>
         </div>
 
         <div className="flex flex-col font-mono justify-start items-start">

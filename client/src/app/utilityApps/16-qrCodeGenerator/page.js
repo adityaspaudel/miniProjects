@@ -19,27 +19,27 @@ export default function UserDetailsQRCodeGenerator() {
 
   return (
     <div className="flex flex-col justify-center items-center h-screen w-screen bg-slate-400 text-black">
-      <div className="flex flex-col gap-4 justify-center items-center min-h-1/2 w-1/2 bg-orange-300 p-4 rounded-xl">
+      <div className="flex flex-col gap-4 content-center items-center min-h-1/2 w-1/2 bg-orange-300 p-4 rounded-xl">
         <h2 className="text-4xl font-bold text-black">
           User Details QR Code <hr className="border-black" />
         </h2>
 
         <input
-          className="px-2 text-xl rounded-lg w-1/2"
+          className="px-2 text-xl rounded-sm w-1/2 bg-white"
           type="text"
           placeholder="Enter Name"
           value={user.name}
           onChange={(e) => setUser({ ...user, name: e.target.value })}
         />
         <input
-          className="px-2 text-xl rounded-lg w-1/2"
+          className="px-2 text-xl rounded-sm w-1/2 bg-white"
           type="email"
           placeholder="Enter Email"
           value={user.email}
           onChange={(e) => setUser({ ...user, email: e.target.value })}
         />
         <input
-          className="px-2 text-xl rounded-lg  w-1/2"
+          className="px-2 text-xl rounded-sm  w-1/2 bg-white"
           type="number"
           placeholder="Enter Phone"
           value={user.phone}

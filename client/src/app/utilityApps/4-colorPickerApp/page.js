@@ -24,7 +24,7 @@ export default function ColorPicker() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-6 bg-slate-500 h-screen w-screen text-black">
+    <div className="flex flex-col items-center justify-center gap-6 bg-slate-500 min-h-screen w-screen text-black p-4">
       <div className="flex flex-col gap-4 items-center rounded-2xl min-h-1/2 w-2/3 p-6 bg-yellow-200 shadow-lg">
         <h1 className="text-4xl font-bold text-center">
           Color Picker
