@@ -18,6 +18,41 @@ const slides = [
 		description: "Average session duration improved to 5 minutes",
 		image: "https://picsum.photos/id/1035/1200/600",
 	},
+	{
+		title: "Conversion Rate",
+		description: "Conversion rate increased to 8%",
+		image: "https://picsum.photos/id/1041/1200/600",
+	},
+	{
+		title: "New Signups",
+		description: "New user signups increased by 25%",
+		image: "https://picsum.photos/id/1043/1200/600",
+	},
+	{
+		title: "Bounce Rate",
+		description: "Bounce rate decreased to 30%",
+		image: "https://picsum.photos/id/1045/1200/600",
+	},
+	{
+		title: "Average Session",
+		description: "Average session duration is now 6 minutes",
+		image: "https://picsum.photos/id/1050/1200/600",
+	},
+	{
+		title: "Revenue",
+		description: "Monthly revenue reached Rs. 500k",
+		image: "https://picsum.photos/id/1052/1200/600",
+	},
+	{
+		title: "Active Users",
+		description: "Daily active users increased to 5k",
+		image: "https://picsum.photos/id/1055/1200/600",
+	},
+	{
+		title: "Customer Feedback",
+		description: "Positive feedback improved by 10%",
+		image: "https://picsum.photos/id/1060/1200/600",
+	},
 ];
 
 export default function Slideshow() {
@@ -26,7 +61,7 @@ export default function Slideshow() {
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setCurrent((prev) => (prev + 1) % slides.length);
-		}, 5000); // slightly slower for better readability
+		}, 5000);
 
 		return () => clearInterval(interval);
 	}, []);
