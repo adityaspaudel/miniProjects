@@ -6,7 +6,7 @@ A collection of beginner to intermediate **Nextjs + JavaScript** mini projects b
 
 # React Projects Hub
 
-A collection of **React.js projects** including **Games**, **Redux Apps**, and **Simple Apps**. This repository is perfect for learning, practicing, and showcasing your React skills.
+A collection of **React.js projects** including **Games**, **Redux Apps**, and **Utility Apps**. This repository is perfect for learning, practicing, and showcasing your React skills.
 
 ---
 
@@ -17,7 +17,7 @@ A collection of **React.js projects** including **Games**, **Redux Apps**, and *
 - [Projects](#projects)
   - [Games](#games)
   - [Redux Apps](#redux-apps)
-  - [Simple Apps](#simple-apps)
+  - [Utility Apps](#utility-apps)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -28,7 +28,7 @@ A collection of **React.js projects** including **Games**, **Redux Apps**, and *
 ## Features
 
 - Modern **React.js** project setup using Next.js App Router.
-- Organized into three categories: **Games**, **Redux Apps**, **Simple Apps**.
+- Organized into three categories: **Games**, **Redux Apps**, **Utility Apps**.
 - Each project is navigable from the home page.
 - Fully **responsive** and **interactive UI**.
 
