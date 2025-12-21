@@ -6,7 +6,7 @@ A collection of beginner to intermediate **Nextjs + JavaScript** mini projects b
 
 # React Projects Hub
 
-A collection of **React.js projects** including **Games**, **Redux Apps**, and **Utility Apps**. This repository is perfect for learning, practicing, and showcasing your React skills.
+A collection of **React.js projects** including **Games**, **Redux Apps**, and **Utility Apps**.
 
 ---
 
@@ -29,8 +29,6 @@ A collection of **React.js projects** including **Games**, **Redux Apps**, and *
 
 - Modern **React.js** project setup using Next.js App Router.
 - Organized into three categories: **Games**, **Redux Apps**, **Utility Apps**.
-- Each project is navigable from the home page.
-- Fully **responsive** and **interactive UI**.
 
 ---
 
@@ -65,7 +63,7 @@ A collection of **React.js projects** including **Games**, **Redux Apps**, and *
 15. Jumping Game
 16. Brick Breaker
 17. Racing Game
-18. Tic Tac Toe
+18. Tic Tac Toe V2
 
 ### Redux Apps
 
@@ -117,6 +115,13 @@ A collection of **React.js projects** including **Games**, **Redux Apps**, and *
 26. URL Shortener
 27. Calendar Event Creator
 28. SimpleCalendar
+29. FuelCostCalculator
+30. AgeCalculator
+31. SkeletonTable
+32. TaskPriorityManager
+33. MeetingNotesOrganizer
+34. SlideShow
+35. DailyJournals
 
 ---
 
