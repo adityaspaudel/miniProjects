@@ -1,9 +1,1 @@
-
-
-<img
-  src="/games/10-memoryCardGame.png"
-  alt="memory card game"
-  width="600"
-  height="400"
-/>
-
+![Memory Card Game](../../images/games/10-MemoryCardGame.png)

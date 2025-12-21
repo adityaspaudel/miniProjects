@@ -1,9 +1,1 @@
-
-
-<img
-  src="/games/9-typingSpeedTest.png"
-  alt="typing speed test"
-  width="600"
-  height="400"
-/>
-
+![Typing Speed Test](../../images/games/9-typingSpeedTest.png)

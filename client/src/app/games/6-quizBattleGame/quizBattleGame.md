@@ -1,9 +1,1 @@
-
-
-<img
-  src="/games/6-quizBattleGame.png"
-  alt="quiz battle"
-  width="600"
-  height="400"
-/>
-
+![Number Guessing Game](../../images/games/6-quizBattleGame.png)

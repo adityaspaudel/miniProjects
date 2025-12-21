@@ -1,9 +1,1 @@
-
-
-<img
-  src="/games/3-hangman.png"
-  alt="hangman"
-  width="600"
-  height="400"
-/>
-
+![Coin Flipper Game](../../images/games/3-hangman.png)
