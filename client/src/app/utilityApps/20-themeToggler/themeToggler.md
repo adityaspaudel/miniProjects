@@ -1,1 +1,1 @@
-![Theme Toggler](../../images/utilityApps/20.themeToggler.png)
+![Theme Toggler](../../../../public/screenshots/utilityApps/20-themeToggler.png)

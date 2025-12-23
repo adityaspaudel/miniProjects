@@ -1,1 +1,1 @@
-![Accordian](../../images/utilityApps/2-bmiCalculator.png)
+![Accordian](../../../../public/screenshots/utilityApps/2-bmiCalculator.png)

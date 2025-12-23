@@ -1,1 +1,1 @@
-![Matrix Generator](../../images/utilityApps/9-matrixGenerator.png)
+![Matrix Generator](../../../../public/screenshots/utilityApps/9-matrixGenerator.png)

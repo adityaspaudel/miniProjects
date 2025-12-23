@@ -1,1 +1,1 @@
-![Counter](../../images/utilityApps/5-counter.png)
+![Counter](../../../../public/screenshots/utilityApps/5-counter.png)

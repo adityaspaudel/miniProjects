@@ -1,1 +1,1 @@
-![Form Validator](../../images/utilityApps/8-formValidator)
+![Form Validator](../../../../public/screenshots/utilityApps/8-formValidator)
