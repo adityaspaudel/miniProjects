@@ -1,1 +1,1 @@
-![User Auth](../../images/reduxApps/4-userAuth.png)
+![User Auth](../../../../public/screenshots/reduxApps/4-userAuth.png)

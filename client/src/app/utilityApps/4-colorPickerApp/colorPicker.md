@@ -1,1 +1,1 @@
-![Color Picker](../../images/utilityApps/4-colorPicker.png)
+![Color Picker](../../../../public/screenshots/utilityApps/4-colorPicker.png)

@@ -1,1 +1,1 @@
-![Accordian](../../images/utilityApps/1-accordian.png)
+![Accordian](../../../../public/screenshots/utilityApps/1-accordian.png)

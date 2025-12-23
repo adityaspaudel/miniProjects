@@ -1,1 +1,1 @@
-![Theme Toggle](../../images/reduxApps/3-themeToggle.png)
+![Theme Toggle](../../../../public/screenshots/reduxApps/3-themeToggle.png)

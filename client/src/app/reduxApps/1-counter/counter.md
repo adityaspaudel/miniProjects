@@ -1,1 +1,1 @@
-![Counter](../../images/reduxApps/1-counter.png)
+![Counter](../../../../public/screenshots/reduxApps/1-counter.png)

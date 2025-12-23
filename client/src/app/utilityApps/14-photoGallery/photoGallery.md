@@ -1,1 +1,1 @@
-![Photo Gallery](../../images/utilityApps/14-photoGallery.png)
+![Photo Gallery](../../../../public/screenshots/utilityApps/14-photoGallery.png)

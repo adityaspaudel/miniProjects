@@ -1,1 +1,1 @@
-![Currency Converter](../../images/utilityApps/6-currencyConverter.png)
+![Currency Converter](../../../../public/screenshots/utilityApps/6-currencyConverter.png)

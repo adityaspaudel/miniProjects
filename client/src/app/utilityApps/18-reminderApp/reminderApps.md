@@ -1,1 +1,1 @@
-![Reminder Apps](../../images/utilityApps/18-reminderApp.png)
+![Reminder Apps](../../../../public/screenshots/utilityApps/18-reminderApp.png)

@@ -1,1 +1,1 @@
-![PDF Renderer](../../images/utilityApps/13-pdfRenderer.png)
+![PDF Renderer](../../../../public/screenshots/utilityApps/13-pdfRenderer.png)

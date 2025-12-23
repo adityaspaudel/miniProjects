@@ -1,1 +1,1 @@
-![Digital Watch](../../images/utilityApps/7-digitalWatch.png)
+![Digital Watch](../../../../public/screenshots/utilityApps/7-digitalWatch.png)

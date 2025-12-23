@@ -1,1 +1,1 @@
-![Github User Finder](../../images/reduxApps/17-githubUserFinder.png)
+![Github User Finder](../../../../public/screenshots/reduxApps/17-githubUserFinder.png)

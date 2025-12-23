@@ -1,1 +1,1 @@
-![Pomodoro Timer](../../images/utilityApps/15-pomodoroTimer.png)
+![Pomodoro Timer](../../../../public/screenshots/utilityApps/15-pomodoroTimer.png)

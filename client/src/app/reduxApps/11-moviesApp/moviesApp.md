@@ -1,1 +1,1 @@
-![Movies App](../../images/reduxApps/11-moviesApp.png)
+![Movies App](../../../../public/screenshots/reduxApps/11-moviesApp.png)

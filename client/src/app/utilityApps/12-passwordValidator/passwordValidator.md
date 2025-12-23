@@ -1,1 +1,1 @@
-![Password Validator](../../images/utilityApps/12-passwordValidator.png)
+![Password Validator](../../../../public/screenshots/utilityApps/12-passwordValidator.png)

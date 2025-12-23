@@ -1,1 +1,1 @@
-![QR Code Generator](../../images/utilityApps/16-qrCodeGenerator.png)
+![QR Code Generator](../../../../public/screenshots/utilityApps/16-qrCodeGenerator.png)

@@ -1,1 +1,1 @@
-![Password Generator](../../images/utilityApps/11-passwordGenerator.png)
+![Password Generator](../../../../public/screenshots/utilityApps/11-passwordGenerator.png)

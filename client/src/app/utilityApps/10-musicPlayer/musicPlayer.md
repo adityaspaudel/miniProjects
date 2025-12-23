@@ -1,1 +1,1 @@
-![Music Player](../../images/utilityApps/10-musicPlayer.png)
+![Music Player](../../../../public/screenshots/utilityApps/10-musicPlayer.png)

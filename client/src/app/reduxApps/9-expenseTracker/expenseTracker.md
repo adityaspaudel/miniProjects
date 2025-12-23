@@ -1,1 +1,1 @@
-![Expense Tracker](../../images/reduxApps/9-expenseTracker.png)
+![Expense Tracker](../../../../public/screenshots/reduxApps/9-expenseTracker.png)
