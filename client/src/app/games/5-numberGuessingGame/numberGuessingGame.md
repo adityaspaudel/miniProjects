@@ -1,1 +1,1 @@
-![Number Guessing Game](../../images/games/5-numberGuessingGame.png)
+![Number Guessing Game](../../../../public/screenshots/5-numberGuessingGame.png)

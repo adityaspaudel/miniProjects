@@ -1,1 +1,1 @@
-![Quiz Battle Game](../../images/games/6-quizBattleGame.png)
+![Quiz Battle Game](../../../../public/screenshots/games/6-quizBattleGame.png)

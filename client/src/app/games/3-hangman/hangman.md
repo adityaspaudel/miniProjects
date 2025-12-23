@@ -1,1 +1,1 @@
-![Coin Flipper Game](../../images/games/3-hangman.png)
+![Coin Flipper Game](../../../../public/screenshots/games/3-hangman.png)

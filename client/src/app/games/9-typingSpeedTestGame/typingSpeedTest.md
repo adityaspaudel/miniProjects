@@ -1,1 +1,1 @@
-![Typing Speed Test](../../images/games/9-typingSpeedTest.png)
+![Typing Speed Test](../../../../public/screenshots/games/9-typingSpeedTest.png)

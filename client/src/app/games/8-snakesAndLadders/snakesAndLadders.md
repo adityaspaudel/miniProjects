@@ -1,1 +1,1 @@
-![Snakes And Ladders](../../images/games/8-snakesAndLadders.png)
+![Snakes And Ladders](../../../../public/screenshots/games/8-snakesAndLadders.png)
