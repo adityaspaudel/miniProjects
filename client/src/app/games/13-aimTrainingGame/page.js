@@ -8,7 +8,7 @@ export default function AimTrainer() {
 	const [timeLeft, setTimeLeft] = useState(30);
 	const [playing, setPlaying] = useState(false);
 
-	const gameAreaSize = { width: 500, height: 500 };
+	const gameAreaSize = { width: 400, height: 400 };
 
 	// Generate new random target
 	const moveTarget = () => {
