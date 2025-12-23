@@ -1,1 +1,1 @@
-![Love Calculator](../../images/games/4-loveCalculator.png)
+![Love Calculator](../../../../public/screenshots/games/4-loveCalculator.png)

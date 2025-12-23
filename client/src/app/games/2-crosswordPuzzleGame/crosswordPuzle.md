@@ -1,2 +1,2 @@
 
-![Crossword Puzzle](../../images/games/2-crosswordPuzzleGame.png)
+![Crossword Puzzle](../../../../public/screenshots/games/2-crosswordPuzzleGame.png)

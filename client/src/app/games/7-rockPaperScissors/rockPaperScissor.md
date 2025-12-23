@@ -1,1 +1,1 @@
-![Rock Paper Scissors](../../images/games/7-rockPaperScissors.png)
+![Rock Paper Scissors](../../../../public/screenshots/games/7-rockPaperScissors.png)

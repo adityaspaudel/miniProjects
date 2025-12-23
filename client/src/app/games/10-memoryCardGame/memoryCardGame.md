@@ -1,1 +1,1 @@
-![Memory Card Game](../../images/games/10-memoryCardGame.png)
+![Memory Card Game](../../../../public/screenshots/10-memoryCardGame.png)
