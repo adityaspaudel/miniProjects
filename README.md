@@ -56,7 +56,7 @@ A collection of **React.js projects** including **Games**, **Redux Apps**, and *
 8. Snakes And Ladders
 9. Typing Speed Test Game
 10. Memory Card Game
-11. Tic Tac Toe
+11. Simon Says
 12. Snake Game
 13. Aim Training Game
 14. Word Puzzle Game
