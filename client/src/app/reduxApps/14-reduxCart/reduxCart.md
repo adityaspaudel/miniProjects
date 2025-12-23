@@ -1,1 +1,1 @@
-![Redux Cart](../../images/reduxApps/14-reduxCart.png)
+![Redux Cart](../../../../public/screenshots/reduxApps/14-reduxCart.png)

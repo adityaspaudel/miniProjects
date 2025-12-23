@@ -1,1 +1,1 @@
-![Habits Tracker](../../images/reduxApps/7-habitsTracker.png)
+![Habits Tracker](../../../../public/screenshots/reduxApps/7-habitsTracker.png)

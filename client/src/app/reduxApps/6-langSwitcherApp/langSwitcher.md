@@ -1,1 +1,1 @@
-![Language Switcher](../../images/reduxApps/6-languageSwitcher.png)
+![Language Switcher](../../../../public/screenshots/reduxApps/6-languageSwitcher.png)

@@ -1,1 +1,1 @@
-![NotesApp](../../images/reduxApps/2-notesApp.png)
+![NotesApp](../../../../public/screenshots/reduxApps/2-notesApp.png)
