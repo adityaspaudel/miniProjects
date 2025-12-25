@@ -155,6 +155,7 @@ You can use these projects to **practice your skills, build a portfolio, or chal
 
 ---
 
+
 ## 1. UI Components & Small Utilities (1–130)
 
 1. Accordion Menu
@@ -337,27 +338,47 @@ You can use these projects to **practice your skills, build a portfolio, or chal
 
 ### **How to Use This List**
 
-1. Pick a project that interests you.
-2. Set up a **React + Tailwind project** (e.g., `npx create-react-app my-app` + Tailwind setup).
-3. Build the project in **JSX components**, practice **props, state, hooks, and conditional rendering**.
-4. Deploy to **Vercel/Netlify** and add it to your **portfolio**.
-
-> 💡 **Tip:** Start with beginner projects (1–50), then move to intermediate (51–150), and finally advanced ideas (151–200).
-
 ---
 
 This `README.md` can be directly added to your repository.
 
 ---
+ 
+const customHooks = [
+  "1-counter",
+  "2-menuToggler",
+  "3-formInputHandler",
+  "4-themeSwitcher",
+  "5-debounceHook",
+  "6-fetchData",
+  "7-memoVault",
+  "8-useAuthApp",
+  "9-infiniteScroll",
 
-If you want, I can **make an even more enhanced version** with:
-- **All 200 projects numbered 1–200 consecutively** (not split across categories)
-- **Suggested difficulty level** (Beginner / Intermediate / Advanced)
-- **One-line description for each project**
+  // 🔥 More custom hook practice apps
+  "10-localStorageSync",      // useLocalStorage
+  "11-sessionStorageSync",    // useSessionStorage
+  "12-windowSizeTracker",     // useWindowSize
+  "13-onlineStatus",          // useOnlineStatus
+  "14-keyPressListener",      // useKeyPress
+  "15-clickOutsideDetector",  // useClickOutside
+  "16-scrollPosition",        // useScrollPosition
+  "17-mediaQuery",            // useMediaQuery
+  "18-clipboardManager",      // useClipboard
+  "19-previousValue",         // usePrevious
+  "20-timeoutHook",           // useTimeout
+  "21-intervalHook",          // useInterval
+  "22-documentTitle",         // useDocumentTitle
+  "23-geolocation",           // useGeolocation
+  "24-darkModePersist",       // useDarkMode
+  "25-apiPolling",            // usePolling
+  "26-formValidation",        // useFormValidation
+  "27-pagination",            // usePagination
+  "28-searchFilter",          // useSearch
+  "29-idleTimer",             // useIdleTimer
+  "30-errorBoundaryHelper"    // useErrorHandler
+];
 
-This will be **portfolio-ready and super professional**.
-
-Do you want me to do that?
 
 
 

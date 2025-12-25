@@ -23,7 +23,17 @@ const Home = () => {
 		"17-racingGame",
 		"18-ticTacToe-v2",
 	];
-
+	const customHooks = [
+		"1-counter",
+		"2-menuToggler",
+		"3-formInputHandler",
+		"4-themeSwitcher",
+		"5-debounceHook",
+		"6-fetchData",
+		"7-memoVault",
+		"8-useAuthApp",
+		"9-infiniteScroll",
+	];
 	const reduxApps = [
 		"1-counter",
 		"2-notesApp",
@@ -125,6 +135,15 @@ const Home = () => {
 					</h2>
 					<div className="flex flex-col flex-wrap gap-4 justify-center">
 						{renderCards(utilityApps, "utilityApps")}
+					</div>
+				</div>
+
+				<div className="flex-1">
+					<h2 className="text-2xl font-semibold mb-4 text-black text-center">
+						Custom Hooks
+					</h2>
+					<div className="flex flex-col flex-wrap gap-4 justify-center">
+						{renderCards(customHooks, "customHooks")}
 					</div>
 				</div>
 			</div>
