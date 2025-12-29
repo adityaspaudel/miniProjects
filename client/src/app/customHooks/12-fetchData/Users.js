@@ -13,8 +13,8 @@ export default function Users() {
 	if (error) return <h2>Error: {error}</h2>;
 
 	return (
-		<div>
-			<h2>👥 Users List</h2>
+		<div >
+			<h2> Users List</h2>
 
 			<ul>
 				{users.map((user) => (
