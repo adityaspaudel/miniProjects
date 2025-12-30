@@ -1,0 +1,8 @@
+export default function Projects() {
+	return (
+		<section className="px-6 py-10">
+			<h2 className="text-2xl font-semibold mb-2">🚀 Projects</h2>
+			<p className="text-zinc-400">This component was lazy loaded.</p>
+		</section>
+	);
+}
