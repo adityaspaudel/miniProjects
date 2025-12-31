@@ -54,7 +54,14 @@ export default function CurrencyConverter() {
 		setTo(from);
 		setResult(null); // clear old result after swap
 	};
+	const handleReset = (e) => {
+		e.preventDefault();
 
+		setFrom("NPR");
+		setTo("USD");
+		setAmount(1);
+		setResult(null);
+	};
 	return (
 		<div className="bg-yellow-300 flex flex-col gap-2 justify-center items-center text-black h-screen w-screen">
 			<div className="flex flex-col content-center items-center gap-4 bg-slate-200 min-h-1/2 w-1/2 p-4 rounded-xl">
@@ -104,12 +111,20 @@ export default function CurrencyConverter() {
 					</select>
 				</div>
 
-				<button
-					onClick={convert}
-					className="bg-green-400 hover:bg-green-500 px-2 rounded-sm text-white cursor-pointer"
-				>
-					Convert
-				</button>
+				<div className="flex gap-4">
+					<button
+						onClick={convert}
+						className="bg-green-400 hover:bg-green-500 px-2 rounded-sm text-white cursor-pointer"
+					>
+						Convert
+					</button>
+					<button
+						onClick={handleReset}
+						className="bg-gray-500 hover:bg-gray-600 text-white px-2 rounded-sm cursor-pointer"
+					>
+						reset
+					</button>
+				</div>
 
 				<div className="font-bold">
 					{result ? (
