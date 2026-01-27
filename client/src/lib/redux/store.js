@@ -23,51 +23,37 @@ import notificationReducer from "./slices/notificationSlice";
 import inventoryReducer from "./slices/inventorySlice";
 import userReducer from "./slices/userSlice";
 const persistConfig = {
-  key: "root",
-  storage,
-  whitelist: [
-    "cart",
-    "wishlist",
-    "todos",
-    "notes",
-    "expense",
-    "budget",
-    "readingList",
-    "habits",
-    "weather",
-    "notification",
-    "inventory",
-    "user",
-  ],
+	key: "root",
+	storage,
 };
 const rootReducer = combineReducers({
-  counter: counterReducer,
-  cart: cartReducer,
-  theme: themeReducer,
-  todos: todosReducer,
-  notes: notesReducer,
-  movies: moviesReducer,
-  auth: authReducer,
-  language: languageReducer,
-  wishlist: wishlistReducer,
-  expense: expenseReducer,
-  budget: budgetReducer,
-  readingList: readingListReducer,
-  habits: habitsReducer,
-  weather: weatherReducer,
-  notification: notificationReducer,
-  inventory: inventoryReducer,
-  user: userReducer,
+	counter: counterReducer,
+	cart: cartReducer,
+	theme: themeReducer,
+	todos: todosReducer,
+	notes: notesReducer,
+	movies: moviesReducer,
+	auth: authReducer,
+	language: languageReducer,
+	wishlist: wishlistReducer,
+	expense: expenseReducer,
+	budget: budgetReducer,
+	readingList: readingListReducer,
+	habits: habitsReducer,
+	weather: weatherReducer,
+	notification: notificationReducer,
+	inventory: inventoryReducer,
+	user: userReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }),
+	reducer: persistedReducer,
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({
+			serializableCheck: false,
+		}),
 });
 
 export const persistor = persistStore(store);
