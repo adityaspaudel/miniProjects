@@ -62,7 +62,7 @@ const Home = () => {
 		"5-counter",
 		"6-currencyConverter",
 		"7-digitalWatch",
-		"8-formValidator",
+		// "8-formValidator",
 		"9-matrixGenerator",
 		"10-musicPlayer",
 		"11-passwordGenerator",
