@@ -1,10 +1,7 @@
-"use client";
 
-import {
-  hideNotification,
-  showNotification,
-} from "@/lib/redux/slices/notificationSlice";
+import { hideNotification, showNotification } from "@/lib/redux/slices/notificationSlice";
 import { useDispatch, useSelector } from "react-redux";
+
 
 // ✅ Notification component
 function Notification() {
