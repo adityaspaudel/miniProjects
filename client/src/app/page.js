@@ -75,7 +75,7 @@ const Home = () => {
 		"18-reminderApp",
 		"19-sidebarToggle",
 		"20-themeToggler",
-		"21-toDosListApp",
+		"21-todosListApps",
 		"22-unitConverter",
 		"23-websiteSurveys",
 		"24-wordsAndCharactersCounter",
