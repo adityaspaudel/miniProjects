@@ -1,50 +1,11 @@
-"use client";
+"use client"; // first line!
+import Notification from "./Notification";
+import { useDispatch } from "react-redux";
 import {
-	hideNotification,
 	showNotification,
+	hideNotification,
 } from "@/lib/redux/slices/notificationSlice";
-import { useDispatch, useSelector } from "react-redux";
 
-// ✅ Notification component
-function Notification() {
-	const dispatch = useDispatch();
-	const { message, type, visible } = useSelector((state) => state.notification);
-
-	if (!visible) return null;
-
-	return (
-		<div
-			style={{
-				position: "fixed",
-				top: "20px",
-				right: "20px",
-				padding: "12px 20px",
-				borderRadius: "8px",
-				backgroundColor:
-					type === "success" ? "green" : type === "error" ? "red" : "blue",
-				color: "white",
-				zIndex: 9999,
-			}}
-		>
-			<span>{message}</span>
-			<button
-				style={{
-					marginLeft: "10px",
-					background: "transparent",
-					color: "white",
-					border: "none",
-					cursor: "pointer",
-					fontWeight: "bold",
-				}}
-				onClick={() => dispatch(hideNotification())}
-			>
-				✖
-			</button>
-		</div>
-	);
-}
-
-// ✅ Home page
 export default function Home() {
 	const dispatch = useDispatch();
 
@@ -55,10 +16,7 @@ export default function Home() {
 				type: "success",
 			}),
 		);
-
-		setTimeout(() => {
-			dispatch(hideNotification());
-		}, 3000);
+		setTimeout(() => dispatch(hideNotification()), 3000);
 	};
 
 	return (
@@ -68,7 +26,6 @@ export default function Home() {
 				<h1 className="text-4xl font-semibold">
 					Notification System <hr className="border-black" />
 				</h1>
-				<br />
 				<button
 					onClick={handleShow}
 					className="bg-sky-500 hover:bg-sky-600 text-sm rounded-sm px-2 py-1 text-white"
